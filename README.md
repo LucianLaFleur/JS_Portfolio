@@ -4,6 +4,7 @@ A webpage and several projects in Javascript, html, and CSS, with some use of Vu
 Functionalities, followed by lessons learned are included for each project, like a report, below
 
 Arcade games in the "gameon" file:
+
 ****  "gameon" Folder Notes ************
 
   *multiQuiz is still a WIP, but it's basic functions work as a static flashcard game
