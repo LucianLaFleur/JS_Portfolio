@@ -5,11 +5,13 @@ Functionalities, followed by lessons learned are included for each project, like
 
 Arcade games in the "gameon" file:
 ****  "gameon" Folder Notes ************
+
   *multiQuiz is still a WIP, but it's basic functions work as a static flashcard game
   * In the future, I'd like to make an ANKI program clone using this structure.
   The snake game versions are finished
   
 ********** IDW Snake Game ************
+
 Made two versions: one like a traditional snake game with only 1 food spawning at a time,
 And a second with 3 food items spawning at once (Multi-Spawn Snake).
 
