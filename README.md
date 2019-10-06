@@ -46,10 +46,11 @@ Major differences:
 	- Show/hide a chart of item values
 	- Reset button and a nav button linking back to
 	the portfolio homepage. 
-*6) Loot bag 
+6) Loot bag 
 	-score counter shows number of items consumed and a visual 		for which object was eaten
 	- has a placeholder image if all spaces in loot bag are 		filled up
-*UNKNOWN ERROR ENCOUNTERED IN MULTIPLE VERSION: The array containing the history of items (consumedFood) couldn’t produce the images dynamically, so a dummy image is the placeholder in the multiple-spawn version. 
+	
+*Loot bag: UNKNOWN ERROR ENCOUNTERED IN MULTIPLE VERSION: The array containing the history of items (consumedFood) couldn’t produce the images dynamically, so a dummy image is the placeholder in the multiple-spawn version. 
 
 Misc:
 Vectors, sprites, and Audio clips sourced from “Girls Frontline” by MicaTeam, published by Digital Sky.
