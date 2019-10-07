@@ -1,0 +1,168 @@
+<!-- (re-research free source images at begin of WP vid)
+https://html-css-js.com/css/generator/box-shadow/ -->
+
+<!-- Fonts I like -->
+Lato font
+<link href="https://fonts.googleapis.com/css?family=Acme|Exo+2|Lato|Pacifico|Raleway&display=swap" rel="stylesheet">
+Raleway font
+<link href="https://fonts.googleapis.com/css?family=Acme|Exo+2|Pacifico|Raleway&display=swap" rel="stylesheet">
+Paficico font
+<link href="https://fonts.googleapis.com/css?family=Acme|Exo+2|Pacifico&display=swap" rel="stylesheet">
+exo sci-fi font
+<link href="https://fonts.googleapis.com/css?family=Acme|Exo+2&display=swap" rel="stylesheet">
+Acme font
+<link href="https://fonts.googleapis.com/css?family=Acme&display=swap" rel="stylesheet">
+<!-- fontawesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- 
+https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css -->
+
+<!-- Iterate to create list items from a javascript array -->
+<script>
+let arr1 = [1,2,3,4,2,3,4,2,2,3];
+// take in array info then attach them
+// expected identifier error --> functions need a name
+function extractFoodNums(arr1){
+      let htmlList = ''
+    arr1.forEach(function(i){
+      //add food images based on the number added to the array
+      htmlList += `<li class="food-img"> 
+                    <img src="foodImg${i}">
+                  </li>`
+    })
+  }
+  document.querySelector('#item-list').innerHTML = html;
+</script>
+
+<!-- drop button -->
+
+<div class="dropdown">
+    <button class="dropbtn" style="position:relative; display:inline-block;">
+    Dropdown selection
+    </button>
+    <div class="dropdown-content">
+      <a href="#">Jump to top of page</a>
+      <a href="">placeholders 1</a>
+      <a href="">placeholders 2</a>
+      <a href="">placeholders 3</a>
+      <a href="">placeholders 4</a>
+    </div>
+</div>
+
+<!-- css for dropbutton -->
+/* dropdown item list*/
+
+.dropdown {
+  float: right;
+  position: absolute;
+  display:block;
+  /* display: inline-block; */
+  margin: 0 0 0 0;
+}
+.dropbtn {
+  background-color: #3498DB;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  margin-left: 50px;
+  border: 3px solid black;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color:#1c638c;
+  min-width: 160px;
+  overflow: auto;
+  z-index: 1;
+  border: 5pt solid black;
+  border-radius:3px;
+}
+
+.dropdown-content a {
+  color: #f7c547;
+  background-color:#725;
+  font-size: 15;
+  font-weight: bold;
+  text-decoration: none;
+  display: block;
+  padding: 12px 16px;
+  margin: 10px 0;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropdown:hover .dropbtn {
+  background-color: #2980B9;
+}
+
+<!-- lists -->
+
+<section id="list_practice">
+    <header> Lists </header>
+      <h3>Unordered lists</h3>
+        <ul>
+          <li> </li>
+          <li> </li>
+          <li> </li>
+        </ul>
+
+      <h3>Unordered lists</h3>
+        <ol>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ol>
+
+      <h3>Different markers for lists</h3>
+        <ol type="A">
+          <li>Alphabetical</li>
+          <li>listing</li>
+          <li>with type="A"</li>
+          <li>or lowercase "a"</li>
+        </ol>
+
+        <ol type="I">
+          <li>Roman numeral</li>
+          <li>listing with type="I"</li>
+          <li>can make it lowercase</li>
+          <li>with type="i"</li>
+        </ol>
+
+      <h3>Description list</h3>
+      <dl>
+        <dt>Term</dt>
+        <dd>description</dd>
+      </dl>
+    </section>
+<script>
+    // make an array of eating possibilities
+let nomSounds = [eat1, eat2, eat3, eat4, eat5];
+// test randomization with console
+
+function test1() {
+    let currentNom = nomSounds[Math.floor(Math.random()*nomSounds.length)];
+    return console.log(currentNom.src)
+    }
+    
+    for (var i = 1; i < 8; i++) test1(i);
+
+  // toggle hide/show 
+function myFunction() {
+  var x = document.getElementById("myDIV");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+// Doll a 20 sided die 8 times
+function rollDice(){
+    let diceRoll = Math.ceil(Math.random()*20);
+    console.log(`${diceRoll} rolled`)
+}
+for (var i = 1; i < 8; i++){
+    rollDice();}
+  </script>
+

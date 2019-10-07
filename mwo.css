@@ -1,0 +1,314 @@
+/* mechwarrior mwo acronyms articles and divisions*/
+.mwo_body {
+  --waspYellow: #e7c547;
+  --tundraBlue: #9bc;
+  --flamerRed: rgb(238, 50, 50);
+  --urbanIndigo: rgb(40, 47, 88);
+  --commandoGreen: #376;
+  --gunmetalBlue: #279;
+  --chickenYellow: #ff5;
+
+  background-color: var(--tundraBlue);
+  margin: 0;
+  /* padding: 0 0 500px 0; */
+  box-sizing:border-box;
+}
+
+
+/* .top-landscape-banner {
+  background-image:url("img/sciFiCity1.jpg");
+  background-repeat: no-repeat;
+  background-size: 100vw 20vh;
+  width: 80vw;
+  height: 10vh;
+
+  padding: 10px 10px;
+} */
+
+.title-buffer-bar {
+  background: var(--commandoGreen);
+  width: 67vw;
+  min-width: 570px;
+  height: 23px;
+  padding: 5px 0;
+}
+.banner-button {
+  background: black;
+  color: lime;
+  font-size:23px;
+  outline: 3px solid gold;
+  padding: 0 10px;
+}
+.banner-dropdown {
+  position:relative;
+  display: inline-block;
+  margin: -2px 0 0 4px;
+  min-width: 200px;
+}
+/* Outline offset used for a "scanner" kind of animation on hover */
+.banner-dropdown:hover .banner-button{
+  background:var(--urbanIndigo);
+  color: var(--flamerRed) ;
+  /* bigger offset makes for a faster animation relative to other parts */
+  outline-offset: -50px;
+  border-radius: 8px;
+  transition: all .8s linear;
+}
+.banner-dropdown:hover .dropdown-content{
+display:block;
+}
+
+ .dropdown-content {
+  display:none;
+  position: absolute;
+  background: black;
+  min-width:150px;
+  border: 5px dashed gold;
+  border-radius: 3px;
+}
+.dropdown-content a {
+  color: var(--waspYellow);
+  background-color:var(--commandoGreen);
+  font-size: 15;
+  font-weight: bold;
+  text-decoration: none;
+  display: block;
+
+  outline: 3px solid gold;
+  padding: 12px 16px;
+  margin: 10px 5px;
+}
+.dropdown-content a:hover {
+  background-color:var(--urbanIndigo);
+  color:var(--flamerRed);
+  transition: all .1s linear;
+  outline-offset: -5px;
+}
+
+.banner-title {
+  color: white;
+  background-color: black;
+  text-align: center;
+  width: 58vw;
+  min-width: 500px;
+  padding: 0 0 0 10px;
+  margin-top: -22px;
+}
+.nav_link_header {
+  background-color: var(--waspYellow);
+  width: 55vw;
+  min-width: 470px;
+  height: 20px;
+  display: flex;
+  justify-content: space-around;
+  padding: 7px 0;
+  margin-top: -21px;
+}
+.nav_link_header a {
+  color: lime;
+  background-color: #222;
+  width: 90px;
+  height: 20px;
+  text-align: center;
+}
+.nav_link_header a:hover {
+  background: var(--urbanIndigo);
+  color: var(--chickenYellow);
+  width: 90px;
+  height: 20px;
+  text-align: center;
+}
+
+#content-header {
+  background:var(--commandoGreen);
+  color: var(--chickenYellow);
+  outline: 3px solid var(--waspYellow);
+  padding-left: 100px;
+  font-weight: bold;
+  font-size: 35px;
+  margin: 13px 0 10px 0;
+}
+#acro-hint {
+  text-align:center;
+  font-size: 20px;
+  background: var(--urbanIndigo);
+  color: lime;
+  border-radius: 12px;
+  padding: 5px 0;
+  margin: 23px 0 0 -10px;
+}
+.acro_quick_ref {
+  background-color:#c1c1c1;
+  width: 65vw;
+  min-width: 610px;
+  padding: 0 0 14px 10px;
+  height: 260px;
+  margin: -12px 0 10px 0;
+  border-bottom: 15pt solid var(--urbanIndigo);
+  border-radius: 8px;
+}
+#acronym-picture-holder {
+  float: right;
+  background: white;
+  /* border: 5px solid var(--flamerRed); */
+  height: 210px;
+  width: 210px;
+  overflow: hidden;
+  margin: 14px 10px 0 0;
+  transition: all 0.5s linear;
+}
+#acronym-picture-holder:hover {
+  display: flex;
+  align-content: center;
+  transition: all 0.5s linear;
+  border-radius: 6px;
+  outline: 5px solid var(--urbanIndigo);
+  outline-offset: 3px;
+}
+#acro-pic{
+  width: 100%;
+  height:100%;
+}
+
+#acro-list {
+  margin: -5px 0 0 0;
+}
+
+.mwo-acro-button {
+  outline:3px solid lime;
+  background-color: black;
+  color: var(--chickenYellow);
+  text-align: center;
+  display: inline-block;
+  margin: 10px 0 0 0;
+  padding: 5px;
+}
+  .mwo-link-button:visited {
+    background-color: var(--gunmetalBlue);
+  }
+  .mwo-link-button:hover {
+    color: var(--gunmetalBlue);
+    background-color: var(--waspYellow);
+  }
+
+.spelled-acronym{
+  background: var(--waspYellow);
+  color: var(--urbanIndigo);
+  font-size: 20px;
+  width:55%;
+  border: 3px dashed var(--urbanIndigo);
+}
+.underlined {
+  color:var(--gunmetalBlue);
+  text-decoration: underline;
+  font-size:30px;
+}
+
+
+.mwo_article_header {
+  color: var(--chickenYellow);
+  background-color: var(--commandoGreen);
+  border-top: 5px dashed gold;
+  border-bottom: 5px dashed gold;
+  border-right: 5px dashed gold;
+  display:block;
+  width:600px;
+  padding: 3px;
+}
+
+.mwo_content {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left:20px;
+  background-color: #c1c1c1;
+  border: 3px solid var(--urbanIndigo);
+  border-radius: 8px;
+  width:80vw;
+  min-width: 550px;
+  max-width:800px;
+  padding: 10px 20px;
+  margin: 10px;
+}
+
+.entry {
+  flex:3;
+}
+.holder {
+  flex:1;
+  background: white;
+  background-size: contain;
+  height: 210px;
+  min-width: 210px;
+  margin-left: 14px;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  /* hover-off event transition
+  This will revery back to a normal border-radius after a 0.5s delay
+  */
+  border-radius: 0px;
+  transition: border-radius 1s .5s;
+}
+.holder:hover {
+  transition: all 0.6s linear;
+  transform: rotate(360deg);
+  border-radius: 50%;
+}
+
+#ecm-pic-holder{
+  background-image: url("./img/ecm_silo.PNG");
+}
+#lrm-pic-holder{
+  background-image: url("./img/lrm_madcat.PNG");
+}
+#lrm-content{
+  position:relative;
+}
+#lrm_arrow{
+  background: black;
+  color: var(--waspYellow);
+  font-size: 40px;
+  width: 45%;
+  min-width:350px;
+  max-width:700px;
+  position:absolute;
+  top: 0;
+  right: 230px;
+  font-weight: bold;
+  padding: 0 0 0 5%;
+}
+#ams-pic-holder{
+  background-image: url("./img/ams_hardpoint.PNG");
+  /* Adjusted sizing and placement for poor-sized base image */
+  background-size: 120%;
+  background-position: 55% 45%;
+}
+
+/* move back into position */
+.description-blur-spoiler {
+  filter: blur(5px);
+  background-color: #777;
+  /* delayed transition on original, so the item stays un-blurred for a bit afer moving mouse away */
+  transition: all 0.2s linear 1.3s
+}
+.description-blur-spoiler:hover {
+  filter: blur(0px);
+  background-color: #000;
+  color: var(--waspYellow);
+  transition: all 0.04s linear;
+}
+
+
+#copy-footer {
+  height: 100px;
+  background: black;
+  color: var(--waspYellow);
+  font-size: 30px;
+  letter-spacing: 4px;
+  display:flex;
+  justify-content: space-around;
+  align-content: center;
+  padding: 0;
+  margin: 0 0 30px 0;
+}

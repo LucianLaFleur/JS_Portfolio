@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Custom Gallery Project</title>
+  <link rel="stylesheet" href="gallery_home.css">
+</head>
+<body>
+<!-- needs navbar to go back to landing -->
+
+  <div class="photo-container">
+    <header class="photo-header"> Photo Gallery 1</header>
+    <section id="content showcase">
+      <div class="gallery">
+        <ul>
+          <li><a class="fancybox" rel="group" alt="Autumn Stars" href="./wallpapers/autumn_stars.jpg" target="blank">
+            <img src="./thumbnails/autumn_stars2.jpg"></a></li>
+
+          <li><a class="fancybox" rel="group" alt="Caped Knight" href="./wallpapers/cape_knight.jpg" target="blank"> <img src="./thumbnails/cape_knight2.jpg"></a></li>
+
+          <li><a class="fancybox" rel="group" alt="Cosmic Stripes" href="./wallpapers/cosmo_stripes.jpg" target="blank">
+          <img src="./thumbnails/cosmo_stripes2.jpg" class="small-gallery-img"></a> </li>
+
+          <li><a class="fancybox" rel="group" alt="Mirror Lake" href="./wallpapers/mirror_lake.jpg" target="blank"> <img src="./thumbnails/mirror_lake2.jpg"></a></li>
+
+          <li><a class="fancybox" rel="group" alt="Pinetree River" href="./wallpapers/pine_water.jpg" target="blank"> <img src="./thumbnails/pine_water2.jpg"></a></li>
+
+          <li><a class="fancybox" rel="group" alt="Red Floral" href="./wallpapers/red_flower.jpg" target="blank"> <img src="./thumbnails/red_flower2.jpg"></a></li>
+
+          <li><a class="fancybox" rel="group" alt="Seaside Eclipse" href="./wallpapers/seaside_moon.jpg" target="blank"> <img src="./thumbnails/seaside_moon2.jpg"></a></li>
+
+          <li><a class="fancybox" rel="group" alt="Techno City" href="./wallpapers/tech_city.jpg" target="blank"> <img src="./thumbnails/tech_city2.jpg"></a></li>
+        </ul>
+      </div>
+    </section>
+  </div>
+    <footer>
+      <div id="footer-topline">
+        &rarr; &nbsp;<a href="payout.html">Buy prints from <span id="link-price">$3.99</span> today</a>&nbsp; &larr;
+      </div>
+      &copy; Strawberry Summer Studios
+    </footer>
+
+  <!-- Add jQuery library -->
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <!-- Add fancyBox -->
+<link rel="stylesheet" href="./source/jquery.fancybox.css?v=2.1.7" type="text/css" media="screen" />
+<script type="text/javascript" src="./source/jquery.fancybox.pack.js?v=2.1.7"></script>
+
+<!-- https://www.youtube.com/watch?v=NPERbqqhpCo&list=WL&index=17&t=0s
+  these are outdated, as is the screencast from which I learned, as a new fancybox is out, but that's learning a whole different thing on its own... arrow key controls are enabled in this-->
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(".fancybox").fancybox();
+	});
+</script>
+</body>
+</html>

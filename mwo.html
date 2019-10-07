@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>MWO Acronyms</title>
+  <link rel="stylesheet" type="text/css" href="./mwo.css" media="screen" />
+
+  <script>
+// <onhover="show_ecm(this)">
+
+  function show_ecm() {
+    // function show_ecm(e) {
+    // Can combine all the differnt "show" images with a conditional checking id's of the hovered element to change the pic container
+    // if(e.id == "acro-ecm"){
+    document.getElementById('acro-pic').setAttribute('src', "./img/ecm_silo.PNG");
+  // }
+  }
+
+  function show_lrm() {
+    document.getElementById('acro-pic').setAttribute('src', "./img/lrm_madcat.PNG");
+  }
+
+  function show_ams() {
+    let ams = document.getElementById('acro-pic')
+    ams.setAttribute('src', "./img/ams_hardpoint.PNG");
+    ams.style.width = '95%';
+    ams.style.height = '100%';
+    ams.overflow = 'hidden';
+  }
+
+  function revert_bigthink() {
+    // setTimeout(function(){
+    let revertBigThink = document.getElementById('acro-pic');
+    revertBigThink.setAttribute('src', "./img/bigThink.PNG");
+    revertBigThink.style.width = '100%';
+    // }, 1500)
+  };
+
+  function hover_change_pic(e) {
+    // setTimeout(function(){
+      e.setAttribute('src', "./img/come_at_me.PNG" );;
+    // }, 100)
+};
+
+function revert_mouseout(e) {
+  e.setAttribute('src', "./img/bigThink.PNG");
+}
+
+function toasty_sound() {
+  let toasty = new Audio();
+  toasty.src = "./aud/ChorusToasty.wav"
+  toasty.play();
+}
+
+function fatality_sound() {
+  let fatality = new Audio();
+  fatality.src = "./aud/fatalityRobot.wav"
+  fatality.play();
+}
+
+</script>
+</head>
+
+<body class="mwo_body">
+
+  <div class="title-buffer-bar">
+    <div class="banner-dropdown">
+        <div class="banner-button">
+          animated dropdown
+        </div>
+        <div class="dropdown-content">
+          <a href="./summerlinPortPage.html">Home</a>
+          <a href="">placeholders 2</a>
+          <a href="">placeholders 3</a>
+          <a href="">placeholders 4</a>
+        </div>
+      </div>
+  </div>
+  <header class="banner-title">
+    <h1>United Alliance of Mech-Pilots</h1>
+  </header>
+  <div class="nav_link_header">
+    <a href="./summerlinPortPage.html"> Home </a> |
+    <a href="#"> Dummy 2</a> |
+    <a href="#"> Dummy 3</a> |
+    <a href="#"> Dummy 4</a>
+  </div>
+
+   <!-- demo of article, section, headers, and footers-->
+<main>
+    <article>
+      <h1 id="content-header">Mechwarrior Acronym Guide:</h1>
+
+      <section class="acro_quick_ref">
+        <p id="acro-hint">Hint: Hover acronyms for visual, click to jump
+        </p>
+
+        <div id="acronym-picture-holder">
+            <img id="acro-pic" src="./img/bigThink.PNG" alt="big think" onclick="hover_change_pic(this)" onmouseout="revert_mouseout(this);">
+        </div>
+
+        <dl id="acro-list">
+          <dt><a id="acro-ecm" class="mwo-acro-button" href="#ECM" onmouseover="show_ecm()" onmouseout="revert_bigthink()">ECM</a></dt>
+            <dd class="spelled-acronym">
+              <span class="underlined">E</span>lectronic
+              <span class="underlined">C</span>ounter
+              <span class="underlined">M</span>measures
+            </dd>
+          <dt><a id="acro-lrm" class="mwo-acro-button" href="#LRM" onmouseover="show_lrm()" onmouseout="revert_bigthink()">LRM</a></dt>
+            <dd class="spelled-acronym">
+              <span class="underlined">L</span>ong
+              <span class="underlined">R</span>ange
+              <span class="underlined">M</span>issiles
+            </dd>
+          <dt><a id="acro-ams" class="mwo-acro-button" href="#AMS" onmouseover="show_ams()" onmouseout="revert_bigthink()"> AMS</a></dt>
+            <dd class="spelled-acronym">
+              <span class="underlined">A</span>nti-
+              <span class="underlined">M</span>issile
+              <span class="underlined">S</span>ystem
+            </dd>
+        </dl>
+      </section>
+
+      <section>
+
+        <header id="ECM" class="mwo_article_header">
+          <h2>(ECM) : Electonic Counter-Measures </h2>
+        </header>
+        <div class="mwo_content">
+          <p class="entry">
+          Colloquially known as <span class="description-blur-spoiler">
+          "the magic Jesus box",</span> this hides from
+          radar detection. The Electronic Counter-Measure system slows enemy
+          target acquisition, making it harder to get a lock. Laser tagging
+          and relying on your good ol' eye-holes helps to counteract this.
+          Even a mech running ECM will show up on heat-vision/night vision.
+          In theory, <span class="description-blur-spoiler">
+          a cloaking device would be a "VCM", visual counter-measure. </span>
+          </p>
+          <div class="holder" id="ecm-pic-holder">
+          </div>
+        </div>
+      </section>
+
+      <section >
+        <header id="LRM" class="mwo_article_header">
+          <h2>(LRM) : Long-Range Missiles</h2>
+        </header>
+        <div id="lrm-content" class="mwo_content">
+          <p class="entry">
+          <span id="lrm_arrow">Click the 'Mech! &rarr;</span>
+          <br>
+          Long-Range missiles use targeting, often with a tagging system
+          and have the advantage of a high arc, going above cover and other
+          terrain obstacles. While called "long-range" they can be fired from
+          <span class="description-blur-spoiler"> as short as 200 meters
+          effectively, reducing flight time and increasing accuracy. </span>
+          Note that LRMs deal non-pinpoint damage, spread across a mech.
+          Thus, they are "support" rather than direct-attacking brawlers.
+          </p>
+          <div onclick="fatality_sound()" class="holder" id="lrm-pic-holder">
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <header id="AMS" class="mwo_article_header">
+          <h2>(AMS) : Anti-missile System</h2>
+        </header>
+
+          <div class="mwo_content">
+            <p class="entry">
+            The anti-missile system is either ballistic or laser
+            while lasers don't suffer from ammo capacity limits
+            they're liable to make your mech overheat. A skilled
+            pilot might even <span class="description-blur-spoiler"> force the
+            lightshow and hammer lots of missiles </span> to force an overheat
+            if the opposing pilot doesn't shut off their AMS.
+            </p>
+            <div class="holder" id="ams-pic-holder">
+            </div>
+          </div>
+
+      </section>
+    </article>
+
+    <div id="copy-footer">
+      <img src="./img/vectorIcons/dCore.png" alt="core" onclick="toasty_sound()">
+      <p>&copy; Strawberry Summer Studios</p>
+      <img src="./img/vectorIcons/tData.png" alt="data chip">
+    </div>
+  </main>
+</body>
+</html>
