@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -306,3 +307,314 @@
 </body>
 
 </html>
+||||||| merged common ancestors
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>IDW Snake game</title>
+
+  <style>
+    body {
+      margin:0;
+      padding:0;
+      box-sizing: border-box;
+    }
+    #titleContainer{
+      background: #ccc;
+      border: 3px solid rgb(99, 202, 120);
+      border-left: 14px solid  rgb(99, 202, 120);
+      border-right: 14px solid  rgb(99, 202, 120);
+      color:rgb(49, 122, 40);
+      width:580px;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      padding: 5px 0; 
+    }
+    #snake-title{
+     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      font-size: 45px;
+      font-weight: 700;      
+      padding:0;
+      margin: 0;
+    }
+    #reset-btn{
+      margin: 0 auto;
+      height:40px;
+      width: 120px;
+      outline: 2px solid tomato;
+      font-size: 15px;
+      position: absolute;
+      top: 84px;
+      left:480px;
+      cursor:pointer;
+    }
+    #reset-btn:hover{
+      background: tomato;
+      font-weight: 700;
+      outline-offset: -4px;
+      outline-width: 5px;
+      outline-color: lime;
+      transition: all 0.2s linear;
+    }
+    #canvas{
+      display:block;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    #results{
+      background:#225;
+      color:White;
+      font-size:41px;
+      text-align: center;
+      display:none;
+      width: 345px;
+      position: absolute;
+      left: 120px;
+      top: 70px;
+      padding:0;
+      margin:0;
+      overflow: hidden;
+    }
+    #hide-picture{
+      width: 110px;
+      position: absolute;
+      left: 245px;
+      top: 650px;
+      display:none;
+    }
+    #injury-container{
+      background-image: url("../img/nukeExplosion.PNG");
+      background-size: contain;
+      background-repeat: no-repeat;
+      height:500px;
+      width: 580px;
+      position: absolute;
+      top:160px;
+      left:25px;
+      display:none;
+    }
+    #victory-container{
+      background-image: url("../img/nyaaahhhh.jpg");
+      background-size: contain;
+      background-repeat: no-repeat;
+      height:440px;
+      width: 608px;
+      position: absolute;
+      top:190px;
+      display:none;
+    }
+    #special-win-container{
+      background-image: url("../img/winIDW.jpg");
+      /* background-size: contain; */
+      /* scaling image and moving placement with size and position, but pros would already have desired image in photoshop or something */
+      background-position: -10px -10px;
+      background-repeat: no-repeat;
+      /* image proportions */
+      background-size: 340px 510px;
+      /* container sizes below */
+      height: 479px;
+      width: 320px;
+      position: absolute;
+      top: 166px;
+      left: 144px;
+      display:none;
+    }
+
+    #scoreImgPatch{
+      background-image: url("../../img/vectorIcons/eCap.png");
+      background-color: #ccc;
+      background-size: cover;
+      height: 55px;
+      width: 55px;
+
+      position: absolute;
+      top: 77px;
+      left: 8px;
+    }
+
+     #lootBag{
+      position: absolute;
+      border: 5px solid black;
+      border-radius: 6px;
+      height: 480px;
+      width: 70px;
+      top: 160px;
+      left:601px;
+      margin:0;
+      padding:0;
+      z-index: -1;
+    }
+
+    #returnBtn{
+      color:gold;
+      background: #225;
+      border: 2px solid tomato;
+      text-decoration: none;
+      text-align: center;
+      width: 60px;
+      height: 40px;
+      position:absolute;
+      left:530px;
+      top:12px;
+    }
+    #ptsKeyBtn{
+      color:gold;
+      background: #225;
+      border: 2px solid tomato;
+      text-decoration: none;
+      text-align: center;
+      width: 60px;
+      height: 40px;
+      position:absolute;
+      left:13px;
+      top:2px;
+      margin:0;
+      padding:0;
+    } 
+    #ptsKeyBtn2{
+      color:gold;
+      background: #225;
+      border: 2px solid tomato;
+      text-decoration: none;
+      text-align: center;
+      width: 60px;
+      height: 20px;
+      position:absolute;
+      left:13px;
+      top:42px;
+      margin:0;
+      padding:0;
+    } 
+    #returnBtn:hover{
+      color:#ff7;
+      background: #448;
+      border-color: purple;
+      transition: all 0.3s linear;
+      cursor:pointer;
+    }
+    #ptsKeyBtn:hover{
+      color:#ff7;
+      background: #448;
+      border-color: purple;
+      transition: all 0.3s linear;
+      cursor:pointer;
+    }
+    #ptsKeyBtn2:hover{
+      color:#ff7;
+      background: #448;
+      border-color: purple;
+      transition: all 0.3s linear;
+      cursor:pointer;
+    }
+
+    #topKey{
+      background:#000;
+      border: 4px solid tomato;
+      position:absolute;
+      width:260px;
+      top:71px;
+      left: 170px;
+      display: flex;
+      justify-content: center;
+      z-index:-1;
+    }
+    #bottomKey{ 
+      background:black;
+      border: 4px solid tomato;
+      position:absolute;
+      width:260px;
+      top:117px;
+      left: 170px;
+      display: hidden;
+      display: flex;
+      justify-content: center;
+      z-index: -1;
+    }
+    .ptsKeyItem{
+      display:flex;
+      align-items: center;
+    }
+    .ptsKeyItem span{
+      color: white;
+      background: black;
+    }
+
+  </style>
+</head>
+<body>
+
+  <a id="returnBtn" href="../summerlinPortPage.html">
+    Return home
+  </a>
+  <p id="ptsKeyBtn" onclick="showScoreKey()"    
+  > Show values
+  </p>
+  <p id="ptsKeyBtn2" onclick="hideScoreKey()"    
+  > hide</p>
+
+  <div id="ptsKeyMap">
+    <div id="topKey">
+      <div class="ptsKeyItem">
+        <img src="../../img/vectorIcons/eCap.png" alt="pill" style="height:41px;width:41px">
+        <span>= 1pt </span>
+      </div>
+      <div class="ptsKeyItem">
+        <img src="../../img/vectorIcons/tData.png" alt="pill" style="height:41px;width:41px">
+        <span>= 2pts </span>
+      </div>
+      <div class="ptsKeyItem">
+        <img src="../../img/vectorIcons/dCore.png" alt="pill" style="height:41px;width:41px">
+        <span>= 5pts </span>
+      </div>
+    </div>
+    <div id="bottomKey">
+      <div class="ptsKeyItem">
+        <img src="../../img/vectorIcons/sToken.png" alt="pill" style="height:41px;width:41px">
+        <span>= 10pt </span>
+      </div>
+      <div class="ptsKeyItem">
+        <img src="../../img/vectorIcons/oRing.png" alt="pill" style="height:41px;width:41px">
+        <span>= 25pts </span>
+      </div>
+      <div class="ptsKeyItem">
+        <img src="../../img/grizzlyRun1.png" alt="pill" style="height:41px;width:41px">
+        <span>= 50pts </span>
+      </div>
+    </div>
+  </div>
+
+  </div>
+  <div id="titleContainer">
+  <p id="snake-title">IDW Snake!</p>
+  </div>
+  
+  <div id="scoreImgPatch"></div>
+  <div id="btn-container">
+    <button id="reset-btn" value="Refresh Page" onClick="window.location.reload();">
+    Reset Button
+    </button>
+    <!-- make a value that shows on top of the canvas when game is lost -->
+  </div>
+  <p id="results"> hidden placeholder lorem ipsum dolor set</p>
+  <button id="hide-picture" onclick="hidePics()"> Hide failure</button>
+  <!-- Note, canvas is wider than the field image so I can draw loot on the side -->
+  <canvas id="canvas" height="608" width="680"></canvas>
+ 
+
+  <div id="lootBag"></div>
+  
+  <div id="injury-container"></div>
+  <div id="victory-container"></div>
+  <div id="special-win-container"></div>
+  
+  <script src="idwSnake.js"></script>
+</body>
+
+</html>
+>>>>>>> afc08aded728b7c82f6b18fcb6ae4b01672f99b4
