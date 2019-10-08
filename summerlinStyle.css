@@ -148,7 +148,7 @@ main {
   font-weight: bold;
   text-decoration: none;
   display: block;
-  padding: 20px 16px 0 16px;
+  padding: 10px 16px;
   margin: 10px 0;
 }
 .pDropdown-content a:hover {

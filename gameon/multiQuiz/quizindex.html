@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,7 +44,11 @@
         </div>
       </div>
       <div id="titleBtns">
-        <button id="titleBackBtn" onclick="ni()" >back</button>
+        <button id="titleBackBtn">
+         <a href="../../summerlinPortPage.html"> 
+          back
+        </a>
+        </button>
         <button id="titeDropdownBtn">options
           <div id="optionDropdownContent">
             <a href="" onclick="ni()">dummy1</a>
@@ -129,118 +132,3 @@
   
 </body>
 </html>
-||||||| merged common ancestors
-=======
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="multiQuiz.css">
-  <!-- vue capability added -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js"></script>
-  <title>Quiz Cards</title>
-</head>
-<body>
-  <div id="gameContainer">
-    <!-- Overhaul? make navbar for quiz home to go back to other pages -->
-    <!-- INC: OVERHAUL? generate random title image from list in JS-->
-    
-    <div id="titleCard">
-      <div id="titleImg">
-        <p id="imgWordOverlay">Awesome <br> Study-Cards</p>
-      </div>
-
-      <div id="imgWordOverlay2">
-        <p>Awesome Study-Cards</p>
-      </div>
-
-      <div id="titleIcon" onclick="ni()">dummy icon</div>
-        
-      <div id="start">
-        <!-- render from different question-array libraries, then put title here? -->
-        <div id="beginCell">
-          <p >Begin Quiz?</p>
-        </div>
-        <div id="quizTopic">
-          <p>Topic: <span id="topicSpan">Kanji</span> </p>
-        </div>
-      </div>
-      <div id="titleBtns">
-        <button id="titleBackBtn" onclick="ni()" >back</button>
-        <button id="titeDropdownBtn">options
-          <div id="optionDropdownContent">
-            <a href="" onclick="ni()">dummy1</a>
-            <a href="" onclick="ni()">dummy2</a>
-            <a href="" onclick="ni()">dummy3</a>
-            <a href="" onclick="ni()">dummy4</a>
-          </div>
-        </button>
-      </div>
-    </div>
-    <!-- actual quiz content below -->
-    
-
-      <!-- using vue to make a splat-a-slime game 
-      ******** GRID IS NOT ACCEPTING ITEMS fROM VUE, SO ALL VUE-ELEMENTS ARE OVERLAID USING CSS **********-->
-  <div id="vue-app">
-        <!-- when boolean in {name: element} is true, class is applied, when "false" it's removed. gets "ended" class when burst == true -->
-        <div id="slime" v-bind:class="{defeated: ended}"></div>
-    <!-- slime's health -->
-      <div id="slime-health" v-show="!defeated">
-        <!-- control the "width" property using Vue data, thru binding -->
-        <div id="hp-pool"
-        v-bind:style="{width: health + '%'}" v-bind:class="{drained: ended}"></div>
-        <div id="dmg-bumper" 
-        v-bind:style="{width: bumper + '%'}"
-        v-show="!ended"></div>
-    </div>
-
-    <p id="hit-msg"> Slime appears!</p>
-    <!-- <p id="punch-msg" v-show="punched"> hit for {{bumper}} damage</p> -->
-<!-- slime image -->
-    
-
-    <!-- game controls -->
-    <!-- <div id="controls">
-      <button v-show="!ended" v-on:click="punchSlime()"> Hit </button>
-      <br> -->
-      <!-- INC/NOT IMPLEMENTED: v-show="ended" to restore slime health only when defeated, like summoning another -->
-      <!-- <button v-on:click="restoreSlimeHealth()"> Restart </button>
-    </div> -->
-  </div>
-<!-- Outside of the vue object now and below ******** -->
-
-    <div id="quizCards">
-      <div id="slime-wtbg"></div>
-      <div id="p-bg"></div>
-
-      <div id="qImg"></div>
-      <div id="question"></div>
-      
-        <div id="choices">
-<!-- refractor for randomizing items' position-->
-            <div class="choice" id="A" onclick="checkAnswer('A')"></div>
-            <div class="choice" id="B" onclick="checkAnswer('B')"></div>
-            <div class="choice" id="C" onclick="checkAnswer('C')"></div>
-            <div class="choice" id="D" onclick="checkAnswer('D')"></div>
-        </div>
-        <div id="timer">
-          <!-- makes sense to nest these to "fill" it up -->
-            <div id="btimeGauge">
-                <div id="timeGaugeFiller"></div>
-            </div>
-            <div id="counter"></div>
-        </div>
-        <div id="progress"></div>
-        <!-- end of quizcard div below -->
-    </div>
-    <!-- score container is separate from the card proper... -->
-    <div id="scoreContainer" style="display: none"></div>
-</div>
-
-  <script src="multiQuiz.js"></script>
-</body>
-</html>
->>>>>>> afc08aded728b7c82f6b18fcb6ae4b01672f99b4
