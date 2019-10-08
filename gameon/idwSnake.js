@@ -597,7 +597,7 @@ let newHead = {
 if(score >= specialVictoryScore || snake.length == 194){
     console.log(`Special win conditions completed; scored ${score}`);
     // store score in local storage
-    Store.storeScore(score);
+    // Store.storeScore(score);
     
     // stop the game from running (stop painting new canvases)
     clearInterval(game);
@@ -633,7 +633,7 @@ if(score >= specialVictoryScore || snake.length == 194){
   } else if(snakeX < box || snakeX > 17 * box || snakeY < 3*box || snakeY > 17*box || collision(newHead,snake)){
   console.log(`Final score of ${score}`);
 //   move score to local storage
-Store.storeScore(score);
+// Store.storeScore(score);
 // stop the game from running (stop painting new canvases)
   clearInterval(game);
   // score threshold for "victory condition")
