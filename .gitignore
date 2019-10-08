@@ -21,3 +21,5 @@ port_2.css
 port_2.js
 
 wpBlog.html
+# Local Netlify folder
+.netlify

@@ -1,3 +1,5 @@
+// links to the "index.html" in this directory
+
 const contentAboutMe = document.getElementById("content-about-me");
 const hide1 = document.getElementById('hide-btn1');
 const menuIcon = document.getElementById("menu-icon");
