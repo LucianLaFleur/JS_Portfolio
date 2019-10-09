@@ -71,6 +71,7 @@
         </button>
       </div> 
       
+      <div>Total damage: {{totalDmgDealt}} </div>
 
       <!-- The slime, axe is "embedded" in it to keep the swing animation relative -->
         <div id="slime" v-bind:class="{defeated: ended}">
@@ -123,10 +124,13 @@
             <div id="counter"></div>
         </div>
         <div id="progress"></div>
+
+         <!-- score container is separate from the card proper... -->
+    <div id="scoreContainer"></div>
         <!-- end of quizcard div below -->
     </div>
-    <!-- score container is separate from the card proper... -->
-    <div id="scoreContainer" style="display: none"></div>
+   
+
 </div>
 
   <script src="kanjiQuiz.js"></script>

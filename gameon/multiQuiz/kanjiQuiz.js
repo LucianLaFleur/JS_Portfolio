@@ -1,10 +1,13 @@
+// INC adjust timer in its own test file, faster rendering, random target item of a target width, see if it matches....
+// Render cursor of fized width to go through it by adjusting left margin
+// make timer bar of fixed width
 
 // OVERHAUL 1 : Slime-smasher
 // Overhaul ??? : Re-skin for de-structing T-droids
 // make a score of slime's health bar, cut it with each correct answer, as if you hit the punch button
 
 // Important variables
-const questionTime = 2000;
+const questionTime = 10;
 // size of timer bar
 const gaugeWidth = 250; // 250px width
 const gaugePortion = gaugeWidth / questionTime;
@@ -53,34 +56,44 @@ var vueOne = new Vue({
         minSwingDmg: 3,
         maxSwingDmg: 7,
         //   make a bumper to store damage from dealt attack
-        bumper: 0
+        bumper: 0,
+        responseTimeBonus: 1,
+        // placeholder for total damage dealt *** needs local storage
+        totalDmgDealt: 0,
+        // INC: number of slimes defeated *** needs local storage
+            // Incomplete: time-responsive dialogue messages
+        // Strong hit and weak hit used as dialogue triggers
+        strongHit: false,
+        normHit: false,
+        weakHit: false
     },
     methods: {
+
+    scoreFromResponseTime: function() {
+        if(count <= 3){
+            responseTimeBonus = 3;
+            strongHit = true;
+            console.log("quick bonus!");
+        } else if (count <= 6){
+            responseTimeBonus = 2;
+            normHit = true;
+            console.log("normal speed");
+        } else {
+            responseTimeBonus = 1;
+            normHit = true;
+            console.log("slow response");
+        }
+    },
+
         // make a random num generator to use for punch damage values
     generateRandInt: function() {
         let randNum = 0;
         randNum += Math.floor(Math.random() * (this.maxSwingDmg - +this.minSwingDmg)) + this.minSwingDmg;
+        // damNum = randNum*responseTimeBonus
         console.log(`${randNum} dmg generated on hit`);  
+        this.totalDmgDealt += randNum;
         return randNum;
         },
-    // assignRandInt: function(var1) {
-    //     let min = 20;
-    //     let max = 40;
-    //     var1 = (Math.floor(Math.random() * (+max - +min)) +min);
-    //     console.log(`num rolled : ${var1}`);  
-    //     },
-    //   punchSlime: function(){
-    //     // punch the slime
-    //     this.health -= 10
-    //     // "this" is the current vue instance, allowing us to access the "health" property declared in data above
-    //     if (this.health <= 0){
-    //         this.ended = true;
-    //     } 
-    //   },
-    // renderHitMessage: function(){
-    //     hitMsg.innerHTML = "<p> hit for " + this.vueOne.bumper + " damage </p>"
-    //   },
-    //   random generation punch damage for ref;
 
 // add a class to control the animation of the axe over the slime
 //   document.getElementById('logo').classList.add("animatedClass1");
@@ -144,9 +157,7 @@ var vueOne = new Vue({
   });
 
 // OVERHAUL: how od I use a "post" request to local storage in VUE to add an object to this array so I can make new questions from a custom form?
-
 // INC: put choices into an array and randomize it
-
 // shortened for "kanji question"
 const kanQ = "What does this Kanji mean?";
 
@@ -221,11 +232,10 @@ let hitMessages = [
     "Enemy struck for",
     "Attack connects for"
 ];
+// ******* Conditional here for different hit messages on strong or weak attacks
 function randomHitMessage() {
     return hitMessages[Math.floor(Math.random()*hitMessages.length)];
 };
-
-
 
 // instantiate variables
 // get a num to index the last question of the questions array
@@ -237,9 +247,9 @@ let count = 0;
 
 let TIMER;
 // instantiate score variable
-let score = 0;
-// hit damage value
-let hitDmg;
+// Changed from "score" to track the number of correct questions 
+// (the important score is the damage dealt to the slime)
+let correctQs = 0;
 
 // render the current question
 // making a placeholder in case I need to access this outside of the function l8r.
@@ -257,6 +267,10 @@ function resizeMsg1(){
 
 function resizeMsg2(){
     alert('Thank you for re-sizing!');
+}
+
+function disableCardInputs() {
+    quizCards.style.pointerEvents = "none";
 }
 
 // Need a way to randomly generate questions from an array
@@ -302,7 +316,6 @@ function startQuiz(){
   TIMER = setInterval(renderCounter,1000); 
 }
 
-
 // render progress
 function renderProgress(){
     // Render a card as long as we still got question cards remaining
@@ -328,16 +341,29 @@ function renderCounter(){
       count = 0;
       // change progress color to red
       answerIsWrong();
-      // check if there are any questions left in the list of questions
+      // check if there are any questions left in the list of questions, render a fresh timer and question if so
       if(currentQuestionIdx < lastQuestion){
           currentQuestionIdx++;
           renderQuestion();
       }else{
-          // end the quiz and show the score
+          // clear out the timer
           clearInterval(TIMER);
-          scoreRender();
       }
   }
+}
+
+// CHECK FOR GAME-END CONDITION: RUNNING OUT OF CARDS!!!
+function checkRemainingCards(){
+    //   show next card if that wasn't the last card, or else end the game
+    if(currentQuestionIdx < lastQuestion){
+        currentQuestionIdx++;
+        renderQuestion();
+    }else{
+        // end the quiz and show the score
+        clearInterval(TIMER);
+        disableCardInputs();
+        scoreRender();
+    }
 }
 
 // checkAnwer
@@ -345,20 +371,17 @@ function renderCounter(){
 function checkAnswer(answer){
   if( answer == questionsArr[currentQuestionIdx].correct){
       // if the answer of the current question is correct, incrememt score, then run the function associated with "correct"
-      score++;
+    //   
+      correctQs++;
+    // ********* moved to vue object!!!!!! ******  
+    // scoreFromResponseTime();
       answerIsCorrect();
+      checkRemainingCards();
   }else{
       answerIsWrong();
+      checkRemainingCards();
   }
   count = 0;
-  if(currentQuestionIdx < lastQuestion){
-      currentQuestionIdx++;
-      renderQuestion();
-  }else{
-      // end the quiz and show the score
-      clearInterval(TIMER);
-      scoreRender();
-  }
 }
 
 // answer is correct
@@ -377,11 +400,11 @@ function answerIsWrong(){
     hitMsg.innerHTML = `${randomMissMessage()}`
 }
 
-// render the score score
+// render the score 
 function scoreRender(){
-    scoreDiv.style.display = "block";
+    scoreDiv.style.display = "flex";
     // calculate the amount of question percent answered by the user
-    const scorePerCent = Math.round(100 * score/questionsArr.length);
+    const correctPercent = Math.round(100 * correctQs/questionsArr.length);
     
   //  // choose the image based on the scorePerCent
   //  let img = (scorePerCent >= 80) ? "img/5.png" :
@@ -391,7 +414,9 @@ function scoreRender(){
   //            "img/1.png";
    
   //  scoreDiv.innerHTML = "<img src="+ img +">";
-   scoreDiv.innerHTML += "<p>"+ scorePerCent +"%</p>";
+
+//   Change to questions correct and total damage dealt
+ scoreDiv.innerHTML += "<p> <span id='dmgScored'> " + this.vueOne.totalDmgDealt+ "</span> damage dealt! <br>"+ correctPercent +"% correct, " +  correctQs + " out of " + questionsArr.length + " questions </p>";
 }
 
 function myFunction() {
