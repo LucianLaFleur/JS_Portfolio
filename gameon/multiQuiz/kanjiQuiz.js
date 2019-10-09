@@ -194,6 +194,33 @@ let questionsArr = [
 }
 ];
 
+// Hit and miss messages
+
+let missMessages = [
+    "You missed!",
+    "The enemy ducks under you attack!",
+    "Your foe dodges!",
+    "Your attack swings wide!",
+    "You clumsily miss the mark",
+    "The attack failed to connect!"
+];
+function randomMissMessage() {
+    return missMessages[Math.floor(Math.random()*missMessages.length)];
+};
+
+let hitMessages = [
+    "You hit for",
+    "The strike lands for",
+    "Your weapon impacts for",
+    "Enemy struck for",
+    "Attack connects for"
+];
+function randomHitMessage() {
+    return hitMessages[Math.floor(Math.random()*hitMessages.length)];
+};
+
+
+
 // instantiate variables
 // get a num to index the last question of the questions array
 const lastQuestion = questionsArr.length -1;
@@ -245,7 +272,6 @@ function renderQuestion(){
     choiceD.innerHTML = q.choiceD;
 }
 
-
 // target "start" div to start the quiz when clicked on
 start.addEventListener("click",startQuiz);
 
@@ -270,7 +296,8 @@ function startQuiz(){
   gameContainer.style.boxShadow = "none";
   renderProgress();
   renderCounter();
-  TIMER = setInterval(renderCounter,1000); // 1000ms = 1s
+//   Call the counter every second
+  TIMER = setInterval(renderCounter,1000); 
 }
 
 
@@ -287,6 +314,7 @@ function renderProgress(){
 function renderCounter(){
   if(count <= questionTime){
       counter.innerHTML = count;
+    //   width is filled in proportion to the time counter
       timeGaugeFiller.style.width = count * gaugePortion + "px";
       count++
   }else{
@@ -313,13 +341,10 @@ function renderCounter(){
 
 function checkAnswer(answer){
   if( answer == questionsArr[currentQuestionIdx].correct){
-      // answer is correct
+      // if the answer of the current question is correct, incrememt score, then run the function associated with "correct"
       score++;
-      // change progress color to green
       answerIsCorrect();
   }else{
-      // answer is wrong
-      // change progress color to red
       answerIsWrong();
   }
   count = 0;
@@ -338,23 +363,22 @@ function answerIsCorrect(){
     document.getElementById(currentQuestionIdx).style.backgroundColor = "#0f0";
     // Punch the slime!
     this.vueOne.punchSlime();
-    hitMsg.innerHTML = "Hit for " + vueOne.bumper + " damage";
+    hitMsg.innerHTML = `${randomHitMessage()} ` + vueOne.bumper + " damage";
 }
-
 
 // answer is Wrong
 function answerIsWrong(){
     document.getElementById(currentQuestionIdx).style.backgroundColor = "#f00";
     this.vueOne.missSlime();
     //   INC **** itterate through an array of "miss" messages, ducks under the blow, you swing wide, slinks away from the strike
-    hitMsg.innerHTML = "You missed!"
+    hitMsg.innerHTML = `${randomMissMessage()}`
 }
 
 // render the score score
 function scoreRender(){
     scoreDiv.style.display = "block";
     // calculate the amount of question percent answered by the user
-    const scorePerCent = Math.round(100 * score/questions.length);
+    const scorePerCent = Math.round(100 * score/questionsArr.length);
     
   //  // choose the image based on the scorePerCent
   //  let img = (scorePerCent >= 80) ? "img/5.png" :
