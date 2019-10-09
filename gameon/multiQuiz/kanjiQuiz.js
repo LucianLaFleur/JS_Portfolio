@@ -3,6 +3,12 @@
 // Overhaul ??? : Re-skin for de-structing T-droids
 // make a score of slime's health bar, cut it with each correct answer, as if you hit the punch button
 
+// Important variables
+const questionTime = 2000;
+// size of timer bar
+const gaugeWidth = 250; // 250px width
+const gaugePortion = gaugeWidth / questionTime;
+
 //make vars for all elements (starting with title card)
 const slime = document.getElementById("slime");
 const slimeBG = document.getElementById("slime-wtbg");
@@ -228,11 +234,7 @@ const lastQuestion = questionsArr.length -1;
 let currentQuestionIdx = 0;
 // make a counter for the timer
 let count = 0;
-// timer length; 10 means [10 seconds]
-const questionTime = 2000;
-// size of timer bar
-const gaugeWidth = 250; // 250px width
-const gaugePortion = gaugeWidth / questionTime;
+
 let TIMER;
 // instantiate score variable
 let score = 0;
@@ -303,6 +305,7 @@ function startQuiz(){
 
 // render progress
 function renderProgress(){
+    // Render a card as long as we still got question cards remaining
   for(let qIndex = 0; qIndex <= lastQuestion; qIndex++){
     // calling the index that we're iterating over as an ID param for an HTML tag
       progress.innerHTML += "<div class='prog' id="+ qIndex +"></div>";
