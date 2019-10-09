@@ -173,7 +173,25 @@ let questionsArr = [
       choiceC : "Stomach",
       choiceD : "Wing",
       correct : "C"
-  }
+  },
+  {
+    question : kanQ,
+    imgSrc :  "../../img/kan/only_kan.png",
+    choiceA : "Art",
+    choiceB : "Beach",
+    choiceC : "Fish",
+    choiceD : "Only",
+    correct : "D"
+},
+{
+    question : kanQ,
+    imgSrc :  "../../img/kan/centurion_kan.png",
+    choiceA : "Night",
+    choiceB : "Car",
+    choiceC : "Page",
+    choiceD : "Tree",
+    correct : "C"
+}
 ];
 
 // instantiate variables
@@ -205,7 +223,7 @@ function ni(){
 }
 
 function resizeMsg1(){
-    alert('Please resize the window to see this title card format change');
+    alert('Please resize the window to see this title card format change; also, hit the Eng 1st option after hovering over the "switch to" button');
 }
 
 function resizeMsg2(){

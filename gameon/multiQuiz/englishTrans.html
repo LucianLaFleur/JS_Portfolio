@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="multiQuiz.css">
+  <link rel="stylesheet" href="kanjiQuiz.css">
   <!-- vue capability added -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js"></script>
   <title>Quiz Cards</title>
@@ -36,11 +36,11 @@
         
       <div id="start">
         <!-- render from different question-array libraries, then put title here? -->
-        <div id="beginCell">
-          <p >Begin Quiz?</p>
+        <div id="beginCell" style="background:#516; color:gold;">
+          <p>Eng.1st Quiz:</p>
         </div>
-        <div id="quizTopic">
-          <p>Topic: <span id="topicSpan">Kanji</span> </p>
+        <div id="quizTopic" style="background:#225">
+          <p>(English First)<span id="topicSpan"> Begin? </span> </p>
         </div>
       </div>
       <div id="titleBtns">
@@ -49,9 +49,9 @@
           back
         </a>
         </button>
-        <button id="titeDropdownBtn">options
+        <button id="titeDropdownBtn">switch to:
           <div id="optionDropdownContent">
-            <a href="" onclick="ni()">dummy1</a>
+            <a href="kanjiQuizIndex.html">Kanji</a>
             <a href="" onclick="ni()">dummy2</a>
             <a href="" onclick="ni()">dummy3</a>
             <a href="" onclick="ni()">dummy4</a>
@@ -60,7 +60,6 @@
       </div>
     </div>
     <!-- actual quiz content below -->
-    
 
       <!-- using vue to make a splat-a-slime game 
       ******** GRID IS NOT ACCEPTING ITEMS fROM VUE, SO ALL VUE-ELEMENTS ARE OVERLAID USING CSS **********-->
@@ -69,15 +68,15 @@
       <div id="testBtns">
         <button id="axeBtn" v-on:click="punchSlime()">click to swing axe</button>
         <button id="dodgeBtn" v-on:click="missSlime()">click for slime to dodge</button>
+        <button id="resetBtn" value="Refresh Page" onClick="window.location.reload();">
+          Reset Button
+        </button>
       </div> 
-
-      <!-- The slime, axe is "embedde" in it to keep the swing animation relative -->
+      
         <div id="slime" v-bind:class="{defeated: ended}">
           <div id="axeVector"></div>
         </div>
-    <!-- slime's health -->
       <div id="slime-health" v-show="!defeated">
-        <!-- control the "width" property using Vue data, thru binding -->
         <div id="hp-pool"
         v-bind:style="{width: health + '%'}" v-bind:class="{drained: ended}"></div>
         <div id="dmg-bumper" 
@@ -86,17 +85,7 @@
     </div>
 
     <p id="hit-msg"> Slime appears!</p>
-    <!-- <p id="punch-msg" v-show="punched"> hit for {{bumper}} damage</p> -->
-<!-- slime image -->
     
-
-    <!-- game controls -->
-    <!-- <div id="controls">
-      <button v-show="!ended" v-on:click="punchSlime()"> Hit </button>
-      <br> -->
-      <!-- INC/NOT IMPLEMENTED: v-show="ended" to restore slime health only when defeated, like summoning another -->
-      <!-- <button v-on:click="restoreSlimeHealth()"> Restart </button>
-    </div> -->
   </div>
 <!-- Outside of the vue object now and below ******** -->
 
@@ -128,7 +117,7 @@
     <div id="scoreContainer" style="display: none"></div>
 </div>
 
-  <script src="multiQuiz.js"></script>
+  <script src="kanjiQuiz.js"></script>
   
 </body>
 </html>

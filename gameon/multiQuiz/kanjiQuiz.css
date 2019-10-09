@@ -125,7 +125,7 @@ body{
   color: cyan;
   /* border: 8px solid rgb(33, 88, 102); */
   border-radius: 8px;
-  min-width:130px;
+  min-width:150px;
   display:flex;
 
   font-size: 35px;
@@ -134,12 +134,7 @@ body{
   cursor: pointer;
   display: grid;
   grid-area: s;
-  /* position: absolute;
-  width:160px;
-  height:200px;
-  left:470px;
-  top:80px; */
-  word-wrap: break-word;
+  overflow: hidden;
 
   transition: all 0.5s linear;
   }
@@ -224,10 +219,13 @@ body{
   outline: 8px solid cyan;
   outline-offset: -65px;
   background-color:rgba(212, 19, 138, 0.623);
+  /* align the transparent red background that pops up on hover 
+  also keep the links in the center of this*/
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
   width: 65vw;
+  max-width: 590px;
   height: 110px;
     position: absolute;
     bottom: 30px;
@@ -240,16 +238,19 @@ body{
 #optionDropdownContent a{
   outline:3px solid gold;
   color: cyan;
+  display: flex;
+    justify-content: space-around;
+    align-items: center;
   background-color:rgb(0, 0, 0);
-  height: 44px;
-  /* min-width: 60px;*/
-  width: 9vw; 
-  font-size: 20px;
-  font-weight: bold;
-  text-decoration: none;
-  display: block;
-  padding: 22px 3vw 0px 2vw;
-  margin: 0 0;
+  height: 55px;
+  width: 11vw; 
+  min-width: 88px;
+  max-width: 105px;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+  /* padding: 15px; */
+  /* margin: 0 0; */
   z-index: 2;
 }
 #optionDropdownContent a:hover {
@@ -262,6 +263,22 @@ body{
 }
 #titeDropdownBtn:hover #optionDropdownContent{
   display: flex;
+}
+
+/* TEST BUTTONS */
+
+#resetBtn{
+  border:3px solid tomato;
+}
+#axeBtn:hover{
+  background: rgb(50, 180, 50);
+}
+#dodgeBtn:hover{
+  color:white;
+  background: rgb(46, 54, 167);
+}
+#resetBtn:hover{
+  background-color:rgb(199, 61, 61);
 }
 
 /****** Quiz Cards start here  ******************/
@@ -622,11 +639,11 @@ VUE items can't take to the grid...*/
       font-size: 28px;
       font-weight: 600;
     height: 100%;
-    width: 91vw;
+    width: 90vw;
     min-width: 570px;
     align-items: center;
     justify-content: center;
-    margin: 0px;
+    margin: 0 0 0 2px;
   }
   #titleIcon2{
     color: cyan;
