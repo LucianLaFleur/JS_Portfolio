@@ -266,6 +266,10 @@ body{
 }
 
 /* TEST BUTTONS */
+#testBtns{
+  display: none;
+  justify-content: space-between;
+}
 
 #resetBtn{
   border:3px solid tomato;
@@ -277,6 +281,7 @@ body{
   color:white;
   background: rgb(46, 54, 167);
 }
+
 #resetBtn:hover{
   background-color:rgb(199, 61, 61);
 }
@@ -414,10 +419,6 @@ VUE items can't take to the grid...*/
     max-width: 320px;
   z-index: -2;
     padding: 0 0 0 2vw;
-}
-
-#testBtns{
-  display:none;
 }
 
 #axeVector{
@@ -585,11 +586,14 @@ VUE items can't take to the grid...*/
   z-index: 3;
 }
 
-#scoreContainer p{
+#sessionEndMsg {
+  outline: 3px solid #000;
   background-color: rgba(80, 201, 191, 0.825);
-  font-size: 26px;
-  font-weight: bold;
+  font-size: 24px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: 550;
   text-align: center;
+  margin: 0;
 }
 
 #scoreContainer button{
@@ -599,20 +603,52 @@ VUE items can't take to the grid...*/
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 22px;
   font-weight: 600;
-  height: 50px;
+  /* height: 50px; */
   padding: 0 5px;
+  margin: 0;
   box-shadow: 5px 5px 5px 0px #000;
 }
 #scoreContainer button:hover{
   background-color:rgb(21, 247, 255);
 }
 
+/* the small div before damage dealt */
 #dmgScored {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   background:#225;
   color:gold;
   padding: 0 4px;
 }
+
+#goldEarnedMsg{
+  width: 100%;
+  background: #225;
+  color: gold;
+  font-size: 26px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: 550;
+  text-align: center;
+  padding: 5px 0 ;
+}
+#slimeSlainMsg{
+  background: rgba(17, 50, 112, 0.822);
+  color: rgb(255, 233, 107);
+  font-family: fantasy;
+  text-align: center;
+  padding:5px 10px;
+  letter-spacing: 1px;
+  margin: 0;
+}
+#allMissedMsg{
+  background: rgba(0, 0, 0, 0.753);
+  width: 100%;
+  text-align: center;
+  color: rgb(233, 30, 30);
+  padding: 5px 0;
+  font-size:23px;
+  font-weight: 550;
+}
+
 
 @media (max-width: 900px) {
 #titleImg{
@@ -843,6 +879,22 @@ VUE items can't take to the grid...*/
 @keyframes slimeDuck {
   40% { background-size: 20vw 10px; 
         transform: translate(0px, 50%); 
+      };
+  100% { background-size: center;}
+}
+
+#summonBtn:hover {
+  color: cyan;
+  background: rgb(236, 66, 241);
+}
+
+.slimeSummoned{
+  animation: slimeSprout 0.3s linear;
+}
+
+@keyframes slimeSprout {
+  0% {background-size: 0px 0px; 
+      transform: translate(0, 50%); 
       };
   100% { background-size: center;}
 }

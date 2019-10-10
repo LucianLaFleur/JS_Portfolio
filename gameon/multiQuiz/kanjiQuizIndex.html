@@ -62,44 +62,35 @@
       <!-- using vue to make a splat-a-slime game 
       ******** GRID IS NOT ACCEPTING ITEMS fROM VUE, SO ALL VUE-ELEMENTS ARE OVERLAID USING CSS **********-->
   <div id="vue-app">
-        <!-- when boolean in {name: element} is true, class is applied, when "false" it's removed. gets "ended" class when burst == true -->  
+        <!-- when boolean in {name: element} is true, class is applied, when "false" it's removed. -->  
       <div id="testBtns">
-        <button id="axeBtn" v-on:click="punchSlime()">click to swing axe</button>
-        <button id="dodgeBtn" v-on:click="missSlime()">click for slime to dodge</button>
+        <button id="axeBtn" v-on:click="punchSlime()" v-show="!slimeSlain">click to swing axe</button>
+        <button id="dodgeBtn" v-on:click="missSlime()" v-show="!slimeSlain">click for slime to dodge</button>
+        <button id="summonBtn" v-on:click="summonSlime()">summon new</button>
+        <!-- <button id="summonBtn" v-show="slimeSlain" v-on:click="restoreSlimeHealth()"> Summon another slime </button> -->
         <button id="resetBtn" value="Refresh Page" onClick="window.location.reload();">
-          Reset Button
+          Back to Title
         </button>
       </div> 
-      
-      <div>Total damage: {{totalDmgDealt}} </div>
 
       <!-- The slime, axe is "embedded" in it to keep the swing animation relative -->
-        <div id="slime" v-bind:class="{defeated: ended}">
+        <div id="slime" v-bind:class="{defeated: slimeSlain}">
           <div id="axeVector"></div>
         </div>
     <!-- slime's health -->
       <div id="slime-health" v-show="!defeated">
         <!-- control the "width" property using Vue data, thru binding -->
         <div id="hp-pool"
-        v-bind:style="{width: health + '%'}" v-bind:class="{drained: ended}"></div>
+        v-bind:style="{width: health + '%'}" v-bind:class="{drained: slimeSlain}"></div>
         <div id="dmg-bumper" 
         v-bind:style="{width: bumper + '%'}"
-        v-show="!ended"></div>
+        v-show="!slimeSlain"></div>
     </div>
 
     <p id="hit-msg"> Slime appears!</p>
-    <!-- <p id="punch-msg" v-show="punched"> hit for {{bumper}} damage</p> -->
-<!-- slime image -->
-    
+    <!-- <p id="punch-msg" v-show="punched"> hit for {{bumper}} damage</p> -->  
+      <!-- INC/NOT IMPLEMENTED: v-show="slimeSlain" to restore slime health only when defeated, like summoning another-->
 
-    <!-- game controls -->
-    <!-- <div id="controls">
-      <button v-show="!ended" v-on:click="punchSlime()"> Hit </button>
-      <br> -->
-      <!-- INC/NOT IMPLEMENTED: v-show="ended" to restore slime health only when defeated, like summoning another -->
-      <!-- <button v-on:click="restoreSlimeHealth()"> Restart </button>
-    </div> -->
-  </div>
 <!-- Outside of the vue object now and below ******** -->
 
     <div id="quizCards">

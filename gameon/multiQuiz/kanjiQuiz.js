@@ -105,9 +105,12 @@ var VueOne = new Vue({
         // placeholder for percentage of questions correct
         correctPercent: 0,
         // health percentage of the slime
+        // *** convert to local storage
         health: 100,
         // switch for ending the battle with the slime
-        ended: false,
+        slimeSlain: false,
+        // INC: number of slimes defeated *** needs local storage
+        totalSlimesSlain: 0,
         //   make a switch to hide damage dealt message when no attack has yet been done
         punched: false,
         // Minimum and maximum swing damage
@@ -118,10 +121,10 @@ var VueOne = new Vue({
         responseTimeBonus: 1,
         // placeholder for total damage dealt *** needs local storage
         sessionDmgDealt: 0,
+        // gold earned from this game session
+        sessionGoldEarned: 0,
         // placeholder for gold earned *** needs local storage
         totalGoldEarned: 0
-        // INC: number of slimes defeated *** needs local storage
-        // slimes slain counter??
     },
     methods: {
 
@@ -147,7 +150,7 @@ var VueOne = new Vue({
         mult = this.responseTime();
         // Calculate damage with time multiplier
         damNum = randNum * mult;
-        console.log(`${randNum} dmg generated, multiplied by ${mult} for ${damNum} damage to slime`);  
+        console.log(`${randNum} x ${mult} for ${damNum} damage to slime`);  
         this.sessionDmgDealt += damNum;
         return damNum;
         },
@@ -155,19 +158,21 @@ var VueOne = new Vue({
         // function scoreRender() (outside of vue object)
     generateGold: function() {
         // calculate the amount of question percent answered by the user
-        correctPercent = Math.round(100 * this.correctQs/questionsArr.length);
+        this.correctPercent = Math.round(100 * this.correctQs/questionsArr.length);
         let goldMult = 1;
+        // make a multiplier based on percent correct, if none scored, give one gold for each question
 
-        (correctPercent == 100) ? (goldMult = 4):
-        (correctPercent >= 70) ? (goldMult = 3):
-        (correctPercent >= 50) ? (goldMult = 2):
+        (this.correctPercent == 100) ? (goldMult = 4):
+        (this.correctPercent >= 70) ? (goldMult = 3):
+        (this.correctPercent >= 50) ? (goldMult = 2):
+        (this.correctPercent == 0) ? this.sessionGoldEarned = questionsArr.length: 
         (goldMult = 1);
 
-        this.totalGoldEarned += (this.sessionDmgDealt * goldMult);
+         this.sessionGoldEarned = (this.sessionDmgDealt * goldMult);
+         this.totalGoldEarned
+        console.log(`x${goldMult} gold for ${this.correctPercent}% correct earning you ${this.sessionGoldEarned}`);
 
-        console.log(`x${goldMult} gold for ${correctPercent}% correct earning you ${totalGoldEarned}`);
-
-        //  // choose the image based on the scorePerCent
+        //  // choose an image based on the percentage correct?
         //  let img = (scorePerCent >= 80) ? "img/5.png" :
         //            (scorePerCent >= 60) ? "img/4.png" :
         //            (scorePerCent >= 40) ? "img/3.png" :
@@ -194,7 +199,8 @@ var VueOne = new Vue({
     slime.style.removeProperty('background-color');
     axe.style.display = "none";
     axe.classList.remove("weaponSwing");
-    slime.classList.remove("dodgeDucking")
+    slime.classList.remove("dodgeDucking");
+    slime.classList.remove("slimeSummoned")
     },
       punchSlime: function() {
         const randNum = this.generateRandInt();
@@ -213,7 +219,8 @@ var VueOne = new Vue({
             }, 845);
         this.punched = true;
         if(this.health <= 0){
-          this.ended = true;
+          console.log('Slime defeated!')
+          this.slimeSlain = true;
         };
       },
       missSlime: function() {
@@ -222,13 +229,24 @@ var VueOne = new Vue({
             this.revertSlime();
         }, 830);
       },
-    // restart function for the slime splatter
-      restoreSlimeHealth: function() {
+      summonSlime: function(){
+        slime.classList.add("slimeSummoned");
+        slime.classList.remove("defeated");
         this.health = 100;
-        this.ended = false;
+        this.slimeSlain = false;
         this.bumper = 0;
         this.punched = false;
+        setTimeout(() => {
+            this.revertSlime();
+        }, 500);
       },
+   
+    //   restoreSlimeHealth: function() {  
+    //     this.health = 100;
+    //     this.slimeSlain = false;
+    //     this.bumper = 0;
+    //     this.punched = false;
+    //   },
     },
     computed: {
     }
@@ -404,19 +422,20 @@ function checkRemainingCards(){
         // end the quiz and show the score
         clearInterval(TIMER);
         disableCardInputs();
-        // generate gold upon finishing cards
         this.VueOne.generateGold();
         //  INC save gold to local storage
         // game ends so show the ending message
         scoreDiv.style.display = "flex";
 
-        scoreDiv.innerHTML += "<p> <span id='dmgScored'> " + this.VueOne.sessionDmgDealt+ "</span> damage dealt! <br>"+ this.VueOne.correctPercent +"% correct, " +  this.VueOne.correctQs + " out of " + questionsArr.length + " questions </p> <p id='goldEarnedMsg'>" +  + "gold earned </p> <button value='Refresh Page' onClick='window.location.reload();'> Back to title </button>";
-
-        // INC slime slain bonus
-        // if(slimeSlain){
-        //     totalGoldEarned += 100;
-        //     scoreDiv.innerHTML += "<p id='slimeSlainMsg'> Bonus 100 gold for slaying the slime! </p>";
-        // }
+        if(this.VueOne.correctPercent == 0){
+            scoreDiv.innerHTML += "<p id='allMissedMsg'> You get " + questionsArr.length + " gold for your effort</p> <button value='Refresh Page' onClick='window.location.reload();'> Back to title </button>";
+        } else {
+        scoreDiv.innerHTML += "<p id='sessionEndMsg'> <span id='dmgScored'> " + this.VueOne.sessionDmgDealt+ "</span> damage dealt! <br>"+ this.VueOne.correctPercent +"% correct, " +  this.VueOne.correctQs + " out of " + questionsArr.length + " questions </p> <p id='goldEarnedMsg'>" + this.VueOne.sessionGoldEarned + " gold earned </p> <button value='Refresh Page' onClick='window.location.reload();'> Back to title </button>";}
+        if (this.VueOne.slimeSlain){
+            this.VueOne.sessionGoldEarned += 100;
+            scoreDiv.innerHTML += "<p id='slimeSlainMsg'> Bonus 100 gold for slaying the slime! </p>"}
+            // check if the hundred slay bonus is added
+            console.log("gold earned this session : " + this.VueOne.sessionGoldEarned)
     }
 }
 
