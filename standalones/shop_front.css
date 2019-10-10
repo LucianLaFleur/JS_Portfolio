@@ -11,6 +11,24 @@ body {
   --metalSea: rgb(85, 109, 155);
 }
 
+#sample-form-validation{
+  background: rgba(0, 0, 0, 0.651);
+  color:gold;
+  padding: 20px;
+}
+
+#submit-btn{
+  color: orange;
+  background: #225;
+  letter-spacing: 1px;
+  font-size: 25px;
+  font-weight: 700;
+  outline: 5px solid grey;
+}
+#submit-btn:hover {
+  cursor: pointer; 
+}
+
   .top-page-title {
     background: var(--coastalNight);
     min-width: 720px;

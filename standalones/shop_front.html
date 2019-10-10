@@ -9,16 +9,16 @@
   <title>Pricing app front</title>
 </head>
 <body>
-  <div class="container">
+  <div id="sample-form-validation" class="container">
     <div class="row">
       <div class="col-md-6 mx-auto">
-        <h1>user form</h1>
+        <h1>Dummy form validaitons</h1>
         <form>
           <div class="form-group">
-            <label>Name</label>
+            <label>First Name</label>
             <input type="text" class="form-control" id="name" placeholder="name">
             <div class="invalid-feedback">
-              Name must be between 3 and 10 characters
+              Name must be between 3 and 10 characters, no spaces or numbers
             </div>
           </div>
 
@@ -26,7 +26,7 @@
             <label>Zipcode</label>
             <input type="text" class="form-control" id="zip" placeholder="zipcode">
             <div class="invalid-feedback">
-              Enter Valid Zipcode 12345(-1234)
+              Invalid Zipcode 12345(-1234)
             </div>
           </div>
       
@@ -34,18 +34,18 @@
             <label>E-mail</label>
             <input type="text" class="form-control" id="email" placeholder="e-mail">
             <div class="invalid-feedback">
-              Enter Valid E-mail
+              Invalid E-mail
             </div>
           </div>
         
           <div class="form-group">
             <label>Phone Number</label>
-            <input type="text" class="form-control" id="phone" placeholder="e-mail">
+            <input type="text" class="form-control" id="phone" placeholder="123-456-7890">
             <div class="invalid-feedback">
-              Enter Valid Phone Number
+              Invalid Phone Number
             </div>
           </div>
-          <input type="sumbit" value="Submit" class="btn btn-primary btn-block">
+          <input id="submit-btn" type="sumbit" value="Submit" class="btn btn-primary btn-block">
         </form>
       </div>
     </div>
@@ -99,7 +99,7 @@
     <div class="description">
         A lenghty description spanning many words but being more interesting than that usual lorem ipsum stuff which isn't even English, and, like, I'm an American, so why do we have all this fake latin and greek stuff when we're already learning a completely different language in terms of coding being its own thing, I dunno, it just comes off as super-pretentious to me, but that's just like, my opinion, man.
     </div>
-    <a href=".item-collection" class="add-to-cart-btn" id="buy-bird" onclick="buyBird()">add to cart!</a>
+    <a href="#item-collection" class="add-to-cart-btn" id="buy-bird" onclick="buyBird()">add to cart!</a>
   </div>
   <div class="table-divider"></div>
 <!-- second pricing table***************** -->
@@ -128,7 +128,7 @@
     <div class="description">
         A lenghty description spanning many words but being more interesting than that usual lorem ipsum stuff which isn't even English, and, like, I'm an American, so why do we have all this fake latin and greek stuff when we're already learning a completely different language in terms of coding being its own thing, I dunno, it just comes off as super-pretentious to me, but that's just like, my opinion, man.
     </div>
-    <a href=".item-collection" class="add-to-cart-btn" id="buy-vaporwave">dummy link</a>
+    <a href="#item-collection" class="add-to-cart-btn" id="buy-vaporwave">dummy link</a>
   </div>
   <div class="table-divider"></div>
 <!-- third pricing table******************* -->
@@ -157,7 +157,7 @@
   <div class="description">
       A lenghty description spanning many words but being more interesting than that usual lorem ipsum stuff which isn't even English, and, like, I'm an American, so why do we have all this fake latin and greek stuff when we're already learning a completely different language in terms of coding being its own thing, I dunno, it just comes off as super-pretentious to me, but that's just like, my opinion, man.
   </div>
-  <a href=".item-collection" class="add-to-cart-btn" id="buy-moe">dummy link</a>
+  <a href="#item-collection" class="add-to-cart-btn" id="buy-moe">dummy link</a>
   </div>
 </div>
 <!-- cart display and adding items -->
@@ -165,19 +165,19 @@
 <div class="cart-container" 
   style="height:250px;background:white;">
   <div class="cart-title" style="background:lime">
-    <span class="adder-title">Task List</span>
+    <span class="adder-title">Your cart items</span>
   </div>
   <div class="cart-item-list">
-    Placeholder for cart items
-  <ul class="item-collection">
-    <!-- like taskList -->
-    <!-- <li>1</li>
-    <li>2</li>
-    <li>3</li> -->
-  </ul>
-  <h3>Your cart total is ....<span id="total-price"></span></h3>
+    <!-- Placeholder for cart items -->
+    <ul id="item-collection">
+      <!-- like taskList -->
+      <!-- <li>1</li>
+      <li>2</li>
+      <li>3</li> -->
+    </ul>
+  <!-- <h3>Your cart total is ....<span id="total-price"></span></h3>
   <a href="#" class="clear-cart btn black">Clear Cart Items</a>
-  </div>
+  </div> -->
 </div>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
