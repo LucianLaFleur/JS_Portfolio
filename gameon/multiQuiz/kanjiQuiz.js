@@ -53,19 +53,15 @@ var vueOne = new Vue({
         //   make a switch to hide damage dealt message when no attack has yet been done
         punched: false,
         // Minimum and maximum swing damage
-        minSwingDmg: 5,
-        maxSwingDmg: 10,
+        minSwingDmg: 7,
+        maxSwingDmg: 12,
         //   make a bumper to store damage from dealt attack
         bumper: 0,
         responseTimeBonus: 1,
         // placeholder for total damage dealt *** needs local storage
         totalDmgDealt: 0,
         // INC: number of slimes defeated *** needs local storage
-            // Incomplete: time-responsive dialogue messages
-        // Strong hit and weak hit used as dialogue triggers
-        strongHit: false,
-        normHit: false,
-        weakHit: false
+        // slimes slain counter??
     },
     methods: {
 
@@ -226,16 +222,38 @@ function randomMissMessage() {
     return missMessages[Math.floor(Math.random()*missMessages.length)];
 };
 
-let hitMessages = [
+// Array selection for differnt messages on hit, (depending on response time, as shown in function below)
+let strongHitMessages = [
+    "An impactful blow",
+    "A powerful strike",
+    "Nice hit",
+    "A swift attack"
+]
+let normalHitMessages = [
     "You hit for",
     "The strike lands for",
     "Your weapon impacts for",
     "Enemy struck for",
     "Attack connects for"
 ];
-// ******* Conditional here for different hit messages on strong or weak attacks
+let weakHitMessages = [
+    "Barely a scratch",
+    "Grazes for",
+    "A light hit"
+];
+// simple function to draw a random item out of any input array
+function randomMsgFromArray(arr){
+    return arr[Math.floor(Math.random()*arr.length)];
+}
+
 function randomHitMessage() {
-    return hitMessages[Math.floor(Math.random()*hitMessages.length)];
+    if (this.vueOne.responseTime() == 3){
+        return randomMsgFromArray(strongHitMessages);
+    } else if (this.vueOne.responseTime() == 2){
+        return randomMsgFromArray(normalHitMessages)
+    } else {
+        return randomMsgFromArray(weakHitMessages)
+    }
 };
 
 // instantiate variables
