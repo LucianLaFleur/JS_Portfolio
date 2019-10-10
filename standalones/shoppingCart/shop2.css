@@ -46,6 +46,7 @@ body {
   }
 
   .table-container {
+    /* border: 5px solid blue; */
     max-width: 1000px;
     /* min width for individual display, see media below for 100% stretch display */
     min-width: 640px;
@@ -53,6 +54,16 @@ body {
     padding: 40px 20px;
     display: flex;
     flex-wrap: wrap;
+    /* display: grid;   */
+    /* grid-gap: 10px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-areas:
+    ". . . ."
+    ". . . ."
+    ". . . ."
+    ". . . ."/
+    ;*/
   }
 
   .pricing-table {
@@ -230,20 +241,20 @@ body {
   /*  product pictures below */
 
   .table1 .product-pic{
-    background-image: url("../img/bird.png");
+    background-image: url("../../../img/bird.png");
     background-size: 90%;
     background-repeat: no-repeat;
     background-position-y: 15px;
     background-position-x: 5px;
   }
   .table2 .product-pic{
-    background-image: url("../img/synthwaveBG1.PNG");
+    background-image: url("../../../img/synthwaveBG1.PNG");
     background-size: 530%;
     background-repeat: no-repeat;
     background-position-y: -16px;
     background-position-x: -145px;
   }
   .table3 .product-pic {
-    background-image: url("../img/fingerSpin.gif");
+    background-image: url("../../../img/fingerSpin.gif");
     background-size: contain;
   }

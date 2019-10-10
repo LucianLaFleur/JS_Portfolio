@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="shop_front.css">
+  <link rel="stylesheet" href="shop2.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js"></script>
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Pricing app front</title>
 </head>
@@ -72,6 +73,9 @@
     <span>!</span>
   </div>
 
+  <!-- Vue app for controlling cart data -->
+<section class="cartApp">
+
 <div class="table-container">
 <!-- first pricing table***************** -->
   <div class="pricing-table table1">
@@ -97,9 +101,11 @@
       <li>perk 4</li>
     </ul>
     <div class="description">
-        A lenghty description spanning many words but being more interesting than that usual lorem ipsum stuff which isn't even English, and, like, I'm an American, so why do we have all this fake latin and greek stuff when we're already learning a completely different language in terms of coding being its own thing, I dunno, it just comes off as super-pretentious to me, but that's just like, my opinion, man.
+        A lenghty description spanning many words but being more interesting than that usual lorem ipsum stuff which isn't even English, so it just comes off as super-pretentious to me, but that's just like, my opinion, man.
     </div>
-    <a href="#item-collection" class="add-to-cart-btn" id="buy-bird" onclick="buyBird()">add to cart!</a>
+    <a href="#item-collection" class="add-to-cart-btn" id="buy-bird"
+    @click="addCartItem('bird')">
+    add to cart!</a>
   </div>
   <div class="table-divider"></div>
 <!-- second pricing table***************** -->
@@ -126,9 +132,9 @@
       <li>perk 4</li>
     </ul>
     <div class="description">
-        A lenghty description spanning many words but being more interesting than that usual lorem ipsum stuff which isn't even English, and, like, I'm an American, so why do we have all this fake latin and greek stuff when we're already learning a completely different language in terms of coding being its own thing, I dunno, it just comes off as super-pretentious to me, but that's just like, my opinion, man.
+        A lenghty description spanning many words but being more interesting than that usual lorem ipsum stuff which isn't even English, so it just comes off as super-pretentious to me, but that's just like, my opinion, man.
     </div>
-    <a href="#item-collection" class="add-to-cart-btn" id="buy-vaporwave">dummy link</a>
+    <a href="#item-collection" class="add-to-cart-btn" id="buy-vaporwave" @click="addCartItem('vaporwave')">dummy link</a>
   </div>
   <div class="table-divider"></div>
 <!-- third pricing table******************* -->
@@ -155,9 +161,9 @@
     <li>perk 4</li>
   </ul>
   <div class="description">
-      A lenghty description spanning many words but being more interesting than that usual lorem ipsum stuff which isn't even English, and, like, I'm an American, so why do we have all this fake latin and greek stuff when we're already learning a completely different language in terms of coding being its own thing, I dunno, it just comes off as super-pretentious to me, but that's just like, my opinion, man.
+      A lenghty description spanning many words but being more interesting than that usual lorem ipsum stuff which isn't even English, so it just comes off as super-pretentious to me, but that's just like, my opinion, man.
   </div>
-  <a href="#item-collection" class="add-to-cart-btn" id="buy-moe">dummy link</a>
+  <a href="#item-collection" class="add-to-cart-btn" id="buy-moe" @click="addCartItem('Moe Spinner')">dummy link</a>
   </div>
 </div>
 <!-- cart display and adding items -->
@@ -170,22 +176,28 @@
   <div class="cart-item-list">
     <!-- Placeholder for cart items -->
     <ul id="item-collection">
-      <!-- like taskList -->
-      <!-- <li>1</li>
-      <li>2</li>
-      <li>3</li> -->
+      <li v-for="item in items" class="cart-item">
+        <div class="cart-viewer">
+          <input class="toggle" type="checkbox" v-model="item.completed">
+          <label>{{item.itemName}}</label>
+          <button class="btn btn-danger" @click="removeItem(item)"> X</button>
+        </div>
+
+      </li>
     </ul>
   <!-- <h3>Your cart total is ....<span id="total-price"></span></h3>
   <a href="#" class="clear-cart btn black">Clear Cart Items</a>
   </div> -->
 </div>
 
+</section>  
+
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-    <script src="shop_front.js"></script>
+    <script type="text/javascript" src="shop2.js"></script>
   </body>
 </body>
 </html>

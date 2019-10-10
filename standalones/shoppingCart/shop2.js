@@ -172,4 +172,29 @@ function validateAll(){
   }
 }
 
+var cartController = new Vue({
+  // can target el as a class, just like CSS
+  //  ex: <section class="cartApp">
+  el: '.cartApp',
+  data: {
+    // newCartItem: 'potato of power',
+    items: [
+      // {id: 0, itemName: 'placeholderItem', price: 555}
+    ]
+  },
+  methods:{
+    //  alt syntax : responseTime: function(){}
+    addCartItem(input1) {
+      this.items.push({id: this.items.length, itemName: input1})
+    },
+    removeItem(item) {
+      // at the index of the item, remove that one item
+      this.items.splice(this.items.indexOf(item), 1)
+    }
+  }
+
+});
+
+console.log(this.cartController.items)
+
 //  set a timeout to make the newly purchased item be hilit with a bright cyan background for a few seconds at first
