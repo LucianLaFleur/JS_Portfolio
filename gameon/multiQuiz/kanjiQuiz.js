@@ -42,10 +42,68 @@ const timeGaugeFiller = document.getElementById("timeGaugeFiller");
 const progress = document.getElementById("progress");
 const scoreDiv = document.getElementById("scoreContainer");
 
+// INC: put choices into an array and randomize it
+// shortened for "kanji question"
+const kanQ = "What does this Kanji mean?";
 
-var vueOne = new Vue({
+// create our questions
+let questionsArr = [
+  {
+    // the text for the question
+      question : kanQ,
+    //   Image for the question, committed to #qImg area
+    // Naming convention note: Make sure the image names contain the English meaning for ease of adding answers
+      imgSrc : "../../img/kan/circle_kan.png",
+      choiceA : "Circle",
+      choiceB : "Nine",
+      choiceC : "Arm",
+      choiceD : "Sword",
+      correct : "A"
+  },{
+      question : kanQ,
+      imgSrc : "../../img/kan/begin_kan.png",
+      choiceA : "Farm",
+      choiceB : "Begin",
+      choiceC : "Light",
+      choiceD : "Sword",
+      correct : "B"
+  },{
+      question : kanQ,
+      imgSrc :  "../../img/kan/stomach_kan.png",
+      choiceA : "Sword",
+      choiceB : "Bean",
+      choiceC : "Stomach",
+      choiceD : "Wing",
+      correct : "C"
+  },
+  {
+    question : kanQ,
+    imgSrc :  "../../img/kan/only_kan.png",
+    choiceA : "Art",
+    choiceB : "Beach",
+    choiceC : "Fish",
+    choiceD : "Only",
+    correct : "D"
+},
+{
+    question : kanQ,
+    imgSrc :  "../../img/kan/centurion_kan.png",
+    choiceA : "Night",
+    choiceB : "Car",
+    choiceC : "Page",
+    choiceD : "Tree",
+    correct : "C"
+}
+];
+
+var VueOne = new Vue({
     el:'#vue-app',
     data:{
+        // num for the correct questions (moved into the Vue object)
+        // Changed from "score" to track the number of correct questions since the important score is the damage dealt to the slime and gold earned on performance.
+        correctQs: 0,
+        // placeholder for percentage of questions correct
+        correctPercent: 0,
         // health percentage of the slime
         health: 100,
         // switch for ending the battle with the slime
@@ -59,7 +117,9 @@ var vueOne = new Vue({
         bumper: 0,
         responseTimeBonus: 1,
         // placeholder for total damage dealt *** needs local storage
-        totalDmgDealt: 0,
+        sessionDmgDealt: 0,
+        // placeholder for gold earned *** needs local storage
+        totalGoldEarned: 0
         // INC: number of slimes defeated *** needs local storage
         // slimes slain counter??
     },
@@ -88,12 +148,33 @@ var vueOne = new Vue({
         // Calculate damage with time multiplier
         damNum = randNum * mult;
         console.log(`${randNum} dmg generated, multiplied by ${mult} for ${damNum} damage to slime`);  
-        this.totalDmgDealt += damNum;
+        this.sessionDmgDealt += damNum;
         return damNum;
         },
 
-// add a class to control the animation of the axe over the slime
-//   document.getElementById('logo').classList.add("animatedClass1");
+        // function scoreRender() (outside of vue object)
+    generateGold: function() {
+        // calculate the amount of question percent answered by the user
+        correctPercent = Math.round(100 * this.correctQs/questionsArr.length);
+        let goldMult = 1;
+
+        (correctPercent == 100) ? (goldMult = 4):
+        (correctPercent >= 70) ? (goldMult = 3):
+        (correctPercent >= 50) ? (goldMult = 2):
+        (goldMult = 1);
+
+        this.totalGoldEarned += (this.sessionDmgDealt * goldMult);
+
+        console.log(`x${goldMult} gold for ${correctPercent}% correct earning you ${totalGoldEarned}`);
+
+        //  // choose the image based on the scorePerCent
+        //  let img = (scorePerCent >= 80) ? "img/5.png" :
+        //            (scorePerCent >= 60) ? "img/4.png" :
+        //            (scorePerCent >= 40) ? "img/3.png" :
+        //            (scorePerCent >= 20) ? "img/2.png" :
+        //            "img/1.png";
+        //  scoreDiv.style.backgroundImg = "url('some/path/here.jpg')";
+    },
 
 // make separate function for red bg so it can be timed out
     reddenBackground: function(){
@@ -153,61 +234,6 @@ var vueOne = new Vue({
     }
   });
 
-// OVERHAUL: how od I use a "post" request to local storage in VUE to add an object to this array so I can make new questions from a custom form?
-// INC: put choices into an array and randomize it
-// shortened for "kanji question"
-const kanQ = "What does this Kanji mean?";
-
-// create our questions
-let questionsArr = [
-  {
-    // the text for the question
-      question : kanQ,
-    //   Image for the question, committed to #qImg area
-    // Naming convention note: Make sure the image names contain the English meaning for ease of adding answers
-      imgSrc : "../../img/kan/circle_kan.png",
-      choiceA : "Circle",
-      choiceB : "Nine",
-      choiceC : "Arm",
-      choiceD : "Sword",
-      correct : "A"
-  },{
-      question : kanQ,
-      imgSrc : "../../img/kan/begin_kan.png",
-      choiceA : "Farm",
-      choiceB : "Begin",
-      choiceC : "Light",
-      choiceD : "Sword",
-      correct : "B"
-  },{
-      question : kanQ,
-      imgSrc :  "../../img/kan/stomach_kan.png",
-      choiceA : "Sword",
-      choiceB : "Bean",
-      choiceC : "Stomach",
-      choiceD : "Wing",
-      correct : "C"
-  },
-  {
-    question : kanQ,
-    imgSrc :  "../../img/kan/only_kan.png",
-    choiceA : "Art",
-    choiceB : "Beach",
-    choiceC : "Fish",
-    choiceD : "Only",
-    correct : "D"
-},
-{
-    question : kanQ,
-    imgSrc :  "../../img/kan/centurion_kan.png",
-    choiceA : "Night",
-    choiceB : "Car",
-    choiceC : "Page",
-    choiceD : "Tree",
-    correct : "C"
-}
-];
-
 // Hit and miss messages
 
 let missMessages = [
@@ -247,9 +273,9 @@ function randomMsgFromArray(arr){
 }
 
 function randomHitMessage() {
-    if (this.vueOne.responseTime() == 3){
+    if (this.VueOne.responseTime() == 3){
         return randomMsgFromArray(strongHitMessages);
-    } else if (this.vueOne.responseTime() == 2){
+    } else if (this.VueOne.responseTime() == 2){
         return randomMsgFromArray(normalHitMessages)
     } else {
         return randomMsgFromArray(weakHitMessages)
@@ -266,9 +292,6 @@ let count = 0;
 
 let TIMER;
 // instantiate score variable
-// Changed from "score" to track the number of correct questions 
-// (the important score is the damage dealt to the slime)
-let correctQs = 0;
 
 // render the current question
 // making a placeholder in case I need to access this outside of the function l8r.
@@ -381,7 +404,19 @@ function checkRemainingCards(){
         // end the quiz and show the score
         clearInterval(TIMER);
         disableCardInputs();
-        scoreRender();
+        // generate gold upon finishing cards
+        this.VueOne.generateGold();
+        //  INC save gold to local storage
+        // game ends so show the ending message
+        scoreDiv.style.display = "flex";
+
+        scoreDiv.innerHTML += "<p> <span id='dmgScored'> " + this.VueOne.sessionDmgDealt+ "</span> damage dealt! <br>"+ this.VueOne.correctPercent +"% correct, " +  this.VueOne.correctQs + " out of " + questionsArr.length + " questions </p> <p id='goldEarnedMsg'>" +  + "gold earned </p> <button value='Refresh Page' onClick='window.location.reload();'> Back to title </button>";
+
+        // INC slime slain bonus
+        // if(slimeSlain){
+        //     totalGoldEarned += 100;
+        //     scoreDiv.innerHTML += "<p id='slimeSlainMsg'> Bonus 100 gold for slaying the slime! </p>";
+        // }
     }
 }
 
@@ -391,7 +426,7 @@ function checkAnswer(answer){
   if( answer == questionsArr[currentQuestionIdx].correct){
       // if the answer of the current question is correct, incrememt score, then run the function associated with "correct"
     //   
-      correctQs++;
+      this.VueOne.correctQs++;
     // ********* moved to vue object!!!!!! ******  
     // scoreFromResponseTime();
       answerIsCorrect();
@@ -407,35 +442,16 @@ function checkAnswer(answer){
 function answerIsCorrect(){
     document.getElementById(currentQuestionIdx).style.backgroundColor = "#0f0";
     // Punch the slime!
-    this.vueOne.punchSlime();
-    hitMsg.innerHTML = `${randomHitMessage()} ` + vueOne.bumper + " damage";
+    this.VueOne.punchSlime();
+    hitMsg.innerHTML = `${randomHitMessage()} ` + VueOne.bumper + " damage";
 }
 
 // answer is Wrong
 function answerIsWrong(){
     document.getElementById(currentQuestionIdx).style.backgroundColor = "#f00";
-    this.vueOne.missSlime();
+    this.VueOne.missSlime();
     //   INC **** itterate through an array of "miss" messages, ducks under the blow, you swing wide, slinks away from the strike
     hitMsg.innerHTML = `${randomMissMessage()}`
-}
-
-// render the score 
-function scoreRender(){
-    scoreDiv.style.display = "flex";
-    // calculate the amount of question percent answered by the user
-    const correctPercent = Math.round(100 * correctQs/questionsArr.length);
-    
-  //  // choose the image based on the scorePerCent
-  //  let img = (scorePerCent >= 80) ? "img/5.png" :
-  //            (scorePerCent >= 60) ? "img/4.png" :
-  //            (scorePerCent >= 40) ? "img/3.png" :
-  //            (scorePerCent >= 20) ? "img/2.png" :
-  //            "img/1.png";
-   
-  //  scoreDiv.innerHTML = "<img src="+ img +">";
-
-//   Change to questions correct and total damage dealt
- scoreDiv.innerHTML += "<p> <span id='dmgScored'> " + this.vueOne.totalDmgDealt+ "</span> damage dealt! <br>"+ correctPercent +"% correct, " +  correctQs + " out of " + questionsArr.length + " questions </p> <button value='Refresh Page' onClick='window.location.reload();'> Back to title </button>";
 }
 
 function myFunction() {
