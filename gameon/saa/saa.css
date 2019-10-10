@@ -1,0 +1,63 @@
+#saa-container {
+  border: 5px solid violet;
+  background-image: url("../../img/saaPlain.PNG");
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 400px;
+  width: 600px;
+  position: relative;
+}
+
+#box-1{
+  border: 5px solid lime;
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  top: 60px;
+  left:120px;
+}
+#box-2{
+  border: 5px solid cyan;
+  height: 50px;
+  width: 60px;
+  position: absolute;
+  top: 200px;
+  left:180px;
+}
+#box-3{
+  border: 5px solid coral;
+  height: 30px;
+  width: 40px;
+  position: absolute;
+  top: 123px;
+  left:493px;
+}
+#box-4{
+  border: 5px solid blueviolet;
+  height: 35px;
+  width: 80px;
+  position: absolute;
+  top: 80px;
+  left:213px;
+}
+#box-5{
+  border: 5px solid rgb(240, 221, 54);
+  height: 40px;
+  width: 80px;
+  position: absolute;
+  top: 123px;
+  left:213px;
+}
+
+#bullets{
+  border: 5px solid rgb(255, 0, 149);
+  background-image: url("../../img/bulletBelt.PNG");
+  background-size: cover;
+  background-position: center;
+  height: 105px;
+  width:400px;
+  position: absolute;
+  top: 280px;
+  left:183px;
+}

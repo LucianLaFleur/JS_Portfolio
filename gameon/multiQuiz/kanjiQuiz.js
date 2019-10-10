@@ -221,6 +221,7 @@ var VueOne = new Vue({
         if(this.health <= 0){
           console.log('Slime defeated!')
           this.slimeSlain = true;
+          this.totalSlimesSlain = (this.totalSlimesSlain + 1)
         };
       },
       missSlime: function() {
@@ -435,7 +436,7 @@ function checkRemainingCards(){
             this.VueOne.sessionGoldEarned += 100;
             scoreDiv.innerHTML += "<p id='slimeSlainMsg'> Bonus 100 gold for slaying the slime! </p>"}
             // check if the hundred slay bonus is added
-            console.log("gold earned this session : " + this.VueOne.sessionGoldEarned)
+            console.log("gold earned this session : " + this.VueOne.sessionGoldEarned + " and killed " + this.VueOne.totalSlimesSlain + " total slimes")
     }
 }
 
