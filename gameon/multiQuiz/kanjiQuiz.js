@@ -53,8 +53,8 @@ var vueOne = new Vue({
         //   make a switch to hide damage dealt message when no attack has yet been done
         punched: false,
         // Minimum and maximum swing damage
-        minSwingDmg: 3,
-        maxSwingDmg: 7,
+        minSwingDmg: 5,
+        maxSwingDmg: 10,
         //   make a bumper to store damage from dealt attack
         bumper: 0,
         responseTimeBonus: 1,
@@ -69,30 +69,31 @@ var vueOne = new Vue({
     },
     methods: {
 
-    scoreFromResponseTime: function() {
+        // Thresholds for fast, med, and slow responses below
+    responseTime: function() {
         if(count <= 3){
-            responseTimeBonus = 3;
-            strongHit = true;
-            console.log("quick bonus!");
+            return 3;
         } else if (count <= 6){
-            responseTimeBonus = 2;
-            normHit = true;
-            console.log("normal speed");
+            return 2;
         } else {
-            responseTimeBonus = 1;
-            normHit = true;
-            console.log("slow response");
+            return 1;
         }
     },
 
         // make a random num generator to use for punch damage values
     generateRandInt: function() {
         let randNum = 0;
+        let damNum = 0;
+        let mult;
+
         randNum += Math.floor(Math.random() * (this.maxSwingDmg - +this.minSwingDmg)) + this.minSwingDmg;
-        // damNum = randNum*responseTimeBonus
-        console.log(`${randNum} dmg generated on hit`);  
-        this.totalDmgDealt += randNum;
-        return randNum;
+        // check timer for response time bonus
+        mult = this.responseTime();
+        // Calculate damage with time multiplier
+        damNum = randNum * mult;
+        console.log(`${randNum} dmg generated, multiplied by ${mult} for ${damNum} damage to slime`);  
+        this.totalDmgDealt += damNum;
+        return damNum;
         },
 
 // add a class to control the animation of the axe over the slime
@@ -416,7 +417,7 @@ function scoreRender(){
   //  scoreDiv.innerHTML = "<img src="+ img +">";
 
 //   Change to questions correct and total damage dealt
- scoreDiv.innerHTML += "<p> <span id='dmgScored'> " + this.vueOne.totalDmgDealt+ "</span> damage dealt! <br>"+ correctPercent +"% correct, " +  correctQs + " out of " + questionsArr.length + " questions </p>";
+ scoreDiv.innerHTML += "<p> <span id='dmgScored'> " + this.vueOne.totalDmgDealt+ "</span> damage dealt! <br>"+ correctPercent +"% correct, " +  correctQs + " out of " + questionsArr.length + " questions </p> <button value='Refresh Page' onClick='window.location.reload();'> Back to title </button>";
 }
 
 function myFunction() {

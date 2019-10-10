@@ -566,6 +566,7 @@ VUE items can't take to the grid...*/
 }
 
 #scoreContainer{
+  pointer-events: auto;
   grid-area: i;
   background-image: url("../../img/axeVector.png");
   background-size: 75%;
@@ -578,6 +579,8 @@ VUE items can't take to the grid...*/
   height: 128%;
   display: none;
     align-items: center;
+    justify-content: center;
+    flex-direction: column;
   margin : 5px 20px;
   z-index: 3;
 }
@@ -589,10 +592,25 @@ VUE items can't take to the grid...*/
   text-align: center;
 }
 
+#scoreContainer button{
+  background: rgba(30, 18, 133, 0.849);;
+  border:3px solid rgb(85, 253, 85);
+  color: gold;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 22px;
+  font-weight: 600;
+  height: 50px;
+  padding: 0 5px;
+  box-shadow: 5px 5px 5px 0px #000;
+}
+#scoreContainer button:hover{
+  background-color:rgb(21, 247, 255);
+}
+
 #dmgScored {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  background: black;
-  color:red;
+  background:#225;
+  color:gold;
   padding: 0 4px;
 }
 
