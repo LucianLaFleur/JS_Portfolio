@@ -97,6 +97,8 @@ function validateAll(){
   }
 }
 
+const STORAGE_KEY = 'item-storage';
+
 var cartController = new Vue({
   // can target el as a class, just like CSS
   //  ex: <section class="cartApp">
@@ -107,19 +109,25 @@ var cartController = new Vue({
       // {id: 0, itemName: 'placeholderItem', price: 555}
     ]
   },
+  // use lifecycle hook to display items from localstorage
+  created (){
+    // get stored object, or make an empty array if null
+    this.items = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')
+  },
   methods:{
     //  alt syntax : responseTime: function(){}
     addCartItem(input1) {
-      this.items.push({id: this.items.length, itemName: input1})
+      this.items.push({id: this.items.length, itemName: input1});
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(this.items))
     },
     removeItem(item) {
       // at the index of the item, remove that one item
-      this.items.splice(this.items.indexOf(item), 1)
+      this.items.splice(this.items.indexOf(item), 1);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(this.items));
     }
   }
 
 });
 
-console.log(this.cartController.items)
-
-//  set a timeout to make the newly purchased item be hilit with a bright cyan background for a few seconds at first
+//  set a timeout to make the newly purchased item be hilit with a bright cyan background for a few seconds at 
+// followsbuild a vue.js app using local storage with Program with Erik

@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js"></script>
   <title>IDW Snake game</title>
 
   <style>
@@ -38,7 +39,7 @@
       outline: 2px solid tomato;
       font-size: 15px;
       position: absolute;
-      top: 84px;
+      top: 71px;
       left:480px;
       cursor:pointer;
     }
@@ -50,6 +51,26 @@
       outline-color: lime;
       transition: all 0.2s linear;
     }
+    #clear-bank {
+      margin: 0 auto;
+      height:40px;
+      width: 120px;
+      outline: 2px solid tomato;
+      font-size: 15px;
+      position: absolute;
+      top: 113px;
+      left:480px;
+      cursor:pointer;
+    }
+    #clear-bank:hover{
+      background: rgb(173, 33, 8);
+      color: rgb(2, 2, 175);
+      font-weight: 700;
+      outline-width: 5px;
+      outline-color: rgb(0, 0, 0);
+      transition: all 0.2s linear;
+    }
+
     #canvas{
       display:block;
       margin: 0;
@@ -138,6 +159,24 @@
       margin:0;
       padding:0;
       z-index: -1;
+    }
+
+    #totalLoot {
+      position: absolute;
+      border: 5px solid tomato;
+      border-radius: 6px;
+      height: 57px;
+      width: 66px;
+      top: 0px;
+      left:605px;
+      margin:0;
+      padding: 4px 0 0 0;
+      text-align: center;
+    }
+
+    #totalLoot span{
+      color:green;
+      font-size: 33px;
     }
 
     #returnBtn{
@@ -299,6 +338,9 @@
     <button id="reset-btn" value="Refresh Page" onClick="window.location.reload();">
     Reset Button
     </button>
+    <button id="clear-bank" onClick="clearBank()";>
+      Delete Pts Bank
+    </button>
     <!-- make a value that shows on top of the canvas when game is lost -->
   </div>
   <p id="results"> hidden placeholder lorem ipsum dolor set</p>
@@ -308,6 +350,11 @@
  
 
   <div id="lootBag"></div>
+  <section class="ptsBank">
+    <div id="totalLoot">Total pts
+      <span id="totalPts">{{pts}}</span>
+    </div>
+</section>
 
   <!-- <div id="totalScore">Total points earned...</div> -->
   

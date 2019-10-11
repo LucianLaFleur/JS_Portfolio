@@ -60,18 +60,17 @@
   </div>
   <div class="cart-item-list">
   <!-- Placeholder for cart items -->
-    <ul id="item-collection">
+    <ul id="cart-viewer">
       <li v-for="item in items" class="cart-item">
-        <div class="cart-viewer">
-          <input class="toggle" type="checkbox" v-model="item.completed">
-          <label>{{item.itemName}}</label>
+          <!-- <input class="toggle" type="checkbox" v-model="item.completed"> -->
+          <label class="item-label">{{item.itemName}}</label>
           <button class="btn btn-danger" @click="removeItem(item)"> X</button>
-        </div>
       </li>
     </ul>
   </div>
-</div>
-<div id="cart-bottom">
+</div> 
+
+  <div id="cart-bottom">
     <div id="cart-total">
       Your total is: <span id="cart-price"> $12345324</span>
     </div>
@@ -109,7 +108,7 @@
         </div>
       </div>
       <a href="#cart-title" class="add-to-cart-btn" id="buy-bird"
-      @click="addCartItem('bird')">
+      @click="addCartItem('f-bird')">
       Add to cart!</a>
     </div>
     <div class="table-divider"></div>
@@ -141,7 +140,7 @@
             this is the music movement sweeping the nation!
         </div>
       </div>
-      <a href="#cart-title" class="add-to-cart-btn" id="buy-vaporwave" @click="addCartItem('vaporwave')">Add to cart!</a>
+      <a href="#cart-title" class="add-to-cart-btn" id="buy-vaporwave" @click="addCartItem('Vapor-Wave')">Add to cart!</a>
     </div>
     <div class="table-divider"></div>
   <!-- third pricing table******************* -->
@@ -171,7 +170,7 @@
           A lenghty description spanning many words but being more interesting than that usual lorem ipsum stuff which isn't even English, so it just comes off as super-pretentious to me, but that's just like, my opinion, man.
       </div>
     </div>
-    <a href="#cart-title" class="add-to-cart-btn" id="buy-moe" @click="addCartItem('Moe Spinner')">Add to cart!</a>
+    <a href="#cart-title" class="add-to-cart-btn" id="buy-moe" @click="addCartItem('Liquid-Anime')">Add to cart!</a>
     </div>
   </div>
 </section>  

@@ -99,7 +99,7 @@ const ctx = cvs.getContext('2d');
 // lootCtx.style.width = "100px";
 // lootCtx.style.height = "100px";
 
-
+// score key DOM elements
 var topKey = document.getElementById('topKey');
 var bottomKey = document.getElementById('bottomKey');
 
@@ -336,7 +336,7 @@ function makeFood(){
     });
     if(!flipped){
         // ctx.drawImage(spawnedFood, newfoodObject.x, newfoodObject.y, 32, 32);
-        console.log('food coords generated successfully');
+        // console.log('food coords generated successfully');
         // randomize the food selected from the array each time food is generated
         randomizeFood();
             break;
@@ -391,8 +391,6 @@ function direction(event){
 //                 }
 //             };
 
-
-
 // if(localStorage.getItem('items') === null){
     //             let items = [];
     //               document.getElementById('totalScore').innerHTML = "No score yet!"
@@ -436,6 +434,46 @@ function direction(event){
 //     }
 //   };
 
+const STORAGE_KEY = 'pts-storage';
+
+var gameController = new Vue({
+  el: '.ptsBank',
+  data: {
+    pts: 0
+  },
+  // use lifecycle hook to display pts from localstorage
+  created (){
+    // get stored pts or set to 0 if none in storage
+    this.pts = JSON.parse(localStorage.getItem(STORAGE_KEY) || '0')
+  },
+  methods:{
+    savePtsOnPickup(x) {
+      this.pts += (x);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(this.pts))
+},
+    // Placeholder from cart example
+    // removeItem(item) {
+    //   // at the index of the item, remove that one item
+    //   this.items.splice(this.items.indexOf(item), 1);
+    //   localStorage.setItem(STORAGE_KEY, JSON.stringify(this.items));
+    // }
+  }
+
+});
+
+// *** UTILITY FUNCTION FOR CONFIRMING PTS BANK DATA RESET ***
+function clearBank(){
+    let dataMsg;
+    if (confirm("Are you sure you want to clear all points earned?")) {
+        window.localStorage.clear();
+        dataMsg = "Okay, deleting all "
+        console.log(dataMsg + this.gameController.pts + " pts");
+    } else {
+        dataMsg = "aborted deletion process"
+        console.log(dataMsg);
+    }
+}
+
 // check for collision through a function
 function collision(head,array){
   for(let i = 0; i < array.length; i++){
@@ -446,6 +484,10 @@ function collision(head,array){
       }
   }
   return false;
+}
+
+function showPtsBank(){
+
 }
 
 // "draw" everything to the canvas with a draw function
@@ -528,8 +570,13 @@ let coincidence = (snakeX == newfoodObject.x && snakeY == newfoodObject.y)
     // add the item to the array with "push"
     // .unshift can visually show a difference here....
     consumedFood.push(spawnedFood);
-
+    //  increase score by the value of the food
     score+= foodValue;
+    // save that score to local storage on pickup
+    this.gameController.savePtsOnPickup(foodValue);
+    //  set the HTML for the pts bank object
+    showPtsBank();
+
     // conditionals keep voices from overlapping on each other
     if(spawnedFood == foodImg6){
         // console.log('Grizzly acquired!')
