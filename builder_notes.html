@@ -179,4 +179,41 @@ function rollDice(){
 for (var i = 1; i < 8; i++){
     rollDice();}
   </script>
+(confirm box ref)
+https://www.w3schools.com/js/tryit.asp?filename=tryjs_confirm
 
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  var txt;
+  if (confirm("Press a button!")) {
+    txt = "You pressed OK!";
+  } else {
+    txt = "You pressed Cancel!";
+  }
+  document.getElementById("demo").innerHTML = txt;
+}
+</script>
+
+
+(range slider reference)
+https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_js_rangeslider_round
+
+<div class="slidecontainer">
+    <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+    <p>Value: <span id="demo"></span></p>
+  </div>
+  
+  <script>
+  var slider = document.getElementById("myRange");
+  var output = document.getElementById("demo");
+  output.innerHTML = slider.value;
+  
+  slider.oninput = function() {
+    output.innerHTML = this.value;
+  }
+  </script>

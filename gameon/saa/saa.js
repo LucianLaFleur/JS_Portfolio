@@ -7,7 +7,10 @@
 // put inside of a vue object for later
 
 let progBar = document.getElementById('inbar-1');
-let xReport = document.getElementById('bar-xval');
+let barXVal = document.getElementById('bar-xval');
+let bowSlider = document.getElementById('bow-slider');
+let sliderXVal = document.getElementById('slider-xval');
+let bowLoaded = document.getElementById('bow-load-msg');
 let widthPercent = 1;
 
 function runBar(){
@@ -29,5 +32,28 @@ function runBar(){
   };
 
   function reportXVal(){
-    xReport.innerHTML = widthPercent
+    barXVal.innerHTML = widthPercent
+  };
+
+  // when slider is changed check for it's value
+  //  "this" is referring to "bow-slider", the element being acted upon within this scope
+  bowSlider.oninput = function(){
+    sliderXVal.innerHTML = this.value;
+    if(this.value < 6){
+      this.disabled = true;
+      bowLoaded.style.display = 'block';
+    };
   }
+
+  function shootBow(){
+    // other functions on shooting
+    bowSlider.disabled = false;
+    sliderXVal.innerHTML = "Thwap!!"
+    bowSlider.value = 100;
+    bowLoaded.style.display = 'none';
+    //  generate damage
+    // play arrow firing audio
+  }
+  // disable slider if < 5 , enable "fire" button INCOMPLETE, need to make element and set it to initially disabled; CSS to grey out and light up disabled/enabled btn
+
+
