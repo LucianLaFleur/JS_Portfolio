@@ -61,3 +61,21 @@
   top: 280px;
   left:183px;
 }
+
+.prog-bar{
+  background-color: #aaa;
+  height:20px;
+  width: 200px;
+}
+
+#inbar-1{
+  width: 2%;
+  height: 30px;
+  background-color:blue;
+}
+
+#bar-xval{
+  border: 4px solid lime;
+  height:20px; width:50px;
+  margin-top: 10px;
+}
