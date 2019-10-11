@@ -166,7 +166,7 @@ function validatePhone() {
 
 function validateAll(){
   if(goodName && goodZip && goodEMail && goodPhone){
-    alert('All fields are valid, thanks for partaking in this form demo');
+    alert('All fields are valid, thanks for partaking in this form demo. See JS file for regex used');
   } else {
     alert('You appear to have some missing or invalid fields');
   }

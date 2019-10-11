@@ -10,7 +10,173 @@
   <title>Pricing app front</title>
 </head>
 <body>
-  <div id="sample-form-validation" class="container">
+<nav id="top-navbar">
+    
+    <ul id="navbar-list">
+      <li>
+        <a class="nav-link" href="#">Home</a>
+      </li>
+      <li id="projectDropdown">
+        <a class="nav-link" id="projectLink" href="#">Other Projects</a>
+        <div class="pDropdown-content">
+            <a href="./gameon/idwSnake.html"> IDW Snake Game</a>
+            <a href="./gameon/multiSnake.html">Multi- Snake</a>
+            <a href="./gameon/multiQuiz/kanjiQuizIndex.html" target>Flashcards</a>
+            <a href="./mwo.html">MWO Page</a>
+          </div>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="top-page-title">
+    <span>A</span>
+    <span>m</span>
+    <span>a</span>
+    <span>z</span>
+    <span>i</span>
+    <span>n</span>
+    <span>g</span>
+    &nbsp;
+    <span>A</span>
+    <span>s</span>
+    <span>s</span>
+    <span>e</span>
+    <span>t</span>
+    <span>s</span>
+    <span>!</span>
+    <span>!</span>
+    <span>!</span>
+    <span>!</span>
+  </div>
+
+  <!-- Vue app for controlling cart data -->
+<section class="cartApp">
+
+<!-- cart display and adding items -->
+<!-- add to style instead of inline -->
+<div id="cart-container" >
+  <div id="cart-title" style="background:lime">
+    <span id="adder-title">Your cart items</span>
+  </div>
+  <div class="cart-item-list">
+  <!-- Placeholder for cart items -->
+    <ul id="item-collection">
+      <li v-for="item in items" class="cart-item">
+        <div class="cart-viewer">
+          <input class="toggle" type="checkbox" v-model="item.completed">
+          <label>{{item.itemName}}</label>
+          <button class="btn btn-danger" @click="removeItem(item)"> X</button>
+        </div>
+      </li>
+    </ul>
+
+    <div id="cart-bottom">
+      <div id="cart-total">
+        Your total is: <span id="cart-price"> $12345324</span>
+      </div>
+      <a href="#" id= "clear-cart-btn" class="btn black" onclick="alert('delete all not yet implemented')">Clear Cart Items</a>
+    </div>
+  </div>
+</div>
+
+  <div class="table-container">
+  <!-- first pricing table***************** -->
+    <div class="pricing-table table1">
+      <div class="pricing-header">
+        <div class="price">
+          <span>$</span>1,111,100
+        </div>
+        <div class="title">
+          Option 1
+        </div>
+      </div>
+
+      <div class="listing-contents">
+        <div class="product-pic">
+        </div>
+
+        <ul class="pricing-list">
+          <li>perk 1</li>
+          <div class="separator"></div>
+          <li>perk 2</li>
+          <div class="separator"></div>
+          <li>perk 3</li>
+          <div class="separator"></div>
+          <li>perk 4</li>
+        </ul>
+        <div class="description">
+            A lenghty description spanning many words but being more interesting than that usual lorem ipsum stuff which isn't even English, so it just comes off as super-pretentious to me, but that's just like, my opinion, man.
+        </div>
+      </div>
+      <a href="#cart-title" class="add-to-cart-btn" id="buy-bird"
+      @click="addCartItem('bird')">
+      add to cart!</a>
+    </div>
+    <div class="table-divider"></div>
+  <!-- second pricing table***************** -->
+    <div class="pricing-table table2">
+      <div class="pricing-header">
+        <div class="price">
+          <span>$</span>2,222,200
+        </div>
+        <div class="title">
+          Option 2
+        </div>
+      </div>
+
+      <div class="listing-contents">
+        <div class="product-pic">
+        </div>
+        <ul class="pricing-list">
+          <li>perk 1</li>
+          <div class="separator"></div>
+          <li>perk 2</li>
+          <div class="separator"></div>
+          <li>perk 3</li>
+          <div class="separator"></div>
+          <li>perk 4</li>
+        </ul>
+        <div class="description">
+            A lenghty description spanning many words but being more interesting than that usual lorem ipsum stuff which isn't even English, so it just comes off as super-pretentious to me, but that's just like, my opinion, man.
+        </div>
+      </div>
+      <a href="#cart-title" class="add-to-cart-btn" id="buy-vaporwave" @click="addCartItem('vaporwave')">dummy link</a>
+    </div>
+    <div class="table-divider"></div>
+  <!-- third pricing table******************* -->
+  <div class="pricing-table table3">
+    <div class="pricing-header">
+      <div class="price">
+        <span>$</span>3,333,333
+      </div>
+      <div class="title">
+        Option 3
+      </div>
+    </div>
+
+    <div class="listing-contents">
+      <div class="product-pic">
+      </div>
+      <ul class="pricing-list">
+        <li>perk 1</li>
+        <div class="separator"></div>
+        <li>perk 2</li>
+        <div class="separator"></div>
+        <li>perk 3</li>
+        <div class="separator"></div>
+        <li>perk 4</li>
+      </ul>
+      <div class="description">
+          A lenghty description spanning many words but being more interesting than that usual lorem ipsum stuff which isn't even English, so it just comes off as super-pretentious to me, but that's just like, my opinion, man.
+      </div>
+    </div>
+    <a href="#cart-title" class="add-to-cart-btn" id="buy-moe" @click="addCartItem('Moe Spinner')">dummy link</a>
+    </div>
+  </div>
+</section>  
+
+<!-- form validation thing below -->
+<div id="sample-form-validation" class="container">
     <div class="row">
       <div class="col-md-6 mx-auto">
         <h1>Dummy form validaitons</h1>
@@ -52,145 +218,11 @@
     </div>
   </div>
 
-  <div class="top-page-title">
-    <span>A</span>
-    <span>m</span>
-    <span>a</span>
-    <span>z</span>
-    <span>i</span>
-    <span>n</span>
-    <span>g</span>
-    &nbsp;
-    <span>A</span>
-    <span>s</span>
-    <span>s</span>
-    <span>e</span>
-    <span>t</span>
-    <span>s</span>
-    <span>!</span>
-    <span>!</span>
-    <span>!</span>
-    <span>!</span>
-  </div>
-
-  <!-- Vue app for controlling cart data -->
-<section class="cartApp">
-
-<div class="table-container">
-<!-- first pricing table***************** -->
-  <div class="pricing-table table1">
-    <div class="pricing-header">
-      <div class="price">
-        <span>$</span>1,111,100
-      </div>
-      <div class="title">
-        Option 1
-      </div>
-    </div>
-
-    <div class="product-pic">
-    </div>
-
-    <ul class="pricing-list">
-      <li>perk 1</li>
-      <div class="separator"></div>
-      <li>perk 2</li>
-      <div class="separator"></div>
-      <li>perk 3</li>
-      <div class="separator"></div>
-      <li>perk 4</li>
-    </ul>
-    <div class="description">
-        A lenghty description spanning many words but being more interesting than that usual lorem ipsum stuff which isn't even English, so it just comes off as super-pretentious to me, but that's just like, my opinion, man.
-    </div>
-    <a href="#item-collection" class="add-to-cart-btn" id="buy-bird"
-    @click="addCartItem('bird')">
-    add to cart!</a>
-  </div>
-  <div class="table-divider"></div>
-<!-- second pricing table***************** -->
-   <div class="pricing-table table2">
-    <div class="pricing-header">
-      <div class="price">
-        <span>$</span>2,222,200
-      </div>
-      <div class="title">
-        Option 2
-      </div>
-    </div>
-
-    <div class="product-pic">
-    </div>
-    
-    <ul class="pricing-list">
-      <li>perk 1</li>
-      <div class="separator"></div>
-      <li>perk 2</li>
-      <div class="separator"></div>
-      <li>perk 3</li>
-      <div class="separator"></div>
-      <li>perk 4</li>
-    </ul>
-    <div class="description">
-        A lenghty description spanning many words but being more interesting than that usual lorem ipsum stuff which isn't even English, so it just comes off as super-pretentious to me, but that's just like, my opinion, man.
-    </div>
-    <a href="#item-collection" class="add-to-cart-btn" id="buy-vaporwave" @click="addCartItem('vaporwave')">dummy link</a>
-  </div>
-  <div class="table-divider"></div>
-<!-- third pricing table******************* -->
-<div class="pricing-table table3">
-  <div class="pricing-header">
-    <div class="price">
-      <span>$</span>3,333,333
-    </div>
-    <div class="title">
-      Option 3
-    </div>
-  </div>
-
-  <div class="product-pic">
-  </div>
-  
-  <ul class="pricing-list">
-    <li>perk 1</li>
-    <div class="separator"></div>
-    <li>perk 2</li>
-    <div class="separator"></div>
-    <li>perk 3</li>
-    <div class="separator"></div>
-    <li>perk 4</li>
-  </ul>
-  <div class="description">
-      A lenghty description spanning many words but being more interesting than that usual lorem ipsum stuff which isn't even English, so it just comes off as super-pretentious to me, but that's just like, my opinion, man.
-  </div>
-  <a href="#item-collection" class="add-to-cart-btn" id="buy-moe" @click="addCartItem('Moe Spinner')">dummy link</a>
-  </div>
-</div>
-<!-- cart display and adding items -->
-<!-- add to style instead of inline -->
-<div class="cart-container" 
-  style="height:250px;background:white;">
-  <div class="cart-title" style="background:lime">
-    <span class="adder-title">Your cart items</span>
-  </div>
-  <div class="cart-item-list">
-    <!-- Placeholder for cart items -->
-    <ul id="item-collection">
-      <li v-for="item in items" class="cart-item">
-        <div class="cart-viewer">
-          <input class="toggle" type="checkbox" v-model="item.completed">
-          <label>{{item.itemName}}</label>
-          <button class="btn btn-danger" @click="removeItem(item)"> X</button>
-        </div>
-
-      </li>
-    </ul>
-  <!-- <h3>Your cart total is ....<span id="total-price"></span></h3>
-  <a href="#" class="clear-cart btn black">Clear Cart Items</a>
-  </div> -->
-</div>
-
-</section>  
+  <footer id="footer-banner">
+    <div>$ &nbsp;O&nbsp; $</div>
+    <p>&copy; Straberry Summer Studios</p>
+    <div>$ &nbsp;O&nbsp; $</div>
+  </footer>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

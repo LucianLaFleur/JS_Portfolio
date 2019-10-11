@@ -11,6 +11,149 @@ body {
   --metalSea: rgb(85, 109, 155);
 }
 
+#top-navbar {
+  height: 72px;
+  background:rgba(51, 0, 68, 0.5);
+  width: 100%;
+  display: flex;
+  font-family: 'Exo 2', sans-serif;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#navbar-list {
+  /* border: 5px solid pink; */
+  position: absolute;
+  left:75px;
+  top: 0px;
+  list-style: none;
+  display:flex;
+  align-items: center;
+  flex-direction: row;
+  padding: 0;
+  margin:0;
+  box-sizing: border-box;
+  z-index: 100;
+}
+#navbar-list > li{
+  background: rgb(196, 243, 252);
+  border:3px solid rgb(241, 205, 43);
+  border-radius:20%;
+  text-align: center;
+  min-width:240px;
+  max-width: 360px;
+  width: 23vw;
+  padding: 0px 0 2px 0;
+  margin: 5px 20px;
+}
+#navbar-list > li:hover{
+  background:rgb(181, 147, 219);
+  border-color: lime;
+  transition: all 0.4s linear;
+}
+
+.nav-link {
+  color: var(--coastalNight);
+  font-size: 26px;
+  font-weight: 700;
+  text-decoration: none;
+  /* padding: 0 32px; */
+  transition:0.4s;
+}
+/* Projects dropdown list*/
+
+.pDropdown-content {
+  display: none;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  background-color: var(--frogGreen);
+  top: 54px;
+  left: -70px;
+  min-width:550px;
+  overflow: auto;
+  z-index: 1;
+  border: 5pt solid black;
+  border-radius:12px;
+}
+
+.pDropdown-content a {
+  outline:3px solid var(--frogGreen);
+  color: gold;
+  background-color:rgb(84, 40, 121);
+  height: 50px;
+  min-width: 120px;
+  width: 18vw;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 5px;
+  margin: 10px 5px;
+}
+.pDropdown-content a:hover {
+  color: #eda8ff;
+  cursor: pointer;
+  outline-offset: -5px;
+  outline: 5px solid lime;
+  transition: 0.3s;
+}
+
+#projectDropdown:hover .pDropdown-content {
+  display: flex;
+}
+
+/* The shopping cart */
+#cart-container{
+  border: 4px solid gold;
+  background:rgba(51, 0, 68, 0.5);
+  float: left;
+  min-height: 330px;
+  height: 100%;
+  width: 20vw;
+  clear: both;
+  margin: 48px 0 0 0;
+  position: relative;
+}
+
+#cart-bottom{
+  border: 4px solid pink;
+  background: var(--metalSea);
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position:absolute;
+  bottom: 0;
+}
+#cart-total{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size:20px;
+  font-weight: 550;
+  color:lime;
+}
+#cart-price{
+  background: black;
+  color:green;
+  padding: 2px 4px;
+}
+#clear-cart-btn{
+  background-color: rgba(248, 70, 70, 0.699);
+  color: #222;
+  font-weight: 650;
+  border: 2px solid black;
+  border-radius: 8px;
+  margin: 5px 2px;
+}
+#clear-cart-btn:hover{
+  background-color: rgb(235, 33, 33);
+}
+/* validation demo at bottom of page */
+
 #sample-form-validation{
   background: rgba(0, 0, 0, 0.651);
   color:gold;
@@ -206,14 +349,30 @@ body {
       font-size:40px;
       margin: 20px 0 0 0px;
     }
-    .container {
+    #cart-container{
+      border: 4px solid gold;
+      background:rgba(51, 0, 68, 0.5);
+      float: left;
+      min-height: 330px;
+      height: 100%;
+      width: 70vw;
+      clear: both;
+      margin: 30px 0 -5px 13vw;
+    }
+    
+    .table-container {
+      border: 5px solid blue;
       padding: 10px 0px;
-      margin: 0 -10px 0 -10px;
+      margin: 0 -10px;
+      width: 780px;
     }
     .pricing-table{
       flex: 100%;
       height: 76vh;
-      margin: 22px -40px;
+      margin: 22px 0px;
+    }
+    .pricing-list{
+      width: 80vw;
     }
     .product-pic {
       /*  placeholder*/
@@ -257,4 +416,24 @@ body {
   .table3 .product-pic {
     background-image: url("../../../img/fingerSpin.gif");
     background-size: contain;
+  }
+
+  #footer-banner{
+    background:black;
+    color: yellow;
+    height:120px;
+    min-width: 620px;
+    display: flex;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      font-size: 36px;
+      letter-spacing: 2px;
+      text-align: center;
+    align-items: center;
+    justify-content: space-around;
+    margin: 25px 0;
+  }
+  #footer-banner div{
+    background:green;
+    padding: 1px 10px;
+    min-width:145px;
   }

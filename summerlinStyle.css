@@ -16,8 +16,7 @@ main {
   margin: 0 auto;
 }
 
-/* Search Box */
-
+/* Search Box 
 #searchbox {
   position: fixed;
   display:none;
@@ -31,19 +30,17 @@ main {
 }
 #magGlass{
   background: gold;
-  /* border: 2px solid lime; */
   border-radius:4px;
   float:left;
   position: fixed;
   padding: 2px;
   margin: 10px 0 0 -30px;
 }
-
 #searchbox input {
   height: 36px;
   width: 100%;
   margin: 0 80px 0 0;
-}
+} */
 
 /* Navigation bar styling */
 #logo-icon{
