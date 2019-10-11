@@ -111,24 +111,35 @@ body {
   border: 4px solid gold;
   background:rgba(51, 0, 68, 0.5);
   float: left;
-  min-height: 330px;
+  clear: both;
+  min-height: 300px;
+  min-width:210px;
   height: 100%;
   width: 20vw;
-  clear: both;
   margin: 48px 0 0 0;
-  position: relative;
+  display: block;
+}
+
+#cart-title{
+  text-align:center;
+  text-decoration: underline;
+  color:gold;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  letter-spacing: 1px;
+  font-size: 28px;
 }
 
 #cart-bottom{
+  float: left;
+  clear: both;
   border: 4px solid pink;
   background: var(--metalSea);
-  width: 100%;
+  width: 20vw;
+  min-width: 210px;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  position:absolute;
-  bottom: 0;
 }
 #cart-total{
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -152,25 +163,8 @@ body {
 #clear-cart-btn:hover{
   background-color: rgb(235, 33, 33);
 }
-/* validation demo at bottom of page */
 
-#sample-form-validation{
-  background: rgba(0, 0, 0, 0.651);
-  color:gold;
-  padding: 20px;
-}
-
-#submit-btn{
-  color: orange;
-  background: #225;
-  letter-spacing: 1px;
-  font-size: 25px;
-  font-weight: 700;
-  outline: 5px solid grey;
-}
-#submit-btn:hover {
-  cursor: pointer; 
-}
+/* Shopping contents */
 
   .top-page-title {
     background: var(--coastalNight);
@@ -182,6 +176,7 @@ body {
     padding: 10px 0 10px 0;
     outline: 5px solid gold;
   }
+  /* Making the alternating colord in the title with nth child selector */
   .top-page-title span:nth-child(even) {
     color:lime;}
   .top-page-title span:nth-child(odd) {
@@ -192,7 +187,7 @@ body {
     /* border: 5px solid blue; */
     max-width: 1000px;
     /* min width for individual display, see media below for 100% stretch display */
-    min-width: 640px;
+    min-width: 540px;
     margin: auto;
     padding: 40px 20px;
     display: flex;
@@ -213,10 +208,13 @@ body {
     background: rgb(85, 109, 155);
     flex: 1;
     position: relative;
-    height: 655px;
+    height: 100%;
+    min-height: 100px;
+    min-width: 300px;
     margin: 10px; 
     outline: 3px solid orange;
     transition: all .2s linear 0.1s;
+    padding: 0 0 45px 0;
   }
   .pricing-table:hover {
   outline-width: 8px;
@@ -264,6 +262,7 @@ body {
     max-width: 300px;
   }
 
+
   /* Product picture not yet implemented......... 
   maybe use backgrounds and give each product-pic an ID for the target element
   */
@@ -271,11 +270,11 @@ body {
     /* display:none; */
     color:white;
     position: absolute;
-    top: 22%;
+    top: 27%;
     left: 55%;
     border: 5px solid gold;
-    height: 88px;
-    width: 88px;
+    height: 120px;
+    width: 120px;
     float: left;
     z-index: 1;
   }
@@ -361,10 +360,9 @@ body {
     }
     
     .table-container {
-      border: 5px solid blue;
       padding: 10px 0px;
       margin: 0 -10px;
-      width: 780px;
+      min-width: 640px;
     }
     .pricing-table{
       flex: 100%;
@@ -373,6 +371,8 @@ body {
     }
     .pricing-list{
       width: 80vw;
+      min-width: 650px;
+      margin-left:10px;
     }
     .product-pic {
       /*  placeholder*/
@@ -418,22 +418,42 @@ body {
     background-size: contain;
   }
 
-  #footer-banner{
-    background:black;
-    color: yellow;
-    height:120px;
-    min-width: 620px;
-    display: flex;
-      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-      font-size: 36px;
-      letter-spacing: 2px;
-      text-align: center;
-    align-items: center;
-    justify-content: space-around;
-    margin: 25px 0;
-  }
-  #footer-banner div{
-    background:green;
-    padding: 1px 10px;
-    min-width:145px;
-  }
+  /* validation demo at bottom of page */
+
+#sample-form-validation{
+  background: rgba(0, 0, 0, 0.651);
+  color:gold;
+  padding: 20px;
+}
+
+#submit-btn{
+  color: orange;
+  background: #225;
+  letter-spacing: 1px;
+  font-size: 25px;
+  font-weight: 700;
+  outline: 5px solid grey;
+}
+#submit-btn:hover {
+  cursor: pointer; 
+}
+
+#footer-banner{
+  background:black;
+  color: yellow;
+  height:120px;
+  min-width: 620px;
+  display: flex;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 36px;
+    letter-spacing: 2px;
+    text-align: center;
+  align-items: center;
+  justify-content: space-around;
+  margin: 25px 0;
+}
+#footer-banner div{
+  background:green;
+  padding: 1px 10px;
+  min-width:145px;
+}

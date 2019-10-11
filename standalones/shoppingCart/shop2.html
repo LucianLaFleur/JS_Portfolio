@@ -55,7 +55,7 @@
 <!-- cart display and adding items -->
 <!-- add to style instead of inline -->
 <div id="cart-container" >
-  <div id="cart-title" style="background:lime">
+  <div id="cart-title">
     <span id="adder-title">Your cart items</span>
   </div>
   <div class="cart-item-list">
@@ -69,25 +69,24 @@
         </div>
       </li>
     </ul>
-
-    <div id="cart-bottom">
-      <div id="cart-total">
-        Your total is: <span id="cart-price"> $12345324</span>
-      </div>
-      <a href="#" id= "clear-cart-btn" class="btn black" onclick="alert('delete all not yet implemented')">Clear Cart Items</a>
-    </div>
   </div>
 </div>
+<div id="cart-bottom">
+    <div id="cart-total">
+      Your total is: <span id="cart-price"> $12345324</span>
+    </div>
+    <a href="#" id= "clear-cart-btn" class="btn black" onclick="alert('delete all not yet implemented')">Clear Cart Items</a>
+  </div>
 
   <div class="table-container">
   <!-- first pricing table***************** -->
     <div class="pricing-table table1">
       <div class="pricing-header">
         <div class="price">
-          <span>$</span>1,111,100
+          <span>$</span>13
         </div>
         <div class="title">
-          Option 1
+          McFlappy
         </div>
       </div>
 
@@ -96,31 +95,32 @@
         </div>
 
         <ul class="pricing-list">
-          <li>perk 1</li>
+          <li>Simple</li>
           <div class="separator"></div>
-          <li>perk 2</li>
+          <li>Reliable</li>
           <div class="separator"></div>
-          <li>perk 3</li>
+          <li>Flappy</li>
           <div class="separator"></div>
-          <li>perk 4</li>
+          <li>Entertaining</li>
         </ul>
         <div class="description">
-            A lenghty description spanning many words but being more interesting than that usual lorem ipsum stuff which isn't even English, so it just comes off as super-pretentious to me, but that's just like, my opinion, man.
+           This little bird will keep you company
+           for hours on end. He may need a bit of guidance, but he's a strong-willed pet. Never afraid to keep on flappin'.
         </div>
       </div>
       <a href="#cart-title" class="add-to-cart-btn" id="buy-bird"
       @click="addCartItem('bird')">
-      add to cart!</a>
+      Add to cart!</a>
     </div>
     <div class="table-divider"></div>
   <!-- second pricing table***************** -->
     <div class="pricing-table table2">
       <div class="pricing-header">
         <div class="price">
-          <span>$</span>2,222,200
+          <span>$</span>87
         </div>
         <div class="title">
-          Option 2
+          Vaporwave
         </div>
       </div>
 
@@ -128,29 +128,30 @@
         <div class="product-pic">
         </div>
         <ul class="pricing-list">
-          <li>perk 1</li>
+          <li>Chill</li>
           <div class="separator"></div>
-          <li>perk 2</li>
+          <li>Nostalgic</li>
           <div class="separator"></div>
-          <li>perk 3</li>
+          <li>Neon</li>
           <div class="separator"></div>
-          <li>perk 4</li>
+          <li>80's</li>
         </ul>
         <div class="description">
-            A lenghty description spanning many words but being more interesting than that usual lorem ipsum stuff which isn't even English, so it just comes off as super-pretentious to me, but that's just like, my opinion, man.
+            Capture the essence of a bygone time with electronically-bottled nostalgia! From synth samples to lo-fi electronica,
+            this is the music movement sweeping the nation!
         </div>
       </div>
-      <a href="#cart-title" class="add-to-cart-btn" id="buy-vaporwave" @click="addCartItem('vaporwave')">dummy link</a>
+      <a href="#cart-title" class="add-to-cart-btn" id="buy-vaporwave" @click="addCartItem('vaporwave')">Add to cart!</a>
     </div>
     <div class="table-divider"></div>
   <!-- third pricing table******************* -->
   <div class="pricing-table table3">
     <div class="pricing-header">
       <div class="price">
-        <span>$</span>3,333,333
+        <span>$</span>18
       </div>
       <div class="title">
-        Option 3
+        Liquid Anime
       </div>
     </div>
 
@@ -170,7 +171,7 @@
           A lenghty description spanning many words but being more interesting than that usual lorem ipsum stuff which isn't even English, so it just comes off as super-pretentious to me, but that's just like, my opinion, man.
       </div>
     </div>
-    <a href="#cart-title" class="add-to-cart-btn" id="buy-moe" @click="addCartItem('Moe Spinner')">dummy link</a>
+    <a href="#cart-title" class="add-to-cart-btn" id="buy-moe" @click="addCartItem('Moe Spinner')">Add to cart!</a>
     </div>
   </div>
 </section>  
