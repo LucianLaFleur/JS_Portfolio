@@ -4,8 +4,9 @@
 //   document.getElementById("tar1").innerHTML = rng.value;
 // }
 
-// put inside of a vue object for later
+// INC: put major things inside of a vue object for later
 // INC: keyboard bindings for different inputs
+// INC: need to add pulling back the hammer
 
 let progBar = document.getElementById('inbar-1');
 let tar1 = document.getElementById('target-chunk-1');
@@ -16,6 +17,7 @@ let bowLoaded = document.getElementById('bow-load-msg');
 let stopBarBtn = document.getElementById('stop-bar-btn');
 let ammoDisplay = document.getElementById('ammo-display');
 let casesDisplay = document.getElementById('cases-display');
+let clearChamberDisplay = document.getElementById('clear-chambers');
 let fireBtn = document.getElementById('fire-btn');
 let SAAreload = document.getElementById('saa-reload-btn');
 let SAAeject = document.getElementById('saa-eject-btn');
@@ -62,7 +64,7 @@ function checkForLoadedBullets(){
 function showChamberStats() {
   ammoDisplay.innerHTML = bulletsLoaded + " remaining";
   casesDisplay.innerHTML = emptyCases + " empty casings";
-  
+  clearChamberDisplay.innerHTML = clearChambers + " clear chambers";
 }
 
 function fireBar(){
@@ -89,9 +91,6 @@ function fireBar(){
     }, 1050);
     showChamberStats;
 
-    if(bulletsLoaded == 0){
-      fireBtn.disabled = true;
-    }
   };
 
   // function disableBtn(btn) {
@@ -117,7 +116,18 @@ function fireBar(){
   // test roll of 4d6
   // roll4d6();
 
-  // function reportXVal(){
+  // setup the event listener to recieve the spacebar input
+  document.addEventListener("keydown", fire);
+  // space is key code 32
+  function fire(event){
+    let key = event.keyCode;
+    //  the && exceptions prohibit it from turning the opposite direction.
+    if( (key == 32) && (bulletsLoaded != 0)){
+        fireBar();
+    }
+  };
+
+  // function reportXVal(), stopping the bar{
   function fireSAA(){
     bulletsLoaded -= 1;
     emptyCases += 1;
@@ -175,6 +185,7 @@ function fireBar(){
     setTimeout(function(){
       checkForClearChambers();
       checkForEmptyCases();
+      fireBtn.disabled = false;
       }, 350);
     }
   }

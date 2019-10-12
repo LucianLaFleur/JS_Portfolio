@@ -124,6 +124,10 @@
   width: 200px;
 }
 
+#instruction-msg{
+  border: 3px solid black;
+}
+
 #stop-bar-btn {
   border: 3px solid #a2a2a2;
 }
