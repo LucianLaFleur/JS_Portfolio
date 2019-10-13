@@ -5,6 +5,138 @@ body {
   background: #449;
 }
 
+#time-trial{
+  /* border: 3px solid cyan; */
+  display: flex;
+  flex-direction: column;
+}
+
+#clock{
+  position: relative;
+  background: violet; /* need a clock face here*/
+  width: 316px;
+  height:316px;
+}
+/* select all children from clock */
+#clock > #hh, #mh, #sh {
+  position: absolute;
+  transform-origin: bottom;
+  background: #09c;
+  border-radius: 7px;
+  opacity: 1;
+}
+#clock > #hh{
+  width: 12px;
+  height:90px;
+  top:68px;
+  left:152px;
+}
+#clock > #mh{
+  width: 6px;
+  height:120px;
+  top:38px;
+  left:155px;
+}
+#clock > #sh{
+  width: 2px;
+  height:130px;
+  top:29px;
+  left:157px;
+  opacity: 0.3;
+}
+
+#digiFace{
+  position: relative;
+  background: black;
+  border: 4px solid lime;
+  width: 800px;
+  height: 133px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#digiDisp div{
+  color: lime;
+  font-family: 'UnifrakturCook', cursive;
+  font-size: 75px ;
+}
+#amORpm{
+  color: lime;
+  font-size: 20px;
+  /* margin: -20px 0 0 0; */
+  position: absolute;
+  top: 0px;
+  left: 5px;
+}
+
+#countdown-control{
+ width: 400px;
+ position: relative;
+}
+
+#countdown-display{
+  border: 4px solid #09c;
+  background: black;
+  color:violet;
+  border-radius: 8px;
+  float:left;
+  text-align: center;
+  height:65px; width:90px;
+  padding: 5px 0 0 0; 
+}
+
+#timeinputhead {
+  border: 4px solid #09c;
+  background:rgb(80, 32, 102);
+  height: 55px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#timeinputhead label {
+  color: white;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: 550;
+  font-size: 26px;
+}
+
+#timesetters{
+  border: 4px solid violet;
+  display:flex;
+  justify-content: space-between;
+  /* margin: 10px 0 0 0; */
+}
+
+#timer-start-btn{
+  border: 4px solid black;
+  background: violet;
+  color:black;
+  font-weight:650;
+  box-shadow: 2px 0px 8px 2px gold;
+}
+
+#timeProgressBar {
+  background: #777;
+  border: 5px solid cyan;
+  height: 87px;
+  width: 398px;
+  position:absolute;
+  top:0;
+  left:400px;
+  display:flex;
+  align-items: center;
+}
+
+#inbar-1 {
+  color: yellow;
+  background: green;
+  height: 55px;
+  width: 100%;
+}
+/* ******************* */
+
 #title_header {
   background: #559;
   color:#dd9;
@@ -13,10 +145,10 @@ body {
 }
 
 .box1 {
-  position: absolute;
-  top: 57%;
-  left: 50%;
-  margin: 10px 0 0 -170px;
+  /* position: absolute; */
+  height:50px;
+  width: 500px;
+  margin: 10px 0px;
   padding:10px;
   background: white;
 }
@@ -48,11 +180,9 @@ body {
 }
 
 .grad_container {
-  position: absolute;
-  top: 30%;
-  left: 50%;
+  float: left;
+  clear: both;
   width:100vw;
-  transform: translate(-50%, -50%);
   text-align: center;
 }
 
@@ -93,12 +223,9 @@ body {
   color: #115;
   background: #fc5;
   font-family: monospace;
-  transform: translate(-50%, -50%);
   padding: 0 40px;
   height: 60px;
-  position:absolute;
-  top: 52%;
-  left:50%;
+  width: 130px;
   overflow: hidden;
 }
 .animated_line {
@@ -137,12 +264,8 @@ body {
 .city_skyline {
   background: url(./img/sciFiCity1.jpg);
   background-size:cover;
-  position: absolute;
-  top: 80%;
-  left: 50%;
   width: 780px;
   height: 500px;
-  transform: translate(-50%, -20%);
   text-align: center;
   margin: 80px 0;
 }

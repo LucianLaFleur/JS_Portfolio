@@ -7,15 +7,50 @@
   <link rel="stylesheet" href="./fixedpage1.css">
   <title>Document</title>
   <script src="//cdnjs.cloudflare.com/ajax/libs/bluebird/2.9.4/bluebird.min.js"></script>
-  <script src="./fixedpage1.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=UnifrakturCook:700&display=swap" rel="stylesheet">
+  
+  <script>
+    function setThirtyM() {
+      document.getElementById('timer-length').value = 1800;
+    }
+  </script>
 </head>
 <body>
 
 <!-- this shows color and animations for my portfolio projects -->
-<button onclick="countah(5)"> run countdown </button>
-      <div id="status" style="float:left;height:50px;width:90px; border: 4px solid lime;">
-        placeholder
+<!-- <button onclick="countah(5)"> run countdown </button> -->
+
+  <div id="clock">
+    <div id="hh"></div>
+    <div id="mh"></div>
+    <div id="sh"></div>
+  </div>
+  <div id="time-trial">
+    <div id="digiFace">
+      <div id="amORpm"></div>
+      <div id="digiDisp"></div>
+    </div>
+    <div id="countdown-control">
+      <div id="countdown-display">countdown placeholder</div>
+      <div id="timeinputhead">
+        <label for="timer-length">Timer Seconds</label>
+        <input type="number" style="width:50px" id="timer-length" value="900">
       </div>
+      <div id="timesetters">
+        <button id="thirty-min-quick" onclick="setThirtyM()">30 min timer</button>
+        <button id="timer-start-btn" onclick="countDown(document.getElementById('timer-length').value,'countdown-display')"> run the timer </button>
+        <button onclick="location.reload()">
+        <!-- "alert('not implemented, need to set interval and call to stop interval decrementation')" -->
+        stop timer</button>
+        <div id="timeProgressBar">
+            <div id="inbar-1"> 100 % not yet implemented</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
   <h1 id="title_header">Color and animation showcase</h1>
 
@@ -65,4 +100,5 @@
 <script type="text/javascript">
   // countDown(10, 'status');
 </script>
+<script src="./fixedpage1.js"></script>
 </html>
