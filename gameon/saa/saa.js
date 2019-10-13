@@ -7,6 +7,7 @@
 // INC: put major things inside of a vue object for later
 // INC: keyboard bindings for different inputs
 // INC: need to add pulling back the hammer
+// how to change cursor to image on click?
 
 let progBar = document.getElementById('inbar-1');
 let tar1 = document.getElementById('target-chunk-1');
@@ -52,7 +53,7 @@ function checkForClearChambers() {
 }
 
 function checkForLoadedBullets(){
-  if(clearChambers != 0){
+  if(bulletsLoaded != 0){
     SAAreload.style.borderColor = "gold"
     SAAreload.disabled = false;
   } else {
@@ -66,6 +67,44 @@ function showChamberStats() {
   casesDisplay.innerHTML = emptyCases + " empty casings";
   clearChamberDisplay.innerHTML = clearChambers + " clear chambers";
 }
+
+// changes positioning of target 1 to be from 30px from left to 136px from left
+// function moveTargetChunk(){
+//   let diceRoll = Math.ceil(Math.random()*106 + 30);
+//   tar1.style.left = diceRoll + "px";
+//   return diceRoll;
+// };
+
+function roll1d6(){
+  let diceRoll = Math.ceil(Math.random()*6);
+  console.log(`got a [::${diceRoll}::]`)
+  return diceRoll;
+};
+
+//  produces range from 4 - 24
+function roll4d6(){
+  total = 0;
+  for (var i = 1; i < 5; i++){
+    console.log(`roll # ${i}`);
+    total += roll1d6();}
+  console.log("total dmg: " + total); 
+  return total;
+};
+
+// test roll of 4d6
+roll4d6();
+
+// setup the event listener to recieve the spacebar input
+//  start the aim-bar progression when space is hit.
+  document.addEventListener("keydown", fire);
+  // space is key code 32
+  function fire(event){
+    let key = event.keyCode;
+    //  the && exceptions prohibit it from turning the opposite direction.
+    if( (key == 32) && (bulletsLoaded != 0)){
+        fireBar();
+    }
+  };
 
 function fireBar(){
   stopBarBtn.disabled = false;
@@ -93,40 +132,6 @@ function fireBar(){
 
   };
 
-  // function disableBtn(btn) {
-  //   btn.disabled = true;
-  //   btn.style.border = "3px solid #a2a2a2";
-  // }
-
-  function roll1d6(){
-    let diceRoll = Math.ceil(Math.random()*6);
-    // console.log(`got a [::${diceRoll}::]`)
-    return diceRoll;
-  };
-
-  function roll4d6(){
-    total = 0;
-    for (var i = 1; i < 5; i++){
-      // console.log(`roll # ${i}`);
-      total += roll1d6();}
-    console.log("total dmg: " + total); 
-    return total;
-  };
-
-  // test roll of 4d6
-  // roll4d6();
-
-  // setup the event listener to recieve the spacebar input
-  document.addEventListener("keydown", fire);
-  // space is key code 32
-  function fire(event){
-    let key = event.keyCode;
-    //  the && exceptions prohibit it from turning the opposite direction.
-    if( (key == 32) && (bulletsLoaded != 0)){
-        fireBar();
-    }
-  };
-
   // function reportXVal(), stopping the bar{
   function fireSAA(){
     bulletsLoaded -= 1;
@@ -150,7 +155,6 @@ function fireBar(){
     checkForEmptyCases();
     checkForClearChambers();
   };
-
 
   function ejectCasing(){
     if(emptyCases != 0){

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="saa.css">
+  <title>Vue Single-Action</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js"></script>
+</head>
+<body>
+  <div id="saa-container">
+    <div id="box-1"></div>
+    <div id="box-2"></div>
+    <div id="box-3"></div>
+    <div id="box-4"></div>
+    <div id="box-5"></div>
+    <div id="bullets"></div>
+   
+  </div>
+
+  <div id="bars-flex-container">
+    <div id="slider1">
+      <!-- shooty button, FUTURE: can change to class,run the shoot button when you click on an enemy to attack -->
+      <button id="bow-load-msg" onclick="shootBow()">Bow loaded!</button>
+      <!-- slider tool itself -->
+      <input type="range" min="1" max="100" value="97" class="sliders" id="bow-slider">
+      <!--word report on slider position  -->
+      <p id="slider-xval">slider default at 97</p>
+      
+    </div>
+    <div class="saaObj">
+      <div id="progBar-container">
+        <!-- note: onclick means "when the mouse goes up" -->
+        <div id="instruction-msg">Hit space to start the progBar </div>
+        <button disabled="true" id="stop-bar-btn" @click="fireSAA()"> Stop bar </button>
+        <button disabled="true" id="saa-reload-btn" @click="loadShell()">Reload!</button>
+        <button disabled="true" id="saa-eject-btn" @click="ejectCasing()">Eject spent casing</button>
+        <!-- NEED TO IMPLEMENT DISABLES TO STOP PROGRESS AND MAKE DISABLE BUTTON CLICKS TOO -->
+        <br>
+        <div class="prog-bar" id="saa-prog-bar">
+          <!-- <div id="target-1"> generate a chunk of the bar to be a target</div> -->
+          <div id="inbar-1"></div>
+          <div id="target-chunk-1"></div>
+          <!-- show ammo and remaining casings -->
+          <div id="ammo-display"> </div>
+          <div id="cases-display"> </div>
+          <div id="clear-chambers"> </div>
+          <div id="hit-msg"> </div>
+          <div id="total-dmg"> </div>
+        </div>
+        <!-- report container for progbar val -->
+        <div id="bar-xval" ></div>
+        
+      </div>
+    </div>
+  </div>
+</body>
+
+<script>
+
+</script>
+<script src="saaVue.js"></script>
+<!-- set interval ?? ?? need to research -->
+</html>
