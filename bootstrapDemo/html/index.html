@@ -17,38 +17,47 @@
     <div class="container">
       <!-- REMEMBER: the bootstrap cols are on a base-12 system, so 12 is the full width of the screen -->
       <div id="a1" class="row">
-        <!-- from small screen sizes, up, give me 6 columns of width in the container's grid -->
-        <div class="col-sm-6"></div>
-        <div class="col-sm-6"></div>
-      </div>
-
-      <div id="a2" class="row">
-        <!-- change width at small/medium/large screen sizes -->
-          <div class="col-sm-6 col-md-4 col-lg-3">a2 div 1</div>
-          <div class="col-sm-6 col-md-4 col-lg-3">a2 div 2</div>
-          <div class="col-sm-6 col-md-4 col-lg-3">a2 div 3</div>
-          <div class="col-sm-6 col-md-4 col-lg-3">a2 div 4</div>
-          <!-- note, unused area in a row will be blank -->
-        </div>
-
-        <div id="a3" class="row">
-          <!-- size unspecified, applies that proportion to every screen-size -->
-          <div class="col-4">4 cols in a3 div 1</div>
-          <div class="col-8">8 cols in a3 div 2</div>
-        </div>
-
-        <div id="a4" class="row">
-            <!-- if one col is defined, but others are not, then the defined one gets priority, and others fill remaining cols leftover -->
-            <div class="col-md">unnasigned a4 div1</div>
-            <div class="col-md-8"> 8 cols assigned a4 div 2 (also, auto-padding taken out via CSS)</div>
-            <div class="col-md">unnasigned a4 div3</div>
-          </div>
+      <!-- from small screen sizes, up, give me 6 columns of width in the container's grid -->
+      <div class="col-sm-6"></div>
+      <div class="col-sm-6"></div>
     </div>
 
-    <div class="container">
-      <h1>Liar Liar Liar</h1>
-      <p> iowbgugbuiwbru greigrbgiurbgri  rg ergwb regb wrewwgbieurgb erbg iuewrgbuierwgberw  </p>
-      <a href="" class="btn btn-primary btn-lg"></a>
+    <div id="a2" class="row">
+      <!-- change width at small/medium/large screen sizes -->
+      <div class="col-sm-6 col-md-4 col-lg-3">a2 div 1</div>
+      <div class="col-sm-6 col-md-4 col-lg-3">a2 div 2</div>
+      <div class="col-sm-6 col-md-4 col-lg-3">a2 div 3</div>
+      <div class="col-sm-6 col-md-4 col-lg-3">a2 div 4</div>
+      <!-- note, unused area in a row will be blank -->
+    </div>
+
+    <div id="a3" class="row">
+      <!-- size unspecified, applies that proportion to every screen-size -->
+      <div class="col-4">4 cols in a3 div 1</div>
+      <div class="col-8">8 cols in a3 div 2</div>
+    </div>
+
+    <div id="a4" class="row">
+      <!-- if one col is defined, but others are not, then the defined one gets priority, and others fill remaining cols leftover -->
+      <div class="col-md">unnasigned a4 div1</div>
+      <div class="col-md-8"> 8 cols assigned a4 div 2 (also, auto-padding taken out via CSS)</div>
+      <div class="col-md">unnasigned a4 div3</div>
+    </div>
+
+    <div id="a5" class="row justify-content-md-center">
+      <!-- if one col is defined, but others are not, then the defined one gets priority, and others fill remaining cols leftover -->
+      <div class="col-md-2">unnasigned a4 div1</div>
+      <div class="col-md-2"> 8 cols assigned a4 div 2 (also, auto-padding taken out via CSS)</div>
+      <div class="col-md-2">unnasigned a4 div3</div>
+    </div>
+  </div>
+
+    <div id="lame-section" class="container">
+      <h1>Sample heading</h1>
+      <p> Sample Subheading here  </p>
+      <a href="#" class="btn btn-primary btn-lg">
+        Page top placeholder btn
+      </a>
     </div>
 
     <section class="boxes">
@@ -57,7 +66,7 @@
           <div class="col-md-4">
             <div class="box">
               <i class="fa fa-anchor"></i>
-              <h1>Stupid Stupid Stupid</h1>
+              <h1>1111</h1>
               <p>11111111111111111111111111</p>
             </div>
           </div>
@@ -65,7 +74,7 @@
           <div class="col-md-4">
             <div class="box">
               <i class="fa fa-gears"></i>
-              <h1>Stupid Stupid Stupid</h1>
+              <h1>2222</h1>
               <p>2222222222222222222222</p>
             </div>
           </div>
@@ -73,7 +82,7 @@
           <div class="col-md-4">
             <div class="box">
               <i class="fa fa-search"></i>
-              <h1>Stupid Stupid Stupid</h1>
+              <h1>3333</h1>
               <p>333333333333333333333333</p>
             </div>
           </div>

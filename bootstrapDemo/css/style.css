@@ -21,17 +21,26 @@
   margin:0;
   padding: 0;
 }
+#a5 {
+  background:brown;
+}
 
-/* showcase crap below */
+/* showcase pink icons below */
+
+#lame-section{
+  border-top: 20px solid #f0c;
+  margin-top:40px;
+  padding: 20px 0 0 0;
+}
 
 .showcase{
   background: #225;
   color: lime;
-  height: 600px;
+  /* height: 600px; */
   padding: 100px 20px;
   text-align: center;
-  border-bottom: 5px solid gold;
-  margin: 0 0 30px 0;
+  border-bottom: 25px solid gold;
+  /* margin: 0 0 0 0; */
 }
 
 .showcase h1{
@@ -44,6 +53,8 @@
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-size: 24px;
   margin: 0 0 50px 0;
+  background:black;
+  color: lime;
 }
 
 .boxes {
