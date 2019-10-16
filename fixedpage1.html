@@ -12,9 +12,6 @@
 
   
   <script>
-    function setThirtyM() {
-      document.getElementById('timer-length').value = 1800;
-    }
   </script>
 </head>
 <body>
@@ -23,7 +20,41 @@
 <!-- <button onclick="countah(5)"> run countdown </button> -->
 <!-- js cariousel / auto-changing background / accordion element-->
 
-<div class="container">
+<div class="container text-center">
+  <p>Break the crate clicker</p>
+  <div class="d-flex p-2 m-auto" style="border:3px solid lime; width:500px; align-items: center; justify-content: space-around;">
+    <p style="border:3px solid blue; width:40%;margin:0;">coins: <span id="coinPouch">0</span></p>
+    <p style="border:3px solid violet; width:40%;margin:0;">potato</p>
+  </div>
+  <!-- same as margin auto through bootstrap classing -->
+  <div id="intactBoxImg" style="background:brown; color:white; width:110px; height:110px; margin: 10px auto;">Unopened loot crate image</div>
+  <div id="openBoxImg" style="display:none; background:burlywood; outline: 3px solid red; outline-offset: -3px; color:#225; width:110px; height:110px; margin: 10px auto;">box opened</div>
+  <div class="progress m-auto" style="width:240px; height:30px;">
+    <div id="inbar1" class="progress-bar" style="color:violet;width:0%; display: inline-block;">
+    break percentage: <span id="breakPercent"> 0% </span>
+    </div>
+  </div>
+  <!-- same as margin top bootstrap classing -->
+  <button id="pryBtn" class="btn-sm btn-primary mt-2" onclick="increasePryPercent()">click to fill bar</button>
+  <button id="rewardBtn" class="btn-sm btn-success mt-2" onclick="getPaid()">crate not broken</button>
+
+  <button id="resetCrateBtn" class="btn-sm btn-primary mt-2" style="border:2px solid tomato; color:yellow;" onclick="crateResetWarning()">Reset Crate</button>
+  <hr>
+<!--  INC risk element involved in lingering to loot -->
+<label id="greedLabel" for="greedRiskList">Greedy-risk mechanics not implemented:</label>
+<ul id="greedRiskList">
+  <li>add risk for getting attacked per pry-attempt, compounding (from noise made</li>
+  <li>reset noise meter after encountering</li>
+  <li>calculation for generating loot, BUT more loot takes longer to pack up, making player vulnerable to subsequent attack</li>
+  <li>need to show loot found</li>
+  <li>option to nab a safe amount</li>
+  <li>show risk for remaining</li>
+  <li>BIGGER OVERHAULS BELOW</li>
+  <li>Make an "activity level" modifier, which alters the rate of attack occurring on player</li>
+</ul>
+
+  <hr>
+
   <h1 class="page-header">Bootstrap practice<small> minor text aside</small></h1>
   <p>Aurelia's flowing golden hair shone <mark> brilliant as the midday sun</mark>, a radiant halo to match her angelic face.</p>
   <p>How could <del>The Order </del>ever hunt down such beautiful creatures? They were a noble sort, even if they weren't exactly human. Maybe the same could be said for the cultists of The Order too.</p>

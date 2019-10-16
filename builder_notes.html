@@ -229,3 +229,76 @@ https://hackerthemes.com/bootstrap-cheatsheet/
 
 key-code finder tool
 https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_event_key_keycode
+
+disable a button example:
+
+document.getElementById("myBtn").disabled = true;
+
+
+
+<!-- Salvage: opening multiple crates Javascript -->
+
+// progress bar manipulaitons
+let barPercentFull = 0;
+let rewardsReady = 0;
+//  rate at which box opens
+let pryPerClick = 25;
+let coins = 0;
+
+let rewardBtn = document.getElementById('rewardBtn');
+// disable reward btn because it starts off un-clickable
+rewardBtn.disabled = true;
+
+function showHideRewardBtn() {
+  if (rewardsReady > 0) {
+    rewardBtn.disabled = false;
+    rewardBtn.innerHTML = `Collect loot! <span id=rewardsCount>[${rewardsReady}]</span>`;
+  } else {
+    rewardBtn.disabled = true;
+    rewardBtn.innerHTML = 'crate not broken';
+  }
+}
+
+// see if button should be activated or not
+function resetFullBar() {
+  if (barPercentFull >= 100) {
+    rewardsReady += 1;
+    barPercentFull = -(pryPerClick);
+  }
+}
+
+function getPaid(){
+  // re-do so coins are worth the value of a fish extracted from a randomized array
+  rewardsReady -= 1;
+  // add coins to pouch
+  coins += 10;
+  coinPouch.innerHTML = coins;
+  showHideRewardBtn();
+};
+
+function increasePryPercent() {
+    // variable call for box-open rate per-click
+  barPercentFull += pryPerClick;
+  // add the value to the inner bar
+  inbar1.style = "width:" + barPercentFull + "%;"
+  //  check for percentage after click val had been added to add reward or not
+  resetFullBar();
+  // control the reward button if any rewards are awaiting
+  showHideRewardBtn();
+  
+}
+
+// if bar== 100% activate second button to reel in fish?
+
+confirm/deny control alert sample:
+function clearBank(){
+  let dataMsg;
+  if (confirm("Are you sure you want to clear all points earned?")) {
+      window.localStorage.clear();
+      dataMsg = "Okay, deleting all "
+      console.log(dataMsg + this.gameController.pts + " pts");
+  } else {
+      dataMsg = "aborted deletion process"
+      console.log(dataMsg);
+  }
+}

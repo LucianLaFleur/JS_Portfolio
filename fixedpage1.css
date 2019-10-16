@@ -5,6 +5,20 @@ body {
   background: #449;
 }
 
+#rewardBtn:disabled{
+  background:#ccc;
+  color: #999;
+  outline: 3px solid rgba(29, 12, 12, 0.616);
+  outline-offset: -3px;
+}
+
+#greedLabel {
+  font-size: 32;
+  font-weight:620;
+  letter-spacing: 2px;
+  text-decoration: underline;
+}
+
 #time-trial{
   /* border: 3px solid cyan; */
   display: flex;
@@ -225,7 +239,7 @@ body {
   font-family: monospace;
   padding: 0 40px;
   height: 60px;
-  width: 130px;
+  width: 190px;
   overflow: hidden;
 }
 .animated_line {
