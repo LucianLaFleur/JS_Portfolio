@@ -315,14 +315,7 @@ section {
   display:block;
   /* z-index: -2; */
 }
-#glowFrame{
-  box-shadow: 15px -15px 14px -6px rgb(223, 131, 252);
-  transition: all 0.4s linear;
-}
-#glowFrame:hover {
-  transition: all 0.4s linear;
-  box-shadow: 15px 0px 14px -6px rgb(62, 248, 217);
-}
+
 .card-image {
   border-radius: 5px;
   width:100%;

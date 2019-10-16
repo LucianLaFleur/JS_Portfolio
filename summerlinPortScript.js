@@ -7,13 +7,18 @@ const slideoutMenu = document.getElementById("slideout-menu");
 const searchIcon = document.getElementById("search-icon");
 // const searchBox = document.getElementById("searchbox");
 const idwBlurb1 = document.getElementById('idw-game-blurb');
+const idwMultiBlurb = document.getElementById('idw-multi-blurb');
 
 // call IDW game total points bank from storage
 idwBlurb1.innerHTML += JSON.parse(localStorage.getItem('pts-storage') || '0') + " total pts earned!"
 
+idwMultiBlurb.innerHTML += JSON.parse(localStorage.getItem('pts-storage') || '0') + " total pts (shared pts pool)"
+
+// function for the button to hide the 
 function hideAboutMe() {
   if(contentAboutMe.style.display == "none"){
     contentAboutMe.style.display = "block"; 
+    // this is just raw text inside, this is NOT an angular call 
     hide1.innerHTML = "[hide blurb]";
   } else {
     contentAboutMe.style.display = "none";  

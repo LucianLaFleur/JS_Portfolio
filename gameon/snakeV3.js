@@ -596,6 +596,8 @@ for (var i = 0; i < 3; i++){
     // ********** consumedFood.push(spawnedFoodArr[i]);
     // console.log(`our index is ${i} and val = ` + foodValues[i]);
     score+= foodValues[i];
+     // save that score to local storage on pickup
+     this.gameController.savePtsOnPickup(foodValues[i]);
     // conditionals keep voices from overlapping on each other
     // PRIOR: compared image objects to trigger sound
     // if(spawnedFoodArr[i] == foodImg6){
