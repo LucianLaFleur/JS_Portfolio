@@ -12,7 +12,7 @@ const idwMultiBlurb = document.getElementById('idw-multi-blurb');
 // call IDW game total points bank from storage
 idwBlurb1.innerHTML += JSON.parse(localStorage.getItem('pts-storage') || '0') + " total pts earned!"
 
-idwMultiBlurb.innerHTML += JSON.parse(localStorage.getItem('pts-storage') || '0') + " total pts (shared pts pool)"
+idwMultiBlurb.innerHTML += JSON.parse(localStorage.getItem('pts-storage') || '0') + " total pts <br> (shared pts pool)"
 
 // function for the button to hide the 
 function hideAboutMe() {
