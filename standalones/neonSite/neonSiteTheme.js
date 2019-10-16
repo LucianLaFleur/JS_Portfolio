@@ -1,5 +1,4 @@
-// links to the "index.html" in this directory
-
+// All links need to be re-routed for this neon-site demo
 const contentAboutMe = document.getElementById("content-about-me");
 const hide1 = document.getElementById('hide-btn1');
 const menuIcon = document.getElementById("menu-icon");
@@ -20,23 +19,3 @@ function hideAboutMe() {
     hide1.innerHTML = "[show blurb]";
   };
 }
-
-// searchIcon.addEventListener('click', function () {
-//   if (searchBox.style.top == '72px') {
-//     searchBox.style.top = '24px';
-//     searchBox.style.pointerEvents = 'none';
-//   } else {
-//     searchBox.style.top = '72px';
-//     searchBox.style.pointerEvents = 'auto';
-//   }
-// });
-
-// menuIcon.addEventListener('click', function () {
-//   if (slideoutMenu.style.opacity == "1") {
-//     slideoutMenu.style.opacity = '0';
-//     slideoutMenu.style.pointerEvents = 'none';
-//   } else {
-//     slideoutMenu.style.opacity = '1';
-//     slideoutMenu.style.pointerEvents = 'auto';
-//   }
-// });
