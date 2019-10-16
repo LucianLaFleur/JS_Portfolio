@@ -96,15 +96,17 @@ function crateResetWarning(){
         // do not reset open crate if they pick cancel
     }
   } else if (barPercentFull > 0) {
-    if (confirm(`Abandon progress?`)) {
-      warnMsg = "You abandoned the loot"
-      console.log(warnMsg);
-      resetCrate();
+      if (confirm(`Abandon progress?`)) {
+        warnMsg = "You abandoned the loot"
+        console.log(warnMsg);
+        resetCrate();
+    } else {
+        warnMsg = "You decided not to abandon the loot"
+        console.log(warnMsg);
+        // do not reset open crate if they pick cancel
+    }
   } else {
-      warnMsg = "You decided not to abandon the loot"
-      console.log(warnMsg);
-      // do not reset open crate if they pick cancel
-  }
+    resetCrate();
   }
 }
 
