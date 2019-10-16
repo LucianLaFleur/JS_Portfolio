@@ -63,6 +63,7 @@ main {
   font-family: 'Exo 2', sans-serif;
   margin: -43px 0 0 0;
   box-sizing: border-box;
+  z-index: 5;
 }
 
 #navbar-list {
@@ -318,6 +319,10 @@ section {
   /* z-index: -2; */
 }
 
+.card {
+  margin: 20px 0;
+}
+
 .card-image {
   border-radius: 5px;
   width:100%;
@@ -412,6 +417,10 @@ section {
   transition: all 0.3s linear;
 }
 
+#github-heading {
+  cursor: pointer;
+}
+
 /* Footer */
 
 footer {
@@ -420,12 +429,19 @@ footer {
   color: #eee;
   text-align: center;
 }
+
+footer h3 {
+  color: #225;
+  font-size:32px;
+  font-weight:650;
+}
+
 footer a {
   color: white;
 }
 
-footer #social-media-footer a .fa-facebook,
-footer #social-media-footer a .fa-youtube,
+footer #social-media-footer .fa-facebook,
+footer #social-media-footer .fa-youtube,
 footer #social-media-footer a .fa-github {
   color: white;
   transition: 0.4s;
@@ -443,11 +459,15 @@ footer #social-media-footer ul li {
   padding: 16px;
   transition: 0.4s;
 }
-footer #social-media-footer ul li:hover a .fa-youtube {
-  color: red;
+footer #social-media-footer ul li:hover .fa-youtube {
+  color:grey;
+  cursor: not-allowed;
+  /* color: red; */
 }
-footer #social-media-footer ul li:hover a .fa-facebook {
-  color: rgb(46, 90, 187);
+footer #social-media-footer ul li:hover .fa-facebook {
+  color:grey;
+  cursor: not-allowed;
+  /* color: rgb(46, 90, 187); */
 }
 footer #social-media-footer ul li:hover a .fa-github {
   color: orange;
