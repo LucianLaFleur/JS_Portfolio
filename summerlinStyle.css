@@ -261,6 +261,7 @@ section {
   display: inline-block;
   padding: 4px 20px;
   margin: 0 0 0 0;
+  cursor: not-allowed;
 }
 .section-heading:hover {
   background: rgba(104, 250, 238, 0.637);
@@ -310,6 +311,7 @@ section {
   background-image: url("./img/jellyfishBG.jpeg");
   width: 100%;
   /* max-width: 1200px; */
+  padding: 22px 0 0 0;
   margin: 0 0 0 0;
   background-attachment: fixed;
   display:block;
@@ -319,6 +321,7 @@ section {
 .card-image {
   border-radius: 5px;
   width:100%;
+  max-width: 400px;
   box-shadow: -15px 15px 14px -6px rgb(223, 131, 252);
   transition: 0.4s;
   margin-left: 25px;
@@ -343,7 +346,7 @@ section {
   border: 3px solid black;
   padding: 0 8px;
   margin: 23px 0;
-  width: 58vw;
+  /* width: 100%; */
   z-index: 1
 }
 .card-description p{
@@ -452,26 +455,6 @@ footer #social-media-footer ul li:hover a .fa-github {
 
 /* Media Queries */
 
-@media (max-width: 900px) {nav ul {
-    display: none;
-  }
-#menu-icon {
-    display: flex;
-  }
-#slideout-menu {
-    display: block;
-  }
-
-#blogpost{
-    width:100%;
-    border-left:0;
-  }
-
-#sidebar{
-    display: none;
-  }
-}
-
 @media (max-width: 719px) {
 main {
     width: 95%;
@@ -514,8 +497,22 @@ main {
     width: 95%;
   }
 .card {
-    width: 45%;
+    width: 100%;
   }
+.image-desc-flex{
+  display:flex;
+  align-items: center;
+  padding: 0;
+}
+.card-image {
+  box-shadow: none;
+  padding: 0 15px 0 0;
+}
+.card-image:hover {
+  box-shadow: none;
+}
+
+
 .card .card-image img {
     width: 100%;
   }
