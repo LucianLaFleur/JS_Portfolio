@@ -207,6 +207,47 @@ let newSpawnVal;
 // Control item tier spawn rate / item quality 
 let foodItems = [foodImg1, foodImg2, foodImg3, foodImg4, foodImg5, foodImg6];
 
+
+const STORAGE_KEY = 'pts-storage';
+
+var gameController = new Vue({
+  el: '.ptsBank',
+  data: {
+    pts: 0
+  },
+  // use lifecycle hook to display pts from localstorage
+  created (){
+    // get stored pts or set to 0 if none in storage
+    this.pts = JSON.parse(localStorage.getItem(STORAGE_KEY) || '0')
+  },
+  methods:{
+    savePtsOnPickup(x) {
+      this.pts += (x);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(this.pts))
+},
+    // Placeholder from cart example
+    // removeItem(item) {
+    //   // at the index of the item, remove that one item
+    //   this.items.splice(this.items.indexOf(item), 1);
+    //   localStorage.setItem(STORAGE_KEY, JSON.stringify(this.items));
+    // }
+  }
+
+});
+
+// *** UTILITY FUNCTION FOR CONFIRMING PTS BANK DATA RESET ***
+function clearBank(){
+    let dataMsg;
+    if (confirm("Are you sure you want to clear all points earned?")) {
+        window.localStorage.clear();
+        dataMsg = "Okay, deleting all "
+        console.log(dataMsg + this.gameController.pts + " pts");
+    } else {
+        dataMsg = "aborted deletion process"
+        console.log(dataMsg);
+    }
+}
+
     // Randomize the food value, and assign it to its associated image
 function randomizeFood1(){
     let diceRoll = Math.ceil(Math.random()*20);

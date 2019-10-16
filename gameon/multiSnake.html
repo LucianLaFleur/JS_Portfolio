@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js"></script>
   <title>Snake game</title>
 
   <style>
@@ -229,6 +230,44 @@
       color: white;
       background: black;
     }
+
+    #clear-bank {
+      margin: 0 auto;
+      height:40px;
+      width: 120px;
+      outline: 2px solid tomato;
+      font-size: 15px;
+      position: absolute;
+      top: 113px;
+      left:480px;
+      cursor:pointer;
+    }
+    #clear-bank:hover{
+      background: rgb(173, 33, 8);
+      color: rgb(2, 2, 175);
+      font-weight: 700;
+      outline-width: 5px;
+      outline-color: rgb(0, 0, 0);
+      transition: all 0.2s linear;
+    }
+
+    #totalLoot {
+      position: absolute;
+      border: 5px solid tomato;
+      border-radius: 6px;
+      height: 57px;
+      width: 66px;
+      top: 0px;
+      left:605px;
+      margin:0;
+      padding: 4px 0 0 0;
+      text-align: center;
+    }
+
+    #totalLoot span{
+      color:green;
+      font-size: 33px;
+    }
     
   </style>
 </head>
@@ -283,12 +322,20 @@
     <button id="reset-btn" value="Refresh Page" onClick="window.location.reload();">
     Reset Button
     </button>
+    <button id="clear-bank" onClick="clearBank()";>
+        Delete Pts Bank
+      </button>
   </div>
   <p id="results"> hidden placeholder lorem ipsum dolor set</p>
   <button id="hide-picture" onclick="hidePics()"> Hide failure</button>
   <!-- Note, canvas is wider than the field image so I can draw loot on the side -->
   <canvas id="canvas" height="608" width="680"></canvas>
   <div id="lootBag"></div>
+  <section class="ptsBank">
+      <div id="totalLoot">Total pts
+        <span id="totalPts">{{pts}}</span>
+      </div>
+  </section>
 
   <!--  containers for ending pictures-->
   <div id="injury-container"></div>

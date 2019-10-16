@@ -1,0 +1,24 @@
+<p> --- Home Component html below ---</p>
+<ul>
+  <li ng-show="false"> I can be hidden by manipulating ng-show
+    <button (click)="makePotatoFalse()">hide first li</button>
+  </li>
+  <li [class.neonMall]="h1Style">I am a list element with a button tag at the end <button (click)="firstClick()">Clickable Btn</button></li>
+  <!-- each represents a different class on a different condition -->
+  <li [ngClass]="{
+    'neonMall' : h1Style,
+    'bigText' : !h1Style
+  }">
+    multiple possible styles
+  </li>
+  <li 
+  [style.color]="h1Style ? 'lime' : 'gold'"
+  [style.background]="h1Style ? 'black' : '#225'"
+  > manipulates color based on boolean of h1Style</li>
+  <li [ngStyle]="{
+    'color' : h1Style ? 'violet' : 'black',
+    'background' : h1Style ? 'black' : 'white'
+  }">
+  Oh hi there, just changing several color things in a different setup
+  </li>
+</ul>
