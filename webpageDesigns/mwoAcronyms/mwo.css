@@ -173,8 +173,11 @@ display:block;
 #acro-list {
   margin: -5px 0 0 0;
 }
+#acro-list a{
+  text-decoration: none;
+}
 
-.mwo-acro-button {
+.mwo-acro-short {
   outline:3px solid lime;
   background-color: black;
   color: var(--chickenYellow);
@@ -182,6 +185,13 @@ display:block;
   display: inline-block;
   margin: 10px 0 0 0;
   padding: 5px;
+  transition: all 0.1s linear;
+}
+.mwo-acro-short:hover {
+  background: var(--urbanIndigo);
+  outline-color: var(--chickenYellow);
+  outline-offset: -2px;
+  transition: all 0.1s linear;
 }
   .mwo-link-button:visited {
     background-color: var(--gunmetalBlue);
@@ -197,6 +207,12 @@ display:block;
   font-size: 20px;
   width:55%;
   border: 3px dashed var(--urbanIndigo);
+  transition: all 0.2s linear;
+}
+.spelled-acronym:hover{
+  border: 3px solid blue;
+  background-color: var(--chickenYellow);
+  transition: all 0.2s linear;
 }
 .underlined {
   color:var(--gunmetalBlue);
