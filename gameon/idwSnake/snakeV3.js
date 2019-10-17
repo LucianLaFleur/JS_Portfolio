@@ -15,8 +15,8 @@ function hideScoreKey(){
 }
 
 // victory score thresholds
-const specialVictoryScore = 250;
-const goodVictoryScore = 100;
+const specialVictoryScore = 150;
+const goodVictoryScore = 75;
 // Make the standard unit for a square on the image
 let box = 32;
 // **************spawn restrictions******
@@ -49,9 +49,9 @@ console.log("will miss every [" + slipRate + "] items");
 
 // make vars for image files
 const ground = new Image();
-ground.src = "../img/snakeground.png";
+ground.src = "../../img/snakeground.png";
 const gkPatch = new Image();
-gkPatch.src = "../img/vectorIcons/gkPatchSmall.png";
+gkPatch.src = "../../img/vectorIcons/gkPatchSmall.png";
 // IMAGE RESIZING DOESN'T WORK FOR CANVAS ITEMS
 // NEED TO BE RESIZED BEFOREHAND
 
@@ -63,7 +63,7 @@ foodImg2.src= "../../img/vectorIcons/tData.png";
 foodImg3.src= "../../img/vectorIcons/dCore.png";
 foodImg4.src= "../../img/vectorIcons/sToken.png";
 foodImg5.src= "../../img/vectorIcons/oRing.png";
-foodImg6.src = "../img/grizzlyRun1.PNG";
+foodImg6.src = "../../img/grizzlyRun1.PNG";
 // placeholder var for currently spawned food
 let spawnedFood1 = new Image();
 let spawnedFood2 = new Image();
@@ -77,23 +77,23 @@ var foodValues = [];
 
 // cat images for the snake head and body
 const head_cat = new Image();
-head_cat.src = "../img/idwHead.png";
+head_cat.src = "../../img/idwHead.png";
 // body images for the running snake body
 const dummy_cat1 = new Image();
-dummy_cat1.src = "../img/runIDW1.PNG" 
+dummy_cat1.src = "../../img/runIDW1.PNG" 
 const dummy_cat2 = new Image();
-dummy_cat2.src = "../img/runIDW2.PNG" 
+dummy_cat2.src = "../../img/runIDW2.PNG" 
 const dummy_cat3 = new Image();
-dummy_cat3.src = "../img/runIDW3.PNG" 
+dummy_cat3.src = "../../img/runIDW3.PNG" 
 const dummy_cat4 = new Image();
-dummy_cat4.src = "../img/runIDW4.PNG" 
+dummy_cat4.src = "../../img/runIDW4.PNG" 
 const dummy_cat5 = new Image();
-dummy_cat5.src = "../img/runIDW5.PNG" 
+dummy_cat5.src = "../../img/runIDW5.PNG" 
 const dummy_cat6 = new Image();
-dummy_cat6.src = "../img/runIDW6.PNG" 
+dummy_cat6.src = "../../img/runIDW6.PNG" 
 // extra images
 const plusS = new Image(); 
-plusS.src = "../img/vectorIcons/plusSign.png";
+plusS.src = "../../img/vectorIcons/plusSign.png";
 
 // load audio files
 // destructuring assignment **********
@@ -116,54 +116,54 @@ let down = new Audio();
 let victoryDeath = new Audio();
 let superWin = new Audio();
 
-dead1.src = "../aud/deathNyan.wav";
-dead2.src = "../aud/fatalityChorus.wav";
-dead3.src = "../aud/gameShowFail.wav";
-dead4.src = "../aud/howcouldthishappenShort.wav";
-dead5.src = "../aud/fatalityChorus.wav";
-eat1.src = "../aud/nyan1.wav";
-eat2.src = "../aud/nyan1.wav";
-eat3.src = "../aud/nyan2.wav";
+dead1.src = "../../aud/deathNyan.wav";
+dead2.src = "../../aud/fatalityChorus.wav";
+dead3.src = "../../aud/gameShowFail.wav";
+dead4.src = "../../aud/howcouldthishappenShort.wav";
+dead5.src = "../../aud/fatalityChorus.wav";
+eat1.src = "../../aud/nyan1.wav";
+eat2.src = "../../aud/nyan1.wav";
+eat3.src = "../../aud/nyan2.wav";
 // bootlegging array randomization by declaring the same-source clip multiple times...
 // eat4.src = "../aud/nyan2.wav";
-comboEaten1.src = "../aud/ChorusToasty.wav";
-comboEaten2.src = "../aud/ChorusToasty.wav";
-comboEaten3.src = "../aud/airHornShort.wav";
-comboEaten4.src = "../aud/ChorusToasty.wav";
-comboEaten5.src = "../aud/womboCombo1.wav";
+comboEaten1.src = "../../aud/ChorusToasty.wav";
+comboEaten2.src = "../../aud/ChorusToasty.wav";
+comboEaten3.src = "../../aud/airHornShort.wav";
+comboEaten4.src = "../../aud/ChorusToasty.wav";
+comboEaten5.src = "../../aud/womboCombo1.wav";
 // When big combo is reached:
-bellyFull.src = "../aud/imfullNya.wav";
+bellyFull.src = "../../aud/imfullNya.wav";
 // winning death sounds
-victoryDeath.src = "../aud/ahhhClip.wav";
-superWin.src = "../aud/mgsWaOh.wav";
+victoryDeath.src = "../../aud/ahhhClip.wav";
+superWin.src = "../../aud/mgsWaOh.wav";
 
 // chours sounds for eating with a big train
-chorus1.src = "../aud/nyan3chorus2.wav";
-chorus2.src = "../aud/nyan1.wav";
-chorus3.src = "../aud/nyan3echo3.wav";
-chorus4.src = "../aud/chorusOmNya2.wav";
-chorus5.src = "../aud/chorusNightmareOmNya.wav";
+chorus1.src = "../../aud/nyan3chorus2.wav";
+chorus2.src = "../../aud/nyan1.wav";
+chorus3.src = "../../aud/nyan3echo3.wav";
+chorus4.src = "../../aud/chorusOmNya2.wav";
+chorus5.src = "../../aud/chorusNightmareOmNya.wav";
 
-up.src = "../aud/teleport1.wav";
-right.src = "../aud/teleport2.wav";
-down.src = "../aud/teleport3.wav";
-left.src = "../aud/teleport4.wav";
+up.src = "../../aud/teleport1.wav";
+right.src = "../../aud/teleport2.wav";
+down.src = "../../aud/teleport3.wav";
+left.src = "../../aud/teleport4.wav";
 
 // *******************odd event clips **************************
 let wScream = new Audio();
-wScream.src = "../aud/wilhelmScream.mp3";
+wScream.src = "../../aud/wilhelmScream.mp3";
 let grizzlySpawn = new Audio();
-grizzlySpawn.src= "../aud/araShikikanGrizzly.wav";
+grizzlySpawn.src= "../../aud/araShikikanGrizzly.wav";
 let grizzlyGrabbed = new Audio();
-grizzlyGrabbed.src= "../aud/grizzlyMagnum.wav";
+grizzlyGrabbed.src= "../../aud/grizzlyMagnum.wav";
 let ringSpawn = new Audio();
-ringSpawn.src = "../aud/happyIDW.wav";
+ringSpawn.src = "../../aud/happyIDW.wav";
 let ringGrabbed = new Audio();
-ringGrabbed.src =  "../aud/sonicRing1.wav";
+ringGrabbed.src =  "../../aud/sonicRing1.wav";
 let shekelGrabbed = new Audio();
-shekelGrabbed.src = "../aud/shekels1.wav";
+shekelGrabbed.src = "../../aud/shekels1.wav";
 let confusedSound = new Audio();
-confusedSound.src = "../aud/confusedCatSound.wav";
+confusedSound.src = "../../aud/confusedCatSound.wav";
 
 // make an array of eating possibilities
 let nomSounds = [eat1, eat2, eat3];

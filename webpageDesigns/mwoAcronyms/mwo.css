@@ -323,12 +323,12 @@ display:block;
 }
 
 #endingPageTopBtn {
-  border: 4px solid var(--urbanIndigo);
+  border: 4px solid var(--waspYellow);
   text-align: center;
   text-decoration: none;
   color: var(--waspYellow);
   background: var(--commandoGreen);
-  padding:7px;
+  padding:7px 12px;
 }
 #endingPageTopBtn:hover {
   border-color: var(--waspYellow);
