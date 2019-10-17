@@ -1,3 +1,8 @@
+# General notes
+This is a testing sandbox for angular projects as I learn more about the framework
+
+-- default info for Readme below --
+
 # Angularapp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.9.

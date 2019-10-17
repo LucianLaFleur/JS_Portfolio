@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>MWO Acronyms</title>
+  
   <link rel="stylesheet" type="text/css" href="./mwo.css" media="screen" />
 
   <script>
@@ -39,9 +40,7 @@
   };
 
   function hover_change_pic(e) {
-    // setTimeout(function(){
       e.setAttribute('src', "./../../img/come_at_me.PNG" );;
-    // }, 100)
 };
 
 function revert_mouseout(e) {
@@ -58,6 +57,19 @@ function fatality_sound() {
   let fatality = new Audio();
   fatality.src = "./../../aud/fatalityRobot.wav"
   fatality.play();
+}
+
+// Hilihht the border of a targeted header for a moment after it's clicked, then alter text color to let you know which article you navigated to
+function tempLight(el){
+  element = document.getElementById(el);
+  element.style.border = "5px solid rgb(40, 47, 88)";
+  element.style.backgroundColor = "lime";
+  element.style.color = "rgb(40, 47, 88)";
+  setTimeout(function(){
+    element.style.border = "5px dashed gold"
+    element.style.backgroundColor = "#376";
+    element.style.color = "#9bc";
+  }, 800)
 }
 
 </script>
@@ -83,9 +95,9 @@ function fatality_sound() {
   </header>
   <div class="nav_link_header">
     <a href="./../../index.html"> Home </a> |
-    <a href="#"> Dummy 2</a> |
-    <a href="#"> Dummy 3</a> |
-    <a href="#"> Dummy 4</a>
+    <a href="#ECM" onclick="tempLight('ECM')"> ECM </a> |
+    <a href="#LRM" onclick="tempLight('LRM')"> LRM </a> |
+    <a href="#AMS" onclick="tempLight('AMS')"> AMS </a>
   </div>
 
    <!-- demo of article, section, headers, and footers-->
@@ -186,9 +198,13 @@ function fatality_sound() {
       </section>
     </article>
 
+    <div id="jumpBtnContainer">
+      <a id="endingPageTopBtn" href="#"> jump to page top </a>
+    </div>
+
     <div id="copy-footer">
       <img src="./../../img/vectorIcons/dCore.png" alt="core" onclick="toasty_sound()">
-      <p>&copy; Strawberry Summer Studios</p>
+      <p> &copy; Strawberry Summer Studios</p>
       <img src="./../../img/vectorIcons/tData.png" alt="data chip">
     </div>
   </main>

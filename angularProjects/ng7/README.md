@@ -1,3 +1,8 @@
+# General notes
+This is my secondary testing sandbox for angular projects; I'm following different tutorial paths with the two different setups of angular in the larger directory above this one.
+
+-- default info for Readme below --
+
 # Ng7
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.9.
