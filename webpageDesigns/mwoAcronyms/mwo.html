@@ -14,17 +14,17 @@
     // function show_ecm(e) {
     // Can combine all the differnt "show" images with a conditional checking id's of the hovered element to change the pic container
     // if(e.id == "acro-ecm"){
-    document.getElementById('acro-pic').setAttribute('src', "./img/ecm_silo.PNG");
+    document.getElementById('acro-pic').setAttribute('src', "./../../img/ecm_silo.PNG");
   // }
   }
 
   function show_lrm() {
-    document.getElementById('acro-pic').setAttribute('src', "./img/lrm_madcat.PNG");
+    document.getElementById('acro-pic').setAttribute('src', "./../../img/lrm_madcat.PNG");
   }
 
   function show_ams() {
     let ams = document.getElementById('acro-pic')
-    ams.setAttribute('src', "./img/ams_hardpoint.PNG");
+    ams.setAttribute('src', "./../../img/ams_hardpoint.PNG");
     ams.style.width = '95%';
     ams.style.height = '100%';
     ams.overflow = 'hidden';
@@ -33,30 +33,30 @@
   function revert_bigthink() {
     // setTimeout(function(){
     let revertBigThink = document.getElementById('acro-pic');
-    revertBigThink.setAttribute('src', "./img/bigThink.PNG");
+    revertBigThink.setAttribute('src', "./../../img/bigThink.PNG");
     revertBigThink.style.width = '100%';
     // }, 1500)
   };
 
   function hover_change_pic(e) {
     // setTimeout(function(){
-      e.setAttribute('src', "./img/come_at_me.PNG" );;
+      e.setAttribute('src', "./../../img/come_at_me.PNG" );;
     // }, 100)
 };
 
 function revert_mouseout(e) {
-  e.setAttribute('src', "./img/bigThink.PNG");
+  e.setAttribute('src', "./../../img/bigThink.PNG");
 }
 
 function toasty_sound() {
   let toasty = new Audio();
-  toasty.src = "./aud/ChorusToasty.wav"
+  toasty.src = "./../../aud/ChorusToasty.wav"
   toasty.play();
 }
 
 function fatality_sound() {
   let fatality = new Audio();
-  fatality.src = "./aud/fatalityRobot.wav"
+  fatality.src = "./../../aud/fatalityRobot.wav"
   fatality.play();
 }
 
@@ -71,7 +71,7 @@ function fatality_sound() {
           animated dropdown
         </div>
         <div class="dropdown-content">
-          <a href="./index.html">Home</a>
+          <a href="./../../index.html">Home</a>
           <a href="">placeholders 2</a>
           <a href="">placeholders 3</a>
           <a href="">placeholders 4</a>
@@ -82,7 +82,7 @@ function fatality_sound() {
     <h1>United Alliance of Mech-Pilots</h1>
   </header>
   <div class="nav_link_header">
-    <a href="./index.html"> Home </a> |
+    <a href="./../../index.html"> Home </a> |
     <a href="#"> Dummy 2</a> |
     <a href="#"> Dummy 3</a> |
     <a href="#"> Dummy 4</a>
@@ -98,7 +98,7 @@ function fatality_sound() {
         </p>
 
         <div id="acronym-picture-holder">
-            <img id="acro-pic" src="./img/bigThink.PNG" alt="big think" onclick="hover_change_pic(this)" onmouseout="revert_mouseout(this);">
+            <img id="acro-pic" src="./../../img/bigThink.PNG" alt="big think" onclick="hover_change_pic(this)" onmouseout="revert_mouseout(this);">
         </div>
 
         <dl id="acro-list">
@@ -187,9 +187,9 @@ function fatality_sound() {
     </article>
 
     <div id="copy-footer">
-      <img src="./img/vectorIcons/dCore.png" alt="core" onclick="toasty_sound()">
+      <img src="./../../img/vectorIcons/dCore.png" alt="core" onclick="toasty_sound()">
       <p>&copy; Strawberry Summer Studios</p>
-      <img src="./img/vectorIcons/tData.png" alt="data chip">
+      <img src="./../../img/vectorIcons/tData.png" alt="data chip">
     </div>
   </main>
 </body>

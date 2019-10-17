@@ -257,10 +257,10 @@ display:block;
 }
 
 #ecm-pic-holder{
-  background-image: url("./img/ecm_silo.PNG");
+  background-image: url("./../../img/ecm_silo.PNG");
 }
 #lrm-pic-holder{
-  background-image: url("./img/lrm_madcat.PNG");
+  background-image: url("./../../img/lrm_madcat.PNG");
 }
 #lrm-content{
   position:relative;
@@ -279,7 +279,7 @@ display:block;
   padding: 0 0 0 5%;
 }
 #ams-pic-holder{
-  background-image: url("./img/ams_hardpoint.PNG");
+  background-image: url("./../../img/ams_hardpoint.PNG");
   /* Adjusted sizing and placement for poor-sized base image */
   background-size: 120%;
   background-position: 55% 45%;
