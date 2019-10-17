@@ -369,6 +369,13 @@ section {
   border-radius: 12%;
 }
 
+.centered-header-link {
+  display:flex; 
+  justify-content: center; 
+  text-decoration: none;
+  margin: 5px 0;
+}
+
 .flexy-card-inner {
   display:flex;
 }

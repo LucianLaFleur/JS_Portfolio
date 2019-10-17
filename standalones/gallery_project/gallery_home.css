@@ -12,9 +12,11 @@ body {
   font-family: 'Times New Roman', Times, serif;
 }
 
+/* set up a grid with vertical navbar on left and main content on right, give grid max width */
+
 .photo-container {
   height: 70vh;
-  margin: 30px 15px;
+  margin: 30px auto;
   background: #286;
   background: linear-gradient(to top, #28666E 10%, #7C9EB2, #FEDC97 95%);
   max-width: 900px;
@@ -40,9 +42,8 @@ header {
 }
 
 #content-showcase {
-  background: #286;
   background: linear-gradient(to top, #28666E 10%, #7C9EB2, #FEDC97 95%);
-  overflow: hidden; 
+  /* overflow: hidden;  */
 }
 
 .gallery {
