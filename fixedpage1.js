@@ -10,6 +10,7 @@ let intactBoxImg = document.getElementById("intactBoxImg");
 let openBoxImg = document.getElementById('openBoxImg');
 let pryBtn = document.getElementById('pryBtn');
 let rewardBtn = document.getElementById('rewardBtn');
+let resetCrateBtn = document.getElementById('resetCrateBtn');
 // disable reward btn because it starts off un-clickable
 rewardBtn.disabled = true;
 
@@ -36,6 +37,7 @@ function showBarPercent(){
 function increasePryPercent() {
     // variable call for box-open rate per-click
   barPercentFull += pryPerClick;
+  resetCrateBtn.innerHTML = "Abandon Crate"
   // add the value to the inner bar
   showBarPercent();
   if(barPercentFull >= 100){
@@ -44,7 +46,7 @@ function increasePryPercent() {
     // play sound for opening box
     inbar1.style.background = "gold";
     breakPercent.innerHTML = ` 100 %`;
-    showHideRewardBtn()
+    showHideRewardBtn();
   }
 }
 
@@ -60,6 +62,8 @@ function getPaid(){
   // add coins to pouch
   coins += coinsFound;
   coinPouch.innerHTML = coins;
+  resetCrateBtn.className += "finishedCrate";
+  resetCrateBtn.innerHTML = "Find a new crate!"
 };
 
 // function clearBank(){

@@ -20,7 +20,9 @@
     width: 130px;
     height:60px;
     font-weight:650;
+    text-align: center;
     padding: 2px 0;
+    margin:auto;
   }
   #reveal-cue:hover{
     color:gold;
@@ -59,14 +61,275 @@
   #shark-caption{
     color: #ccc;
   }
+  #modalX{
+    background: rgb(124, 35, 79);
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+  }
 
+  /* grid offsetting and spanning practice */
+  #big-corkboard{
+    border: 5px solid lime;
+    height: 550px;
+  }
+  #l1-1{
+    border: 5px solid violet;
+    height: 450px;
+  }
+  #c1-1{
+    border: 5px solid blue;
+  }
+  #r1-3{
+    border: 5px solid firebrick;
+  }
+
+  #c1-11{
+    border: 5px solid #5c9;
+  }
+  #c1-12{
+    border: 5px solid blueviolet; 
+  }
+  #c1-21{
+    border: 5px solid #ff5;
+  }
+  #c1-22{
+    border: 5px solid #f0c;
+  }
+  #c1-22-11{
+    border: 5px solid rgb(252, 197, 19);
+    height:50%;
+  }
+  #c1-22-12{
+    border: 5px solid rgb(69, 243, 255);
+    height:150%;
+}
+#c1-22-13{
+    border: 5px solid rgb(63, 190, 91);
+    height:50%;
+}
+#c1-22-21{
+    border: 5px solid rgb(193, 146, 224);
+}
+#c1-22-22{
+    border: 5px solid rgb(139, 135, 116);
+    /* height: 50%; */
+}
+#c1-22-31{
+    border: 5px solid rgb(250, 233, 140);
+    height:200%
+}
+#c1-22-41{
+  border: 5px solid rgb(108, 255, 115);
+}
+#c1-22-42{
+  border: 5px solid rgb(250, 55, 55);
+}
+#c1-31{
+    border: 5px solid rgb(103, 212, 255);
+}
+#bl-corner{
+  border: 5px solid #225;
+  height: 91px;
+}
+#b-footer{
+  border: 5px solid rgb(255, 201, 54);
+  height: 91px;
+}
+
+#box-breaker-playground{
+  border: 5px solid rgb(255, 201, 54);
+}
   </style>
 </head>
 <body>
 
-<!-- R: auto-changing background / accordion element, need tooltip JS tutorial and Modal tutorial-->
-<!-- W3 schools cariousel -->
-<!-- cariousel practice -->
+  <!-- R: JS auto-changing background, tooltips and data toggle and data target-->
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12" id="big-corkboard">
+      <div class="row">
+        <div id="l1-1" class="col-sm-2 d-flex align-items-center justify-content-center">column aside, aligned and centered via bootstrap classes for flex</div>
+
+        <div id="c1-1" class="col-sm-10 text-center">
+          <!-- c1 height control -->
+          <div class="row" style="height:20%;">
+            <div id="c1-11" class="col-sm-6">top banner left</div>
+            <div id="c1-12" class="col-sm-6"> top banner right</div>
+          </div>
+          <div class="row" style="height:70%;">
+              <div id="c1-21" class="col-sm-2">vertical img placeholder</div>
+              <div id="c1-22" class="col-sm-10">
+                <div class="row" style="height: 33%">
+                    <div id="c1-22-11" class="col-sm-4">decoration t-l</div>
+                    <div id="c1-22-12" class="col-sm-4">content t-c
+                      (meaning top-center)
+                    </div>
+                    <div id="c1-22-13" class="col-sm-4">decoration t-r</div>
+                </div>
+                <div class="row" style="height: 33%">
+                    <div id="c1-22-21" class="col-sm-4">content c-l</div>
+                    <div id="c1-22-22" class="col-sm-4 offset-sm-4">decoration c-r</div>
+                </div>
+                <div class="row" style="height: 17%">
+                  <div id="c1-22-31" class="col-sm-4 offset-sm-4">decoration b-c</div>
+                </div>
+                <div class="row" style="height: 17.4%">
+                  <div id="c1-22-41" class="col-sm-4">decoration b-l</div>
+                  <div id="c1-22-42" class="offset-sm-4 col-sm-4">decoration b-r</div>
+                </div>
+              </div>
+            </div>
+            <div class="row" style="height:10%;"> 
+              <div id="c1-31" class="col-sm-12">
+                content runner bottom
+              </div>
+            </div>    
+          </div>
+        </div>
+        <!-- end central nest -->
+        <div class="row"> 
+            <div id="bl-corner" class="col-sm-2">
+              corner badge
+            </div>
+            <div id="b-footer" class="col-sm-10 d-flex align-items-center justify-content-center"> footer flex-justified and aligned from bootstrap classes</div>
+          </div>  
+    </div>
+  </div>
+</div>
+  
+<div class="jumbotron">
+    <div class="container">
+      <h1>Bootstrap Bootleg Billboard</h1>
+      <p>also known as the "jumbotron" this is a handy label-like element for the top of a webpage</p>
+    </div>
+  </div>
+  
+  
+
+  
+<!-- box breaker -->
+
+<div id="box-breaker-playground" class="container text-center">
+  <div class="row">
+    <div class="col-sm-2">
+      <div id="reveal-cue" class="card" data-toggle="tooltip"
+      title="click to break the crate, coins go up for each opened crate claimed">information about this</div>
+    </div>
+    <div class="col-sm-8">
+      <h2>Break the crate clicker</h2>
+    </div>
+  </div>
+    <div class="d-flex p-2 m-auto" style="border:3px solid lime; width:500px; align-items: center; justify-content: space-around;">
+      <p style="border:3px solid blue; width:40%;margin:0;">coins: <span id="coinPouch">0</span></p>
+      <p style="border:3px solid violet; width:40%;margin:0;">potato</p>
+    </div>
+    <!-- same as margin auto through bootstrap classing -->
+    <div id="intactBoxImg" style="background:brown; color:white; width:110px; height:110px; margin: 10px auto;">Unopened loot crate image</div>
+    <div id="openBoxImg" style="display:none; background:burlywood; outline: 3px solid red; outline-offset: -3px; color:#225; width:110px; height:110px; margin: 10px auto;">box opened</div>
+    <div class="progress m-auto" style="width:240px; height:30px;">
+      <div id="inbar1" class="progress-bar" style="color:violet;width:0%; display: inline-block;">
+      break percentage: <span id="breakPercent"> 0% </span>
+      </div>
+    </div>
+    <!-- same as margin top bootstrap classing -->
+    <button id="pryBtn" class="btn-sm btn-primary mt-2" onclick="increasePryPercent()">click to fill bar</button>
+    <button id="rewardBtn" class="btn-sm btn-success mt-2" onclick="getPaid()">crate not broken</button>
+  
+    <button id="resetCrateBtn" class="btn-sm btn-primary mt-2" style="border:2px solid tomato; color:yellow;" onclick="crateResetWarning()">Abandon Crate</button>
+</div>
+    <hr>
+  
+
+<!-- accordion practice  from https://github.com/SonarSystems/Bootstrap-4-Tutorial-Series/blob/master/Tutorial%2051%20-%20Accordion%20Collapse/index.html-->
+<div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <br />
+
+        <div id="Accordion" role="tablist" aria-multiselectable="true">
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="HeadingOne">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#Accordion" href="#CollapseOne" aria-expanded="true" aria-controls="CollapseOne">
+                    Greedy-risk mechanics not implemented:
+                </a>
+              </h4>
+            </div>
+
+            <div id="CollapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="HeadingOne">
+              <!--  INC risk element involved in lingering to loot -->
+  <ul id="greedRiskList">
+    <li>add risk for getting attacked per pry-attempt, compounding (from noise made</li>
+    <li>reset noise meter after encountering</li>
+    <li>calculation for generating loot, BUT more loot takes longer to pack up, making player vulnerable to subsequent attack</li>
+    <li>need to show loot found</li>
+    <li>option to nab a safe amount</li>
+    <li>show risk for remaining</li>
+    <li>BIGGER OVERHAULS BELOW</li>
+    <li>Make an "activity level" modifier, which alters the rate of attack occurring on player</li>
+  </ul>  
+            </div>
+          </div>
+
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="HeadingTwo">
+              <h4 class="panel-title">
+                <a class="collapsed" data-toggle="collapse" data-parent="#Accordion" href="#CollapseTwo" aria-expanded="false" aria-controls="CollapseTwo">
+                accordion 2
+                </a>
+              </h4>
+            </div>
+
+            <div id="CollapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="HeadingTwo">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore numquam voluptatem repellendus laudantium explicabo, modi quas quasi perferendis voluptas eius. Consectetur, maxime.
+            </div>
+          </div>
+
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="HeadingThree">
+              <h4 class="panel-title">
+                <a class="collapsed" data-toggle="collapse" data-parent="#Accordion" href="#CollapseThree" aria-expanded="false" aria-controls="CollapseThree">
+                accordion 3
+                </a>
+              </h4>
+            </div>
+
+            <div id="CollapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="HeadingThree">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore numquam voluptatem repellendus laudantium explicabo, modi quas quasi perferendis voluptas eius. Consectetur, maxime.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- retry ??? -->
+  <!-- <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title" data-target="#panel-2" data-toggle="collapse">second title 2</h3>
+        <div class="panel-collapse collapse" id="panel-2" data-parent="#myaccordion">
+        </div>
+        <div class="panel-body">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, voluptates similique. Eius consequuntur temporibus nam accusamus tempora. Facere, deserunt dolore. Porro dolore illo perspiciatis at molestiae assumenda et veritatis nulla nutter butter.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title" data-target="#panel-3" data-toggle="collapse" data-parent="#myaccordion">Tertiary title 3</h3>
+          <div class="panel-collapse collapse" id="panel-3">
+          </div>
+          <div class="panel-body">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, voluptates similique. Eius consequuntur temporibus nam accusamus tempora. Facere, deserunt dolore. Porro dolore illo perspiciatis at molestiae assumenda et veritatis nulla nutter butter.
+            </p>
+          </div>
+        </div>
+      </div> -->
+
 <h1>Cariousel practice:</h1>
 
 <!-- OUTDATED AND WON'T WORK ANYMORE 
@@ -146,54 +409,8 @@
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
     </a>
   </div>
-
 <!-- end of the cariousel -->
-
-<!-- box breaker -->
-
-<div class="container text-center">
-  <p>Break the crate clicker</p>
-  <div class="d-flex p-2 m-auto" style="border:3px solid lime; width:500px; align-items: center; justify-content: space-around;">
-    <p style="border:3px solid blue; width:40%;margin:0;">coins: <span id="coinPouch">0</span></p>
-    <p style="border:3px solid violet; width:40%;margin:0;">potato</p>
-  </div>
-  <!-- same as margin auto through bootstrap classing -->
-  <div id="intactBoxImg" style="background:brown; color:white; width:110px; height:110px; margin: 10px auto;">Unopened loot crate image</div>
-  <div id="openBoxImg" style="display:none; background:burlywood; outline: 3px solid red; outline-offset: -3px; color:#225; width:110px; height:110px; margin: 10px auto;">box opened</div>
-  <div class="progress m-auto" style="width:240px; height:30px;">
-    <div id="inbar1" class="progress-bar" style="color:violet;width:0%; display: inline-block;">
-    break percentage: <span id="breakPercent"> 0% </span>
-    </div>
-  </div>
-  <!-- same as margin top bootstrap classing -->
-  <button id="pryBtn" class="btn-sm btn-primary mt-2" onclick="increasePryPercent()">click to fill bar</button>
-  <button id="rewardBtn" class="btn-sm btn-success mt-2" onclick="getPaid()">crate not broken</button>
-
-  <button id="resetCrateBtn" class="btn-sm btn-primary mt-2" style="border:2px solid tomato; color:yellow;" onclick="crateResetWarning()">Reset Crate</button>
   <hr>
-<!--  INC risk element involved in lingering to loot -->
-<label id="greedLabel" for="greedRiskList">Greedy-risk mechanics not implemented:</label>
-<ul id="greedRiskList">
-  <li>add risk for getting attacked per pry-attempt, compounding (from noise made</li>
-  <li>reset noise meter after encountering</li>
-  <li>calculation for generating loot, BUT more loot takes longer to pack up, making player vulnerable to subsequent attack</li>
-  <li>need to show loot found</li>
-  <li>option to nab a safe amount</li>
-  <li>show risk for remaining</li>
-  <li>BIGGER OVERHAULS BELOW</li>
-  <li>Make an "activity level" modifier, which alters the rate of attack occurring on player</li>
-</ul>
-
-  <hr>
-
-<div class="jumbotron">
-  <div class="container">
-    <h1>Bootstrap Bootleg Billboard</h1>
-    <p>also known as the "jumbotron" this is a handy label-like element for the top of a webpage</p>
-  </div>
-</div>
-
-<div id="reveal-cue" class="card">I'm a thing to hover over</div>
 <div class="container-fluid">
   <div class="row mt-2" id="offset-pract" style="border: 4px solid lime;">
     <div class="col-sm-6">dummy text1</div>
@@ -202,9 +419,7 @@
     <div class="col-sm-6">dummy text4</div>
   </div>
 </div>
-
 <hr>
-
   <!-- grids in bootstrap -->
   <div class="container">
     <!-- first row -->
@@ -343,6 +558,9 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 <script>
+  $(function (){
+    $('[data-toggle="tooltip"]').tooltip();
+  });
   $('.carousel').carousel({
   interval: 3400
   })

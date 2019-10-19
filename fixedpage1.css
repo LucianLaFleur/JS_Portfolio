@@ -12,6 +12,13 @@ body {
   outline-offset: -3px;
 }
 
+.finishedCrate{
+background: #6a9;
+color: gold;
+border-color: gold;
+font-weight: 650;
+}
+
 #greedLabel {
   font-size: 32;
   font-weight:620;
