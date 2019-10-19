@@ -1,4 +1,12 @@
 <p> --- Home Component html below ---</p>
+
+<ul *ngIf="users">
+  <li *ngFor="let user of users.data">
+    <img [src]="user.avatar">
+    <p>{{user.first_name}} {{user.last_name}}</p>
+  </li>
+</ul>
+
 <ul>
   <li ng-show="false"> I can be hidden by manipulating ng-show
     <button (click)="makePotatoFalse()">hide first li</button>

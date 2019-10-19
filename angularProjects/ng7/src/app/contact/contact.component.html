@@ -1,0 +1,30 @@
+<h1>Contact me below</h1>
+
+<form [formGroup]="messageForm" (ngsubmit)="onSubmit()">
+  <h5 *ngIf="success"> Form validated with no problems! </h5>
+
+  <label>
+    Name: <input type="text" 
+    formControlName="name">
+    <!--  calls the "name" key to get value defined in contact.component.ts-->
+    <div *ngIf="submitted && messageForm.controls.name.errors" class="error">
+      <div *ngIf="messageForm.controls.name.errors.required"> Name is required </div>
+    </div>
+  </label>
+
+  <label>
+    Message:
+    <textarea formControlName="message"></textarea>
+    <div *ngIf="submitted && messageForm.controls.name.errors" class="error">
+      <div *ngIf="messageForm.controls.name.errors.required">Please enter a message</div>
+    </div>
+  </label>
+  <input type="submit" value="Send Message" class="cta">
+</form>
+
+<div *ngIf="submitted" class="results">
+  <strong>Name:</strong>
+  <span>{{messageForm.controls.name.value}}</span>
+  <strong>Message:</strong>
+  <span>{{messageForm.controls.message.value}}</span>
+</div>
