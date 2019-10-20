@@ -5,17 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <link rel="stylesheet" href="warCards.js">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+ 
 </head>
 <body>
-  <div class="message"></div>
-  <div class="userPlay">
-    <input type="number" value="3">
-    <button> Start </button>
-    <!-- ***Angular V if check -->
-    <button class="hide">Attack</button>
-    <div class="gameplay"></div>
-    <!-- response data -->
-    <div class="res"></div>
+  <div id="vue-app-one"> 
+    <div class="message">Select number of players</div>
+    <div class="userPlay">
+      <input type="number" value="3">
+      <button> Start </button>
+      <button v-show="visible">Attack</button>
+      <div class="gameplay"></div>
+      <div class="res"></div>
+    </div>
   </div>
 </body>
+
+<script src="warCards.js"></script>
 </html>
