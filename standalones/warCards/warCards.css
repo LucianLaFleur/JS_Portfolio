@@ -1,0 +1,16 @@
+/* gameplay serves as the container holding all the cards */
+#gameplay{
+  width:100%;
+  display: flex;
+}
+
+.player {
+  display: inline-block;
+  width: 255px;
+  min-width: 200px;
+  min-height: 600px;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 2em;
+  border: 1px solid #ddd;
+}

@@ -4,23 +4,48 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <link rel="stylesheet" href="warCards.js">
+  <title>War Card Game</title>
+  <link rel="stylesheet" href="warCards.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
  
 </head>
 <body>
-  <div id="vue-app-one"> 
-    <div class="message">Select number of players</div>
-    <div class="userPlay">
-      <input type="number" value="3">
-      <button> Start </button>
-      <button v-show="visible">Attack</button>
-      <div class="gameplay"></div>
-      <div class="res"></div>
+  <div id="war-cards-object"> 
+    <div class="container mt-4">
+      <!-- <div class="row align-items-center"> -->
+      <!-- <button type="button" class="m-3 btn btn-primary" 
+      v-on:click="msgVisible = !msgVisible">
+          toggle message
+      </button> -->
+      
+      <!-- </div> -->
+      <div class="card">
+        <!-- msgVisible refers to the starting message before the game begins -->
+        <div id="info-msg" class="message" v-show="msgVisible">Select number of players</div>
+        <div class="userPlay">
+          <input id="input-field" type="number" value="3">
+          <br>
+          <!-- v-on knows to look for a method in the vue object -->
+          <button v-on:click="playGame" v-show="msgVisible">Start</button>
+          <button id="atkBtn" v-show="!msgVisible">Attack</button>
+          <!-- revert btn -->
+          <button id="revertBtn" onClick="window.location.reload()" v-show="!msgVisible">Refresh</button>
+          <!-- needs caution/confirm checker? -->
+        </div>
+      </div>
     </div>
   </div>
+
+  <div id="gameplay" class="d-flex gameplay"></div>
+  <div class="res"></div>
+
 </body>
 
 <script src="warCards.js"></script>
+<script>
+// $(function () {
+//   $('[data-toggle="tooltip"]').tooltip()
+// })
+</script>
 </html>
