@@ -14,15 +14,43 @@
   font-size: 2em;
   border: 1px solid #ddd;
 }
-/* 
-.pCard {
-  border:3px solid violet;
-  display:block;
+
+.cardvisual {
+  border:2px solid goldenrod;
+  display:flex;
+  flex-direction: column;
   margin:auto;
-  padding: 10px;
-  height:120px;
-  width: 80px;
-  background-color:wheat;
+  /* padding: 10px; */
+  height:140px;
+  width: 100px;
+  background-color: aliceblue;
   border-radius: 8px;
-  box-shadow: 5px 10px 5px #222;
-} */
+  box-shadow: 5px 7px 6px 2px #222;
+}
+
+.red {
+  color: red;
+}
+
+.topCVal {
+  /* display: block; */
+  font-size: 0.6em;
+  /* line-height: 12px; */
+  /* vertical-align: top; */
+  /* text-align: left; */
+  align-self: flex-start;
+  margin: -6px 0 0 2px;
+}
+
+.centralCVal {
+  font-size: 1.3em;
+  text-align: center;
+  padding: 13px 0;
+}
+
+.bottomCVal {
+  font-size: 0.6em;
+  transform: scale(1, -1);
+  align-self: flex-end;
+  margin: 0 2px 0 0;
+}

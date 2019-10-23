@@ -70,26 +70,42 @@ var cardMaster = new Vue ({
         deals.push([]);
       }
     },
+    // control visuals of the cards
+    //  comic book theme for cards or irradiated? Run a duck search
     showCard(el, card){
-      if(card!=undefined){
-        console.log(el+ " and " + card);
-      // if(card) since we're checking for truthiness in JS
+      // NOTE: truthy value shortened
+      // if(card!=undefined){
+      if(card) {
       el.style.backgroundColor = "white";
       // this card.suit splicing only works because the symbols for each match the strings we declared prior for each suit, following sym format.
-      let html1 = card.rank + "<br>&" + card.suit + ";";
-      let html2 = card.rank +"&" + card.suit + ";";
-      let div = document.createElement("div");
-      // NOTE: "card" alone interferes with bootstrap
-      div.classList.add("pCard");
+      //  Ordering chanded to make sense top to bottom
+      // 
+      let topIndicator = "&" + card.suit + ";" + card.rank;
+      let midIndicator = card.rank + " &" + card.suit + ";";
+      let bottomIndicator = card.rank +"&" + card.suit + ";";
 
-      // ??? Assuming these are top and bottom suit symbols?
+      let div = document.createElement("div");
+      // NOTE: "card" alone interferes with bootstrap, changed from tutorial
+      div.classList.add("cardvisual");
+      // if it's a red-type card, change color to red by assigning it a class
+      if((card.suit === "hearts") || (card.suit === "diams")){
+        div.classList.add("red");
+      }
+
       let span1 = document.createElement("span");
-      span1.innerHTML = html2;
+      span1.innerHTML = topIndicator;
+      span1.classList.add("topCVal");
       div.appendChild(span1);
       
       let span2 = document.createElement("span");
-      span2.innerHTML = html1;
+      span2.innerHTML = midIndicator;
+      span2.classList.add("centralCVal");
       div.appendChild(span2);
+
+      let span3 = document.createElement("span");
+      span3.innerHTML = bottomIndicator;
+      span3.classList.add("bottomCVal");
+      div.appendChild(span3);
 
       el.appendChild(div);
       }
