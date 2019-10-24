@@ -46,6 +46,26 @@ var cartController = new Vue({
        // Save items and total price to local storage on remove
       localStorage.setItem(STORAGE_KEY, JSON.stringify(this.items));
       localStorage.setItem(CART_VAL_STORED, JSON.stringify(this.cartTotal))
+    },
+    clearCart(){
+    let clearMsg;
+      if (confirm("Are you sure you want to clear your cart?")) {
+        clearMsg = "Deleting all "
+        console.log(clearMsg + this.items.length + " items worth a total of $" + this.cartTotal);
+        window.localStorage.clear();
+        window.location.reload();
+        // *** ALTERNATIVELY the 4 lines below also work: longer, but more specific
+        // localStorage.setItem(STORAGE_KEY, "[]");
+        // localStorage.setItem(CART_VAL_STORED, "0");
+        // this.items = [];
+        // this.cartTotal = 0;
+        document.getElementById('cart-price').innerHTML = "$" + this.cartTotal;
+    } else {
+        dataMsg = "Aborted cart deletion"
+        console.log(dataMsg);
+    }
+      
+      // localStorage.clear();
     }
   }
 
