@@ -63,10 +63,12 @@ function checkForLoadedBullets(){
 }
 
 function showChamberStats() {
-  ammoDisplay.innerHTML = bulletsLoaded + " remaining";
+  ammoDisplay.innerHTML = bulletsLoaded + " shots remaining";
   casesDisplay.innerHTML = emptyCases + " empty casings";
   clearChamberDisplay.innerHTML = clearChambers + " clear chambers";
 }
+
+showChamberStats();
 
 // changes positioning of target 1 to be from 30px from left to 136px from left
 // function moveTargetChunk(){
@@ -77,7 +79,7 @@ function showChamberStats() {
 
 function roll1d6(){
   let diceRoll = Math.ceil(Math.random()*6);
-  console.log(`got a [::${diceRoll}::]`)
+  // console.log(`got a [::${diceRoll}::]`)
   return diceRoll;
 };
 
@@ -85,9 +87,9 @@ function roll1d6(){
 function roll4d6(){
   total = 0;
   for (var i = 1; i < 5; i++){
-    console.log(`roll # ${i}`);
+    // console.log(`roll # ${i}`);
     total += roll1d6();}
-  console.log("total dmg: " + total); 
+  // console.log("total dmg: " + total); 
   return total;
 };
 
@@ -108,7 +110,7 @@ roll4d6();
 
 function fireBar(){
   stopBarBtn.disabled = false;
-  stopBarBtn.style.border = "3px solid lime";
+  stopBarBtn.style.border = "8px solid lime";
   let barSpd1 = setInterval(frame,10);
     function frame(){
       // if (widthPercent >= 100) {
@@ -126,7 +128,7 @@ function fireBar(){
       leftPercent = 0;
       progBar.style.left = leftPercent + "%";
       stopBarBtn.disabled = true;
-      stopBarBtn.style.border = "3px solid #a2a2a2";
+      stopBarBtn.style.border = "8px solid #a2a2a2";
     }, 1050);
     showChamberStats;
 
@@ -140,7 +142,7 @@ function fireBar(){
     // allow the stop button to be active
     barXVal.innerHTML = leftPercent;
     stopBarBtn.disabled = true;
-    stopBarBtn.style.border = "3px solid #a2a2a2";
+    stopBarBtn.style.border = "8px solid #a2a2a2";
     if((leftPercent >= 70) && (leftPercent <= 80)){
       let dmgRoll = roll4d6();
       tar1.style.background = "lime";
@@ -149,7 +151,8 @@ function fireBar(){
       totalDmgMsg.innerHTML = totalDmgInflicted + " total damage" ;
     } else {
       // turn target blue if missed
-      tar1.style.background = "aliceblue";
+      tar1.style.background = "#f44";
+      hitMsg.innerHTML = "missed target";
     }
     // enable reload and ejection, and manage border colors
     checkForEmptyCases();
@@ -189,7 +192,7 @@ function fireBar(){
     setTimeout(function(){
       checkForClearChambers();
       checkForEmptyCases();
-      fireBtn.disabled = false;
+      // fireBtn.disabled = false;
       }, 350);
     }
   }

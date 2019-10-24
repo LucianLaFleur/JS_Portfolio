@@ -52,20 +52,18 @@ var cartController = new Vue({
       if (confirm("Are you sure you want to clear your cart?")) {
         clearMsg = "Deleting all "
         console.log(clearMsg + this.items.length + " items worth a total of $" + this.cartTotal);
-        window.localStorage.clear();
-        window.location.reload();
-        // *** ALTERNATIVELY the 4 lines below also work: longer, but more specific
-        // localStorage.setItem(STORAGE_KEY, "[]");
-        // localStorage.setItem(CART_VAL_STORED, "0");
-        // this.items = [];
-        // this.cartTotal = 0;
+        // window.localStorage.clear();
+        // window.location.reload();
+        // *** ALTERNATIVELY the 4 lines below also work: longer, but more specific *** SALVAGES IDW POINTS, DELETING ALL WILL RESET THE GAME POINTS ON THE HOMEPAGE!!
+        localStorage.setItem(STORAGE_KEY, "[]");
+        localStorage.setItem(CART_VAL_STORED, "0");
+        this.items = [];
+        this.cartTotal = 0;
         document.getElementById('cart-price').innerHTML = "$" + this.cartTotal;
-    } else {
-        dataMsg = "Aborted cart deletion"
-        console.log(dataMsg);
-    }
-      
-      // localStorage.clear();
+      } else {
+          dataMsg = "Aborted cart deletion"
+          console.log(dataMsg);
+      }
     }
   }
 

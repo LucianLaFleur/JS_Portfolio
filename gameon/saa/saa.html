@@ -18,10 +18,13 @@
    
   </div>
 
+  <h1>Note: still a sandbox;<span style="color:blue"> FIRST: hover mouse button over the <span style="color:violet;">pink-outlined "stop-bar" button </span> below. THEN hit space to initiate aim, and hold the mouse button down</span>; <span style="color:rgb(204, 176, 97)"> release</span> when the button crosses the colored part of the bar to score a hit</h1>
+  <h2>-The pixel you stopped at is in the <span style="color:lime">lime box </span> below</h2>
+
   <div id="bars-flex-container">
     <div id="slider1">
       <!-- shooty button, FUTURE: can change to class,run the shoot button when you click on an enemy to attack -->
-      <button id="bow-load-msg" onclick="shootBow()">Bow loaded!</button>
+      <button id="bow-load-msg" onclick="shootBow()">Fire bow!</button>
       <!-- slider tool itself -->
       <input type="range" min="1" max="100" value="97" class="sliders" id="bow-slider">
       <!--word report on slider position  -->
@@ -31,7 +34,7 @@
 
     <div id="progBar-container">
       <!-- note: onclick means "when the mouse goes up" -->
-      <div id="instruction-msg">Hit space to start the progBar </div>
+      <div id="instruction-msg">Hit space to start the ticker</div>
       <button disabled="true" id="stop-bar-btn" onclick="fireSAA()"> Stop bar </button>
       <button disabled="true" id="saa-reload-btn" onclick="loadShell()">Reload!</button>
       <button disabled="true" id="saa-eject-btn" onclick="ejectCasing()">Eject spent casing</button>
@@ -42,14 +45,14 @@
         <div id="inbar-1"></div>
         <div id="target-chunk-1"></div>
         <!-- show ammo and remaining casings -->
-        <div id="ammo-display"> </div>
+        <div id="ammo-display"></div>
         <div id="cases-display"> </div>
         <div id="clear-chambers"> </div>
         <div id="hit-msg"> </div>
         <div id="total-dmg"> </div>
       </div>
       <!-- report container for progbar val -->
-      <div id="bar-xval" ></div>
+      <div id="bar-accuracy-msg"> Goal is 70 - 80 : Your stop was at: <span id="bar-xval">00</span></div>
       
     </div>
     <!-- generate a button that records the position of the progress bar when clicked -->

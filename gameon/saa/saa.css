@@ -129,7 +129,7 @@
 }
 
 #stop-bar-btn {
-  border: 3px solid #a2a2a2;
+  border: 8px solid violet;
 }
 
 #saa-reload-btn{
@@ -169,10 +169,13 @@
     left: 0%;
 }
 
+#bar-accuracy-msg{
+  position:absolute;
+  left:45px;
+  margin: 10px 0 0 0;
+}
 #bar-xval{
   border: 4px solid lime;
-  height:20px; width:50px;
-  margin-top: 10px;
 }
 
 #ammo-display{

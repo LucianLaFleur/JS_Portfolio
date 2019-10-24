@@ -3,6 +3,8 @@
 // INC: need to add pulling back the hammer
 // how to change cursor to image on click?
 
+// CURRENTLY NOT USABLE
+
 var saaObj = new Vue({
   el: '.saaObj',
   data: {
