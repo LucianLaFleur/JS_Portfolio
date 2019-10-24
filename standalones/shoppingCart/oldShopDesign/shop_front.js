@@ -1,4 +1,4 @@
-//  Fake database no idea how to add items to cart and I ain't fucking learning 
+//  Fake database no idea how to add items to cart and I ain't fucking learning **** Preserved to show the switching from different styles of coding through previous iterations ***
 // How would I dynamically generate HTML from this, to affect my setup?
 // const dataTable = [
 //   {
@@ -70,11 +70,34 @@
 //     shopping_cart.appendChild(li);
 //   });
 // }
-
 // ********************
 
+var cartController = new Vue({
+  // can target el as a class, just like CSS
+  //  ex: <section class="cartApp">
+  el: '.cartApp',
+  data: {
+    items: [
+      // {id: 0, itemName: 'placeholderItem', price: 555}
+    ]
+  },
+  methods:{
+    addCartItem(input1) {
+      this.items.push({id: this.items.length, itemName: input1})
+    },
+    removeItem(item) {
+      // at the index of the item, remove that one item
+      this.items.splice(this.items.indexOf(item), 1)
+    }
+  }
 
-// ********************
+});
+
+console.log(this.cartController.items)
+
+//  set a timeout to make the newly purchased item be hilit with a bright cyan background for a few seconds at first
+
+// ********* Form Validation Below ***********
 // instantiate switch booleans for checking if forms are valid
 let goodName = false;
 let goodZip = false;
@@ -171,30 +194,3 @@ function validateAll(){
     alert('You appear to have some missing or invalid fields');
   }
 }
-
-var cartController = new Vue({
-  // can target el as a class, just like CSS
-  //  ex: <section class="cartApp">
-  el: '.cartApp',
-  data: {
-    // newCartItem: 'potato of power',
-    items: [
-      // {id: 0, itemName: 'placeholderItem', price: 555}
-    ]
-  },
-  methods:{
-    //  alt syntax : responseTime: function(){}
-    addCartItem(input1) {
-      this.items.push({id: this.items.length, itemName: input1})
-    },
-    removeItem(item) {
-      // at the index of the item, remove that one item
-      this.items.splice(this.items.indexOf(item), 1)
-    }
-  }
-
-});
-
-console.log(this.cartController.items)
-
-//  set a timeout to make the newly purchased item be hilit with a bright cyan background for a few seconds at first

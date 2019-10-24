@@ -1,5 +1,56 @@
-//  Fake database no idea how to add items to cart and I ain't fucking learning 
-// ********************
+const STORAGE_KEY = 'item-storage';
+const CART_VAL_STORED = 'cart-in-storage';
+
+var cartController = new Vue({
+  // can target el as a class, just like CSS
+  //  ex: <section class="cartApp">
+  el: '.cartApp',
+  data: {
+    cartTotal: 0,
+    // *** Control prices and key-names below!***
+    forSale: {
+      "Vapor-Wave": 87,
+      "f-bird": 13,
+      "Liquid-Anime": 18
+    },
+    items: [
+      // {id: 0, itemName: 'placeholderItem', price: 555}
+    ]
+  },
+  // use lifecycle hook to display items from localstorage
+  created (){
+    // get stored object, or make an empty array if null
+    this.items = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')
+    // Get stored cart total, set to 0 if none
+    this.cartTotal = JSON.parse(localStorage.getItem(CART_VAL_STORED) || '0');
+    document.getElementById('cart-price').innerHTML = "$" + this.cartTotal;
+  },
+  methods:{
+    addCartItem(input1) {
+      this.items.push({id: this.items.length, itemName: input1, price:this.forSale[input1]});
+    //  console.log("price : " + this.forSale[input1]);
+    // add price of item to total
+      this.cartTotal += this.forSale[input1];
+      document.getElementById('cart-price').innerHTML = "$" + this.cartTotal;
+      // Save items and total price to local storage on add
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(this.items))
+      localStorage.setItem(CART_VAL_STORED, JSON.stringify(this.cartTotal))
+    },
+    removeItem(item) {
+      // console.log("deleted item's price was: " + this.items[this.items.indexOf(item)].price);
+      // Delete the price from the total
+      this.cartTotal -= this.items[this.items.indexOf(item)].price;
+      // at the index of the item, remove that one item
+      this.items.splice(this.items.indexOf(item), 1);
+      document.getElementById('cart-price').innerHTML = "$" + this.cartTotal;
+       // Save items and total price to local storage on remove
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(this.items));
+      localStorage.setItem(CART_VAL_STORED, JSON.stringify(this.cartTotal))
+    }
+  }
+
+});
+// ******************** FORM VALIDATION ********
 // instantiate switch booleans for checking if forms are valid
 let goodName = false;
 let goodZip = false;
@@ -96,38 +147,3 @@ function validateAll(){
     alert('You appear to have some missing or invalid fields');
   }
 }
-
-const STORAGE_KEY = 'item-storage';
-
-var cartController = new Vue({
-  // can target el as a class, just like CSS
-  //  ex: <section class="cartApp">
-  el: '.cartApp',
-  data: {
-    // newCartItem: 'potato of power',
-    items: [
-      // {id: 0, itemName: 'placeholderItem', price: 555}
-    ]
-  },
-  // use lifecycle hook to display items from localstorage
-  created (){
-    // get stored object, or make an empty array if null
-    this.items = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')
-  },
-  methods:{
-    //  alt syntax : responseTime: function(){}
-    addCartItem(input1) {
-      this.items.push({id: this.items.length, itemName: input1});
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(this.items))
-    },
-    removeItem(item) {
-      // at the index of the item, remove that one item
-      this.items.splice(this.items.indexOf(item), 1);
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(this.items));
-    }
-  }
-
-});
-
-//  set a timeout to make the newly purchased item be hilit with a bright cyan background for a few seconds at 
-// followsbuild a vue.js app using local storage with Program with Erik
