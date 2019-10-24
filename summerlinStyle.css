@@ -325,7 +325,7 @@ section {
 
 .card-image {
   border-radius: 5px;
-  width:100%;
+  width: 100%;
   max-width: 400px;
   box-shadow: -15px 15px 14px -6px rgb(223, 131, 252);
   transition: 0.4s;
@@ -349,9 +349,10 @@ section {
   font-size: 22px;
   font-weight: bold;
   border: 3px solid black;
-  padding: 0 8px;
+  padding: 0 8px 10px 8px;
   margin: 23px 0;
-  /* width: 100%; */
+  min-width:430px;
+  width: 80%;
   z-index: 1
 }
 .card-description p{
@@ -369,6 +370,14 @@ section {
   border-radius: 12%;
 }
 
+.double-description-container {
+  width: 100%;
+  margin-right:15px;
+}
+.double-description-container div {
+  width: 100%;
+}
+
 .centered-header-link {
   display:flex; 
   justify-content: center; 
@@ -378,6 +387,9 @@ section {
 
 .flexy-card-inner {
   display:flex;
+}
+.flexy-card-inner p {
+  padding-right: 24px;
 }
 .flexy-card-inner div a {
   text-align: center;
@@ -482,7 +494,7 @@ footer #social-media-footer ul li:hover a .fa-github {
 
 /* Media Queries */
 
-@media (max-width: 719px) {
+@media (max-width: 990px) {
 main {
     width: 95%;
   }
@@ -501,7 +513,7 @@ footer #social-media-footer a .fa-github {
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
 main {
     width: 100%;
   }
@@ -514,12 +526,9 @@ h1 {
 .card {
     text-align: center;
   }
-#logo-img {
-    padding: 0;
-  }
 }
 
-@media (min-width: 720px) {
+@media (min-width: 700px) {
 main {
     width: 95%;
   }
