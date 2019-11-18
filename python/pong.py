@@ -2,7 +2,8 @@
 # By @TokyoEdTech
 
 import turtle
-import os
+# gives access to commands in mac like afplay for audio-file play
+# import os
 
 wn = turtle.Screen()
 wn.title("Pong")
@@ -138,3 +139,8 @@ while True:
   # Notes I've learned:
     # AttributeError: '_Screen' object has no attribute 'onkeypress'
     # Python can't recognize keypress, it's onkey() which activates on release
+  # Amperstand at the end of a sound file eliminates the stutter when aud occurs, it's aplay in linux
+  # For windoes sound manipulaiton ==>
+  #import winsound 
+  # ...
+  # winsound.PlaySound("file1.wav", winsound.SND_ASYNC)
