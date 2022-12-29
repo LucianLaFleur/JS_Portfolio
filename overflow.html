@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<Style>
+    .class1{ 
+        color: #24c;
+        font-size: 22pt;
+    }
+    .class1:hover{
+        color:magenta;
+        text-decoration:underline;
+    }
+</Style>
+<body onload="triggerOnLoad()">
+
+    <h1>Header with no hover class</h1>
+    <p onmouseover="triggerOnHover(this)" class="class1">
+        Hover over me and see
+    </p>
+    
+</body>
+<!-- <script src="./fixedpage1.js"></script> -->
+<script>
+    function triggerOnHover() {
+        alert("hover test triggered");
+    }
+
+    function triggerOnLoad(){
+        alert("page loaded as a trigger")
+    }
+
+    // window.onload() = function () {
+    // alert("on load function triggered");
+    // $("class1").hover(function(){
+    //     alert("hover test triggered")
+    // })
+    // }
+</script>
+</html>
+
+<!-- onmouseover="bigImg(this)" -->

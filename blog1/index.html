@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/blogstyle.css">
+    <!-- 
+        12:50
+        https://www.youtube.com/watch?v=wq-Q7CDj6ZI&list=WL&index=5 -->
+    <style>
+        article {
+            display:grid;
+            /* divide frames with 7in as center, hiding wings otherwise */
+            grid-template-columns: 1fr minmax(0, 7in) 1fr;
+        }
+        
+        Article * {
+            /* article occupies the following frame-units */
+            grid-column:  2/3;}
+    </style>
+
+</head>
+
+
+<body>
+    <article>
+        <p class="debug-center">Article</p>
+    </article>
+</body>
+</html>
